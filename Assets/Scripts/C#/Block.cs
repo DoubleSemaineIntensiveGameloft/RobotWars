@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Block
+public class Block : MonoBehaviour
 {
-    private string id;
+    public enum BlockType { NONE, ACTIVE, PASSIVE };
+    public string id;
+    public BlockType blockType = BlockType.NONE;
 }

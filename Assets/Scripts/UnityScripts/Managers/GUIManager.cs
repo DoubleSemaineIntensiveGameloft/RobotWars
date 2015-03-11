@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GUIManager : MonoBehaviour
@@ -13,6 +14,8 @@ public class GUIManager : MonoBehaviour
         }
     }
 
+    private GameObject messageDisplayer;
+
     void Awake()
     {
         if (GUIManager.instance == null)
@@ -23,7 +26,9 @@ public class GUIManager : MonoBehaviour
 
     void Start()
     {
-
+        Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
+        this.messageDisplayer = canvas.FindChild("Messagedisplayer").gameObject;
+        this.messageDisplayer.SetActive(false);
     }
 
     // Update is called once per frame
@@ -42,5 +47,24 @@ public class GUIManager : MonoBehaviour
             Destroy(comp);
         }
 
+    }
+
+    public void displayMessage(string message)
+    {
+        this.displayMessage(message, 1.0f);
+    }
+
+    public void displayMessage(string message, float duration)
+    {
+        StartCoroutine(this.displayMsg(message, duration));
+    }
+
+    private IEnumerator displayMsg(string message, float duration)
+    {
+        Text txt = this.messageDisplayer.transform.FindChild("Text").GetComponent<Text>();
+        txt.text = message;
+        this.messageDisplayer.SetActive(true);
+        yield return new WaitForSeconds(duration);
+        this.messageDisplayer.SetActive(false);
     }
 }
