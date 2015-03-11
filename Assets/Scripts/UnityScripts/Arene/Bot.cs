@@ -17,7 +17,7 @@ public class Bot : MonoBehaviour {
 
 	public void Move(Vector3 direction)
 	{
-        botRigidbody.AddForce(transform.forward * speed);
+        botRigidbody.AddForce(transform.forward * speed, ForceMode.Impulse);
 
 		transform.LookAt (transform.position + direction);
 	}
