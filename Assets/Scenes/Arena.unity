@@ -401,7 +401,7 @@ GameObject:
   - 54: {fileID: 111910938}
   m_Layer: 0
   m_Name: Bot 1
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -683,7 +683,7 @@ GameObject:
   - 54: {fileID: 213545197}
   m_Layer: 0
   m_Name: Bot
-  m_TagString: Untagged
+  m_TagString: Bot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,6 +1262,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraGyro: 0
+  cameraZoom: 0
+  zoomFactor: 10
   actCameraGyro: 0
   topPosition: {x: 0, y: 13, z: 0}
   sidePosition: {x: 0, y: 7, z: -11.5}
@@ -2122,6 +2124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c49c01b1d429345a46f4465bead317, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bots: []
 --- !u!224 &2072375847
 RectTransform:
   m_ObjectHideFlags: 0

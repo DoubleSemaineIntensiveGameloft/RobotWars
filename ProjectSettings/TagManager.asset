@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Block
   - Canvas
+  - Bot
   layers:
   - Default
   - TransparentFX
