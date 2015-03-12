@@ -38,13 +38,16 @@ public class CameraGame : MonoBehaviour {
 
         transform.position = Vector3.Lerp(topPosition, sidePosition, actCameraGyro);
 
+        
+        Vector3 meanPointBots = (ManagerGame.instance.bots[0].transform.position + ManagerGame.instance.bots[1].transform.position) / 2;
+        transform.position = new Vector3(meanPointBots.x, transform.position.y, meanPointBots.z);
+
         float distanceBots = Vector3.Distance(ManagerGame.instance.bots[0].transform.position, ManagerGame.instance.bots[1].transform.position);
 
 
-        transform.position += transform.forward * distanceBots / zoomFactor * 5;
+        transform.position += transform.forward * (zoomFactor - distanceBots / zoomFactor * 5);
 
-
-        transform.LookAt(Vector3.zero);
+        //transform.LookAt(Vector3.zero);
 	}
 
     public bool gyoBool { get; set; }
