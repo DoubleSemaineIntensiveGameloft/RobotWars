@@ -10,6 +10,8 @@ public class MoveSlide : MonoBehaviour {
     public Vector2 initialPosition = Vector2.zero;
     private int touchId = 0;
 
+    public GameObject trailCursor;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -20,22 +22,36 @@ public class MoveSlide : MonoBehaviour {
 
         if(initialPosition != Vector2.zero)
         {
+
             foreach (Touch touch in Input.touches)
             {
                 if(touch.phase == TouchPhase.Ended)
                 {
                     if(touch.fingerId == touchId)
                     {
-                        if(Vector2.Distance(initialPosition, touch.position) > 2)
+                        if(Vector2.Distance(initialPosition, touch.position) > 10)
                         {
+                            // 10 > 0.5 -  180 > 1.5
                             // Move
                             Vector2 moveDirection = (touch.position - initialPosition).normalized;
 
-                            botControlled.Move(new Vector3(moveDirection.x, 0, moveDirection.y));
+                            //Debug.Log("distance:" + Vector2.Distance(initialPosition, touch.position));
+
+                            float speed = Vector2.Distance(initialPosition, touch.position) * 1.5f / 100;
+
+                            botControlled.Move(new Vector3(moveDirection.x, 0, moveDirection.y)); // , speed
                             initialPosition = Vector2.zero;
                         }
                     }
                 }
+                    /*
+                else if(touch.phase == TouchPhase.Moved)
+                {
+                    if(trailCursor)
+                    {
+                        trailCursor.transform.position = touch.position;
+                    }
+                }*/
             }
         }
         else
@@ -44,6 +60,8 @@ public class MoveSlide : MonoBehaviour {
             {
                 if (touch.phase == TouchPhase.Began)
                 {
+                    //Debug.Log("Screen.width:" + Screen.width + "  touch.position:" + touch.position);
+                    
                     if (side == 0 && touch.position.x < Screen.width / 2 || side == 1 && touch.position.x > Screen.width / 2)
                     {
                         initialPosition = touch.position;

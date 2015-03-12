@@ -5,7 +5,7 @@ public class Bot : MonoBehaviour {
 
 	private Rigidbody botRigidbody;
 
-    public float speed = 10;
+    public float speed = 1;
     public float rotationSpeed = 5;
 
     public Vector3 direction = Vector3.zero;
@@ -20,15 +20,19 @@ public class Bot : MonoBehaviour {
             //transform.LookAt(transform.position + direction * 10);
 
 
-            Quaternion lookRot = Quaternion.LookRotation(transform.position + direction * 10);
+            Quaternion lookRot = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
 
             botRigidbody.AddForce(transform.forward * speed, ForceMode.Impulse);
         }
 	}
 
-	public void Move(Vector3 _direction)
+	public void Move(Vector3 _direction, float _speed = 0.1f)
 	{
         direction = _direction;
+
+        //speed = _speed;
+        
+        //botRigidbody.AddForce(transform.forward * speed * 2, ForceMode.Impulse);
 	}
 }
