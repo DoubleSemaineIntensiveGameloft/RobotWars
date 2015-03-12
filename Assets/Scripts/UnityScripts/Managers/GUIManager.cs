@@ -27,7 +27,7 @@ public class GUIManager : MonoBehaviour
     void Start()
     {
         Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
-        this.messageDisplayer = canvas.FindChild("Messagedisplayer").gameObject;
+        this.messageDisplayer = canvas.FindChild("MessageDisplayer").gameObject;
         this.messageDisplayer.SetActive(false);
     }
 

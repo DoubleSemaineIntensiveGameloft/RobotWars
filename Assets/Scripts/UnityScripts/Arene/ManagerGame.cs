@@ -3,8 +3,16 @@ using System.Collections;
 
 public class ManagerGame : MonoBehaviour {
 
+
+    public static ManagerGame instance;
+
+    public GameObject[] bots;
 	// Use this for initialization
 	void Start () {
+
+        instance = this;
+
+        bots = GameObject.FindGameObjectsWithTag("Bot");
 	
 	}
 	
