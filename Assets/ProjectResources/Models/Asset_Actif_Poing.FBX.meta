@@ -39,8 +39,10 @@ ModelImporter:
     4300002: Sphere007
     4300004: Cylinder082
     4300006: Sphere008
-    7400000: Take 001
+    7400000: Punch
+    7400002: Idle
     9500000: //RootNode
+    11100000: //RootNode
   materials:
     importMaterials: 1
     materialName: 0
@@ -50,13 +52,109 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 1
+    animationCompression: 0
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Punch
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point046
+        weight: 1
+      - path: Point046/Bone051
+        weight: 1
+      - path: Point046/Bone051/Bone052
+        weight: 1
+      - path: Point046/Bone051/Bone052/Bone053
+        weight: 1
+      - path: Point046/Bone051/Bone052/Box056
+        weight: 1
+      - path: Point046/Bone051/Group029
+        weight: 1
+      - path: Point046/Bone051/Group029/Cylinder082
+        weight: 1
+      - path: Point046/Bone051/Group029/Sphere007
+        weight: 1
+      - path: Point046/IK Chain019
+        weight: 1
+      - path: Point046/Sphere008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 25
+      lastFrame: 26
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point046
+        weight: 1
+      - path: Point046/Bone051
+        weight: 1
+      - path: Point046/Bone051/Bone052
+        weight: 1
+      - path: Point046/Bone051/Bone052/Bone053
+        weight: 1
+      - path: Point046/Bone051/Bone052/Box056
+        weight: 1
+      - path: Point046/Bone051/Group029
+        weight: 1
+      - path: Point046/Bone051/Group029/Cylinder082
+        weight: 1
+      - path: Point046/Bone051/Group029/Sphere007
+        weight: 1
+      - path: Point046/IK Chain019
+        weight: 1
+      - path: Point046/Sphere008
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
