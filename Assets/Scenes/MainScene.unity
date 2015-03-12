@@ -1414,6 +1414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9143b181143f3774891dada10b84dde6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoHideDescription: 1
+  hideDescriptionDelay: 3
 --- !u!114 &989008290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1865,6 +1867,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockType: 2
   selectedColor: {r: 0, g: 1, b: 0, a: 1}
+--- !u!1 &1399913935
+GameObject:
+  m_PrefabParentObject: {fileID: 115916, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
+  m_PrefabInternal: {fileID: 1966660983}
+--- !u!114 &1399913940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1399913935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: shield
+  blockType: 2
+  description: Energy shield
 --- !u!1 &1470108106
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +2754,24 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1817245579}
+--- !u!1 &1848014471
+GameObject:
+  m_PrefabParentObject: {fileID: 199546, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
+  m_PrefabInternal: {fileID: 1966660983}
+--- !u!114 &1848014476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1848014471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: test
+  blockType: 1
+  description: "Super m\xE9ga cool effect"
 --- !u!1 &1960788924
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,3 +3011,21 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2107320717}
+--- !u!1 &2137061120
+GameObject:
+  m_PrefabParentObject: {fileID: 101598, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
+  m_PrefabInternal: {fileID: 1966660983}
+--- !u!114 &2137061125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2137061120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: bumper
+  blockType: 1
+  description: Bump all enemies in front of you

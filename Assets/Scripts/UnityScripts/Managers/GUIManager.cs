@@ -15,9 +15,11 @@ public class GUIManager : MonoBehaviour
     }
 
     private GameObject messageDisplayer;
-    private Text blockDescription;
+    private GameObject blockDescription;
+    private Text blockDescription_Text;
     public bool autoHideDescription;
     public float hideDescriptionDelay = 3.0f;
+    private float hideDescriptionTimer = 0.0f;
 
     void Awake()
     {
@@ -32,11 +34,15 @@ public class GUIManager : MonoBehaviour
         Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         this.messageDisplayer = canvas.FindChild("MessageDisplayer").gameObject;
         this.messageDisplayer.SetActive(false);
-        Transform description_go = canvas.FindChild("BlockDescription");
-        if (description_go)
+        this.blockDescription = canvas.FindChild("BlockDescription").gameObject;
+        if (this.blockDescription)
         {
-            this.blockDescription = description_go.GetComponent<Text>();
-            description_go.gameObject.SetActive(false);
+            Transform text_go = this.blockDescription.transform.FindChild("Text");
+            if (text_go)
+            {
+                this.blockDescription_Text = text_go.GetComponent<Text>();
+                this.blockDescription.SetActive(false);
+            }
         }
     }
 
@@ -81,22 +87,32 @@ public class GUIManager : MonoBehaviour
     {
         if (description == null || description.Equals(""))
         {
-            this.blockDescription.gameObject.SetActive(false);
+            this.blockDescription.SetActive(false);
         }
         else
         {
-            this.blockDescription.text = description;
-            this.blockDescription.gameObject.SetActive(true);
+            this.blockDescription_Text.text = description;
+            this.blockDescription.SetActive(true);
             if (this.autoHideDescription)
             {
-                StartCoroutine(this.hideDescriptionIn(this.hideDescriptionDelay));
+                if (this.hideDescriptionTimer == 0.0f)
+                {
+                    StartCoroutine(this.hideDescriptionIn(this.hideDescriptionDelay));
+                }
+                else
+                {
+                    this.hideDescriptionTimer = 0.0f;
+                }
             }
         }
     }
 
     private IEnumerator hideDescriptionIn(float duration)
     {
-        yield return new WaitForSeconds(duration);
-        this.blockDescription.gameObject.SetActive(false);
+        for (this.hideDescriptionTimer = 0; this.hideDescriptionTimer < duration; this.hideDescriptionTimer += 0.1f)
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        this.blockDescription.SetActive(false);
     }
 }

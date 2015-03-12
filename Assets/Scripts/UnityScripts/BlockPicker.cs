@@ -27,6 +27,16 @@ public class BlockPicker : MonoBehaviour
                 Debug.Log("Picked");
                 this.picked = this.hit.collider.gameObject;
                 this.docked = false;
+                Block block = this.picked.GetComponent<Block>();
+                if (block)
+                {
+                    Debug.Log("Block description : " + block.description);
+                    GUIManager.Instance.setBlockDescription(block.description);
+                }
+                else
+                {
+                    Debug.LogError("No block");
+                }
             }
         }
         else if (Input.GetMouseButtonUp(0))
