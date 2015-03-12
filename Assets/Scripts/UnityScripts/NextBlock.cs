@@ -18,6 +18,6 @@ public class NextBlock : MonoBehaviour
 
     void OnMouseDown()
     {
-        BlockSelectorManager.Instance.nextBlock();
+        BlockSelectorManager.Instance.getCurrentBlockSelector().nextBlock();
     }
 }

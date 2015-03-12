@@ -15,6 +15,9 @@ public class GUIManager : MonoBehaviour
     }
 
     private GameObject messageDisplayer;
+    private Text blockDescription;
+    public bool autoHideDescription;
+    public float hideDescriptionDelay = 3.0f;
 
     void Awake()
     {
@@ -29,6 +32,12 @@ public class GUIManager : MonoBehaviour
         Transform canvas = GameObject.FindGameObjectWithTag("Canvas").transform;
         this.messageDisplayer = canvas.FindChild("MessageDisplayer").gameObject;
         this.messageDisplayer.SetActive(false);
+        Transform description_go = canvas.FindChild("BlockDescription");
+        if (description_go)
+        {
+            this.blockDescription = description_go.GetComponent<Text>();
+            description_go.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -66,5 +75,28 @@ public class GUIManager : MonoBehaviour
         this.messageDisplayer.SetActive(true);
         yield return new WaitForSeconds(duration);
         this.messageDisplayer.SetActive(false);
+    }
+
+    public void setBlockDescription(string description)
+    {
+        if (description == null || description.Equals(""))
+        {
+            this.blockDescription.gameObject.SetActive(false);
+        }
+        else
+        {
+            this.blockDescription.text = description;
+            this.blockDescription.gameObject.SetActive(true);
+            if (this.autoHideDescription)
+            {
+                StartCoroutine(this.hideDescriptionIn(this.hideDescriptionDelay));
+            }
+        }
+    }
+
+    private IEnumerator hideDescriptionIn(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        this.blockDescription.gameObject.SetActive(false);
     }
 }

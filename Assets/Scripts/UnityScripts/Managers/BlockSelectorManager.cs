@@ -1,19 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BlockSelectorManager : MonoBehaviour
 {
-
     private static BlockSelectorManager instance;
     public static BlockSelectorManager Instance
     {
-        get { return instance; }
+        get { return BlockSelectorManager.instance; }
     }
-    private GameObject blockSelector;
-    public float dashRotationSpeed = 50.0f;
-    public float rotationSpeed = 10.0f;
-    private bool dash;
-    private Quaternion targetRotation;
+
+    private Dictionary<Block.BlockType, BlockSelector> selectorManagers;
+    private BlockSelector currentBlockSelector;
+    public Block.BlockType defaultBlockType = Block.BlockType.ACTIVE;
 
     void Awake()
     {
@@ -25,71 +24,53 @@ public class BlockSelectorManager : MonoBehaviour
 
     void Start()
     {
-        this.blockSelector = GameObject.Find("BlockSelector").gameObject;
+        this.selectorManagers = new Dictionary<Block.BlockType, BlockSelector>();
+        BlockSelector[] selectors = GameObject.FindObjectsOfType<BlockSelector>();
+        foreach (BlockSelector selector in selectors)
+        {
+            this.selectorManagers.Add(selector.blockType, selector);
+        }
+        if (this.selectorManagers.Count <= 0)
+        {
+            Debug.LogWarning("No blockSelector found !");
+            this.enabled = false;
+            return;
+        }
+        this.setCurrentBlockSelector(this.defaultBlockType);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (this.dash)
+
+    }
+
+    public void setCurrentBlockSelector(Block.BlockType blockType)
+    {
+        BlockSelector selector = this.selectorManagers[blockType];
+        if (selector == null)
         {
-            if (InpuManager.Instance.editorMode)
-            {
-                if (Input.GetMouseButton(0))
-                {
-                    rotateBlockSelector(Input.GetAxis("Mouse X") * this.dashRotationSpeed);
-                }
-            }
-            else
-            {
-                if (Input.touchCount > 0)
-                {
-                    rotateBlockSelector(Input.GetTouch(0).deltaPosition.x * this.dashRotationSpeed);
-                }
-            }
+            Debug.LogError("No selector for block type : " + blockType);
+            return;
         }
-        else
+        this.setCurrentBlockSelectorActivated(false);
+        this.currentBlockSelector = selector;
+        this.setCurrentBlockSelectorActivated(true);
+    }
+
+    private void setCurrentBlockSelectorActivated(bool activated)
+    {
+        if (this.currentBlockSelector)
         {
-            if (this.targetRotation == null || this.targetRotation.Equals(Quaternion.identity))
+            Animator animator = this.currentBlockSelector.GetComponent<Animator>();
+            if (animator)
             {
-                return;
-            }
-            this.blockSelector.transform.rotation = Quaternion.Slerp(this.blockSelector.transform.rotation, this.targetRotation, Time.deltaTime * this.rotationSpeed);
-            if (Mathf.Abs(this.targetRotation.x - this.blockSelector.transform.rotation.x) <= Quaternion.kEpsilon
-                && Mathf.Abs(this.targetRotation.y - this.blockSelector.transform.rotation.y) <= Quaternion.kEpsilon
-                && Mathf.Abs(this.targetRotation.z - this.blockSelector.transform.rotation.z) <= Quaternion.kEpsilon)
-            {
-                this.blockSelector.transform.rotation = this.targetRotation;
-                this.targetRotation = Quaternion.identity;
+                animator.SetBool("selected", activated);
             }
         }
     }
 
-
-    public void nextBlock()
+    public BlockSelector getCurrentBlockSelector()
     {
-        this.rotateBlockSelector(30.0f);
-    }
-
-    public void previousBlock()
-    {
-        this.rotateBlockSelector(-30.0f);
-    }
-
-    private void rotateBlockSelector(float angle)
-    {
-        Debug.Log("Rotate block selector");
-        this.targetRotation = (this.targetRotation.Equals(Quaternion.identity) ? this.blockSelector.transform.rotation : this.targetRotation) * Quaternion.AngleAxis(angle, this.transform.up);
-        // this.blockSelector.transform.Rotate(this.transform.up, angle, Space.Self);
-    }
-
-    void OnMouseDown()
-    {
-        this.dash = true;
-    }
-
-    void OnMouseUp()
-    {
-        this.dash = false;
+        return this.currentBlockSelector;
     }
 }
