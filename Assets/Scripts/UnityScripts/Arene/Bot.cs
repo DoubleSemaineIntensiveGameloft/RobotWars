@@ -26,9 +26,9 @@ public class Bot : MonoBehaviour {
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
         }
 
-        Debug.DrawRay(transform.position + new Vector3(0, 2, 0),  transform.forward * 10f + new Vector3(0,-3f,0));
+        Debug.DrawRay(transform.position + new Vector3(0, 2, 0),  transform.forward * 10f + new Vector3(0,-2f,0));
 
-        Ray rayVide = new Ray(transform.position + new Vector3(0, 2, 0),(transform.forward + new Vector3(0,-3f,0)).normalized);
+        Ray rayVide = new Ray(transform.position + new Vector3(0, 2, 0),(transform.forward + new Vector3(0,-2f,0)).normalized);
 
         if (!Physics.Raycast(rayVide, 10, 1 << 10))
         {

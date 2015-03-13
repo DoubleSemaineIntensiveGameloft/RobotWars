@@ -22,7 +22,6 @@ public class BActionCanon : BlockAction {
         if(actTimeCooldown >= timeCooldown)
         {
             actTimeCooldown = 0;
-            Debug.Log("testActionBlock : " + transform.name);
             GameObject newBoule = Instantiate(boule, transform.position, Quaternion.identity) as GameObject;
             Physics.IgnoreCollision(newBoule.GetComponent<Collider>(), colliderGraph);
 
