@@ -143,8 +143,9 @@ ModelImporter:
     4300026: Object043
     4300028: Object045
     4300030: Object042
-    7400000: idle
+    7400000: show
     7400002: walk
+    7400004: idle
     9500000: //RootNode
     11100000: //RootNode
   materials:
@@ -164,7 +165,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: idle
+      name: show
       takeName: Take 001
       firstFrame: 60
       lastFrame: 240
@@ -173,7 +174,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -291,7 +292,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 1
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -364,6 +365,108 @@ ModelImporter:
       - path: Point002/Circle001/Bone016/Bone017
         weight: 1
       - path: Point002/Circle001/Bone016/Bone017/Bone018
+        weight: 1
+      - path: Point002/Circle001/Bone016/Bone017/Object039
+        weight: 1
+      - path: Point002/Circle001/Bone016/Object034
+        weight: 1
+      - path: Point002/Circle001/Object032
+        weight: 1
+      - path: Point002/Circle003
+        weight: 1
+      - path: Point002/Circle003/Cylinder032
+        weight: 1
+      - path: Point002/Circle003/Object023
+        weight: 1
+      - path: Point002/Point064
+        weight: 1
+      - path: Point002/Point064/Object041
+        weight: 1
+      - path: Point002/Point065
+        weight: 1
+      - path: Point002/Point065/Object043
+        weight: 1
+      - path: Point002/Point067
+        weight: 1
+      - path: Point002/Point067/Object045
+        weight: 1
+      - path: Point002/Point068
+        weight: 1
+      - path: Point002/Point068/Object042
+        weight: 1
+      - path: Point002/Point069
+        weight: 1
+      - path: Point002/Point069/Object044
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: idle
+      takeName: Take 001
+      firstFrame: 289
+      lastFrame: 480
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Circle002
+        weight: 1
+      - path: Circle002/Point001
+        weight: 1
+      - path: Circle002/Point003
+        weight: 1
+      - path: Circle002/Point004
+        weight: 1
+      - path: Circle002/Point005
+        weight: 1
+      - path: Point002
+        weight: 1
+      - path: Point002/Circle001
+        weight: 1
+      - path: Point002/Circle001/Bone001
+        weight: 1
+      - path: Point002/Circle001/Bone001/Bone002
+        weight: 1
+      - path: Point002/Circle001/Bone001/Bone002/Object038
+        weight: 1
+      - path: Point002/Circle001/Bone001/Object033
+        weight: 1
+      - path: Point002/Circle001/Bone007
+        weight: 1
+      - path: Point002/Circle001/Bone007/Bone008
+        weight: 1
+      - path: Point002/Circle001/Bone007/Bone008/Object040
+        weight: 1
+      - path: Point002/Circle001/Bone007/Object035
+        weight: 1
+      - path: Point002/Circle001/Bone010
+        weight: 1
+      - path: Point002/Circle001/Bone010/Bone011
+        weight: 1
+      - path: Point002/Circle001/Bone010/Bone011/Object037
+        weight: 1
+      - path: Point002/Circle001/Bone010/Object036
+        weight: 1
+      - path: Point002/Circle001/Bone016
+        weight: 1
+      - path: Point002/Circle001/Bone016/Bone017
         weight: 1
       - path: Point002/Circle001/Bone016/Bone017/Object039
         weight: 1

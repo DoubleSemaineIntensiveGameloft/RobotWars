@@ -91,7 +91,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -107,25 +107,21 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Point046
+      - path: Point068
         weight: 1
-      - path: Point046/Bone051
+      - path: Point068/Bone075
         weight: 1
-      - path: Point046/Bone051/Bone052
+      - path: Point068/Bone075/Bone076
         weight: 1
-      - path: Point046/Bone051/Bone052/Bone053
+      - path: Point068/Bone075/Bone076/Bone077
         weight: 1
-      - path: Point046/Bone051/Bone052/Box056
+      - path: Point068/Bone075/Bone076/Box087
         weight: 1
-      - path: Point046/Bone051/Group029
+      - path: Point068/Bone075/Cylinder098
         weight: 1
-      - path: Point046/Bone051/Group029/Cylinder082
+      - path: Point068/Point069
         weight: 1
-      - path: Point046/Bone051/Group029/Sphere007
-        weight: 1
-      - path: Point046/IK Chain019
-        weight: 1
-      - path: Point046/Sphere008
+      - path: Point068/Point069/IK Chain022
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
@@ -139,7 +135,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -155,25 +151,21 @@ ModelImporter:
       transformMask:
       - path: 
         weight: 1
-      - path: Point046
+      - path: Point068
         weight: 1
-      - path: Point046/Bone051
+      - path: Point068/Bone075
         weight: 1
-      - path: Point046/Bone051/Bone052
+      - path: Point068/Bone075/Bone076
         weight: 1
-      - path: Point046/Bone051/Bone052/Bone053
+      - path: Point068/Bone075/Bone076/Bone077
         weight: 1
-      - path: Point046/Bone051/Bone052/Box056
+      - path: Point068/Bone075/Bone076/Box087
         weight: 1
-      - path: Point046/Bone051/Group029
+      - path: Point068/Bone075/Cylinder098
         weight: 1
-      - path: Point046/Bone051/Group029/Cylinder082
+      - path: Point068/Point069
         weight: 1
-      - path: Point046/Bone051/Group029/Sphere007
-        weight: 1
-      - path: Point046/IK Chain019
-        weight: 1
-      - path: Point046/Sphere008
+      - path: Point068/Point069/IK Chain022
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
