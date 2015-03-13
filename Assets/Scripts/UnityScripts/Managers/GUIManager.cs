@@ -57,9 +57,13 @@ public class GUIManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player)
         {
+            player.transform.parent = null;
+            player.transform.localPosition = Vector3.zero;
+            player.transform.localRotation = Quaternion.identity;
+            player.transform.localScale = Vector3.one;
             DontDestroyOnLoad comp = player.AddComponent<DontDestroyOnLoad>();
             Application.LoadLevelAsync("Arena");
-            Destroy(comp);
+            Destroy(comp, 1.0f);
         }
 
     }

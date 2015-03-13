@@ -5,10 +5,11 @@ public class CategorySelector : MonoBehaviour
 {
     public Block.BlockType blockType = Block.BlockType.NONE;
     public Color selectedColor = Color.green;//TODO: button color selection
+    private Color initColor;
 
     void Start()
     {
-
+        //this.initColor = this.GetComponent<MeshRenderer>().material.color;
     }
 
     void Update()
@@ -19,5 +20,6 @@ public class CategorySelector : MonoBehaviour
     void OnMouseDown()
     {
         BlockSelectorManager.Instance.setCurrentBlockSelector(this.blockType);
+        //this.GetComponent<MeshRenderer>().material.color = selectedColor;
     }
 }

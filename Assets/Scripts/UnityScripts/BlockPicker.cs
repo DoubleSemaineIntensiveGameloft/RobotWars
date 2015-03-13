@@ -25,7 +25,7 @@ public class BlockPicker : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out this.hit, Mathf.Infinity, LayerMask.GetMask(this.pickableLayerName)))
             {
                 Debug.Log("Picked");
-                if (hit.collider.transform.parent.tag.Equals("Anchor"))
+                if (hit.collider.transform.parent != null && hit.collider.transform.parent.tag.Equals("Anchor"))
                 {
                     this.picked = hit.collider.gameObject;
                 }
