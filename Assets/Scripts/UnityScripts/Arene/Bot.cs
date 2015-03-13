@@ -15,17 +15,25 @@ public class Bot : MonoBehaviour {
 	}
 	
 	void Update () {
-	    if(direction != Vector3.zero)
+        if (direction != Vector3.zero)
         {
             //transform.LookAt(transform.position + direction * 10);
 
 
             Quaternion lookRot = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
-
-            botRigidbody.AddForce(transform.forward * speed, ForceMode.Impulse);
         }
+
 	}
+
+    void FixedUpdate()
+    {
+        if (direction != Vector3.zero)
+        {
+
+            botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+        }
+    }
 
 	public void Move(Vector3 _direction, float _speed = 0.1f)
 	{

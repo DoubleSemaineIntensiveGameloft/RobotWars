@@ -43,6 +43,6 @@ public class BoutonAction : MonoBehaviour {
 
     public void DoAction()
     {
-
+        blocLinked.ActivateBlock();
     }
 }
