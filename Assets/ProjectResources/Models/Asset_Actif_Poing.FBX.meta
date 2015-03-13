@@ -16,6 +16,14 @@ ModelImporter:
     100016: Point046
     100018: Sphere007
     100020: Sphere008
+    100022: Bone075
+    100024: Bone076
+    100026: Bone077
+    100028: Box087
+    100030: Cylinder098
+    100032: IK Chain022
+    100034: Point068
+    100036: Point069
     400000: //RootNode
     400002: Bone051
     400004: Bone052
@@ -27,18 +35,32 @@ ModelImporter:
     400016: Point046
     400018: Sphere007
     400020: Sphere008
+    400022: Bone075
+    400024: Bone076
+    400026: Bone077
+    400028: Box087
+    400030: Cylinder098
+    400032: IK Chain022
+    400034: Point068
+    400036: Point069
     2300000: Box056
     2300002: Cylinder082
     2300004: Sphere007
     2300006: Sphere008
+    2300008: Box087
+    2300010: Cylinder098
     3300000: Box056
     3300002: Cylinder082
     3300004: Sphere007
     3300006: Sphere008
+    3300008: Box087
+    3300010: Cylinder098
     4300000: Box056
     4300002: Sphere007
     4300004: Cylinder082
     4300006: Sphere008
+    4300008: Box087
+    4300010: Cylinder098
     7400000: Punch
     7400002: Idle
     9500000: //RootNode
@@ -158,7 +180,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1

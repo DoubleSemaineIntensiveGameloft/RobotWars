@@ -37,7 +37,7 @@ public class MoveSlide : MonoBehaviour {
 
                             //Debug.Log("distance:" + Vector2.Distance(initialPosition, touch.position));
 
-                            float speed = Vector2.Distance(initialPosition, touch.position) * 1.5f / 100;
+                            //float speed = Vector2.Distance(initialPosition, touch.position) * 1.5f / 100;
 
                             botControlled.Move(new Vector3(moveDirection.x, 0, moveDirection.y)); // , speed
                             initialPosition = Vector2.zero;
@@ -61,8 +61,8 @@ public class MoveSlide : MonoBehaviour {
                 if (touch.phase == TouchPhase.Began)
                 {
                     //Debug.Log("Screen.width:" + Screen.width + "  touch.position:" + touch.position);
-                    
-                    if (side == 0 && touch.position.x < Screen.width / 2 || side == 1 && touch.position.x > Screen.width / 2)
+
+                    if ((side == 0 && touch.position.x < Screen.width / 2 && touch.position.x > 80) || side == 1 && touch.position.x > Screen.width / 2 && touch.position.x < Screen.width - 80)
                     {
                         initialPosition = touch.position;
                         touchId = touch.fingerId;
