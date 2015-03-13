@@ -191,7 +191,7 @@ MonoBehaviour:
   actTimeCooldown: 0
   timeCooldown: 1
   boule: {fileID: 103398, guid: 7af0a865ea44d75439d20a58b09f82de, type: 2}
-  forceBoule: 50
+  forceBoule: 15
 --- !u!114 &11479066
 MonoBehaviour:
   m_ObjectHideFlags: 1
