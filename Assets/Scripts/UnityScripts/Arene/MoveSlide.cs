@@ -62,7 +62,7 @@ public class MoveSlide : MonoBehaviour {
                 {
                     //Debug.Log("Screen.width:" + Screen.width + "  touch.position:" + touch.position);
 
-                    if ((side == 0 && touch.position.x < Screen.width / 2 && touch.position.x > 80) || side == 1 && touch.position.x > Screen.width / 2 && touch.position.x < Screen.width - 80)
+                    if ((side == 0 && touch.position.x < Screen.width / 2 && touch.position.x > 100) || side == 1 && touch.position.x > Screen.width / 2 && touch.position.x < Screen.width - 100)
                     {
                         initialPosition = touch.position;
                         touchId = touch.fingerId;

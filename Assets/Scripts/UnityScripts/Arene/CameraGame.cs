@@ -27,7 +27,7 @@ public class CameraGame : MonoBehaviour {
 	void Update () {
         
 
-        if(!debugPC)
+        if(debugPC)
         { 
             cameraGyro = Mathf.Round(Input.acceleration.y * -1);
         }

@@ -20,11 +20,11 @@ public class Bot : MonoBehaviour {
         if (direction != Vector3.zero)
         {
             //transform.LookAt(transform.position + direction * 10);
-
+        }
 
             Quaternion lookRot = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
-        }
+        
 
         Debug.DrawRay(transform.position + new Vector3(0, 2, 0),  transform.forward * 10f + new Vector3(0,-2f,0));
 
@@ -34,8 +34,10 @@ public class Bot : MonoBehaviour {
         {
             if (!braked)
             { 
+                /*
                 direction = Vector3.zero;
-                botRigidbody.AddForce(transform.forward * -speed/5, ForceMode.Impulse);
+                direction *= -1;*/
+                botRigidbody.AddForce(transform.forward * -speed, ForceMode.Impulse);
                 braked = true;
             }
         }
@@ -61,6 +63,6 @@ public class Bot : MonoBehaviour {
 
         //speed = _speed;
         
-        //botRigidbody.AddForce(transform.forward * speed * 2, ForceMode.Impulse);
+        botRigidbody.AddForce(transform.forward * speed / 15, ForceMode.Impulse);
 	}
 }
