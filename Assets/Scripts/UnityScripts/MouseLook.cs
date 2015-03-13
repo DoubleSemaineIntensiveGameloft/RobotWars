@@ -19,7 +19,7 @@ public class MouseLook : MonoBehaviour
         {
             return;
         }
-        if (InpuManager.Instance.editorMode)
+        if (InputManager.Instance.editorMode)
         {
             if (Input.GetMouseButton(0))
             {

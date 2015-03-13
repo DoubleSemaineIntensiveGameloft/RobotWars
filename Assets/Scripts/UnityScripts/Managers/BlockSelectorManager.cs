@@ -13,6 +13,7 @@ public class BlockSelectorManager : MonoBehaviour
     private Dictionary<Block.BlockType, BlockSelector> selectorManagers;
     private BlockSelector currentBlockSelector;
     public Block.BlockType defaultBlockType = Block.BlockType.ACTIVE;
+    public List<Block> availablesBlocks;
 
     void Awake()
     {

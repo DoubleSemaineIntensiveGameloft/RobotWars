@@ -1,25 +1,56 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class BlockSelector : MonoBehaviour
 {
     public float dashRotationSpeed = 50.0f;
     public float rotationSpeed = 10.0f;
-    private bool dash;
-    private Quaternion targetRotation;
+    private bool dash = false;
+    private Quaternion targetRotation = Quaternion.identity;
     public Block.BlockType blockType = Block.BlockType.NONE;
-    public GameObject availablesBlocks;
+    private List<Block> availablesBlocks = new List<Block>();
+    private int currentBlockIndex = -1;
+    private float rotationAngle = 30.0f;
 
     void Start()
     {
+        if (this.blockType == Block.BlockType.NONE)
+        {
+            Debug.LogWarning("BlockType => NONE, useless block selector");
+            this.enabled = false;
+            return;
+        }
+
+        foreach (Block block in BlockSelectorManager.Instance.availablesBlocks)
+        {
+            if (block.blockType == this.blockType)
+            {
+                this.availablesBlocks.Add(block);
+            }
+        }
+
+        if (this.availablesBlocks.Count > 0)
+        {
+            this.currentBlockIndex = 0;
+        }
+        else
+        {
+            this.enabled = false;
+            return;
+        }
     }
 
-    // Update is called once per frame
+    private void load()
+    {
+
+    }
+
     void Update()
     {
         if (this.dash)
         {
-            if (InpuManager.Instance.editorMode)
+            if (InputManager.Instance.editorMode)
             {
                 if (Input.GetMouseButton(0))
                 {
@@ -36,7 +67,7 @@ public class BlockSelector : MonoBehaviour
         }
         else
         {
-            if (this.targetRotation == null || this.targetRotation.Equals(Quaternion.identity))
+            if (this.targetRotation.Equals(Quaternion.identity))
             {
                 return;
             }
@@ -51,22 +82,35 @@ public class BlockSelector : MonoBehaviour
         }
     }
 
+    private void checkCurrentBlockIndex()
+    {
+        if (this.currentBlockIndex < 0)
+        {
+            this.currentBlockIndex = this.availablesBlocks.Count - 1;
+        }
+        else if (this.currentBlockIndex == this.availablesBlocks.Count)
+        {
+            this.currentBlockIndex = 0;
+        }
+    }
 
     public void nextBlock()
     {
-        this.rotateBlockSelector(30.0f);
+        this.currentBlockIndex++;
+        this.checkCurrentBlockIndex();
+        this.rotateBlockSelector(this.rotationAngle);
     }
 
     public void previousBlock()
     {
-        this.rotateBlockSelector(-30.0f);
+        this.currentBlockIndex--;
+        this.checkCurrentBlockIndex();
+        this.rotateBlockSelector(-this.rotationAngle);
     }
 
     private void rotateBlockSelector(float angle)
     {
-        Debug.Log("Rotate block selector");
         this.targetRotation = (this.targetRotation.Equals(Quaternion.identity) ? this.transform.rotation : this.targetRotation) * Quaternion.AngleAxis(angle, this.transform.up);
-        // this.blockSelector.transform.Rotate(this.transform.up, angle, Space.Self);
     }
 
     void OnMouseDown()

@@ -7,4 +7,5 @@ public class Block : MonoBehaviour
     public string id;
     public BlockType blockType = BlockType.NONE;
     public string description = "";
+    public bool unlocked;
 }
