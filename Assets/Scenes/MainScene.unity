@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 09666ccc0562f4a48a14d7e24213ebb0, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 989008287}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81de244bb8edde04aa94442ea373b064, type: 3}
+  m_Script: {fileID: 11500000, guid: 881d92848319c8b41af0247de3121ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   editorMode: 1
@@ -1441,7 +1441,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultBlockType: 1
-  availablesBlocks: []
+  availablesBlocks:
+  - {fileID: 11442982, guid: c70769ab569abc54fb4616fc78270930, type: 2}
+  - {fileID: 11441110, guid: 64133c061d6fe7d4593f4804409983d0, type: 2}
+  - {fileID: 11479066, guid: 13152e539cb5b644e853369b27e68007, type: 2}
 --- !u!1 &1062423989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2839,6 +2842,26 @@ Prefab:
     - target: {fileID: 424686, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
       propertyPath: m_LocalScale.z
       value: .300000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 174188, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 136210, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 170446, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 111886, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 171896, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14d38964f6e72ed46bd1260fa6c265bd, type: 2}

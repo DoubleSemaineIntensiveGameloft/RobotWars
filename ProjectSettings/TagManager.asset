@@ -8,6 +8,7 @@ TagManager:
   - Canvas
   - Bot
   - Floor
+  - Anchor
   layers:
   - Default
   - TransparentFX

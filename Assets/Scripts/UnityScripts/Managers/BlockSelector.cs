@@ -12,6 +12,8 @@ public class BlockSelector : MonoBehaviour
     private List<Block> availablesBlocks = new List<Block>();
     private int currentBlockIndex = -1;
     private float rotationAngle = 30.0f;
+    private List<Block> displayedBlock = new List<Block>();
+    public int maxBlockDisplayedCount = 3;
 
     void Start()
     {
@@ -39,9 +41,29 @@ public class BlockSelector : MonoBehaviour
             this.enabled = false;
             return;
         }
+        this.load();
     }
 
     private void load()
+    {
+        for (int i = this.currentBlockIndex; i < (this.availablesBlocks.Count > this.maxBlockDisplayedCount ? this.maxBlockDisplayedCount : this.availablesBlocks.Count); i++)
+        {
+            this.addDisplayedBlock(this.availablesBlocks[i]);
+        }
+    }
+
+    private void addDisplayedBlock(Block block)
+    {
+        this.displayedBlock.Add(block);
+        GameObject go = Instantiate(block.gameObject);
+        go.transform.parent = this.transform;
+        float radius = 3.3f;
+        Vector3 pos = new Vector3(Mathf.Cos(Random.Range(-1.0f, 1.0f)), 0.0f, Mathf.Sin(Random.Range(-1.0f, 1.0f)));
+        pos.Normalize();
+        go.transform.localPosition = pos * radius;
+    }
+
+    private void removeDisplayedBlock(Block block)
     {
 
     }

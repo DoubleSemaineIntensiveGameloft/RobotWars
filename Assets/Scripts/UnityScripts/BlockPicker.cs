@@ -25,7 +25,17 @@ public class BlockPicker : MonoBehaviour
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out this.hit, Mathf.Infinity, LayerMask.GetMask(this.pickableLayerName)))
             {
                 Debug.Log("Picked");
-                this.picked = this.hit.collider.gameObject;
+                if (hit.collider.transform.parent.tag.Equals("Anchor"))
+                {
+                    this.picked = hit.collider.gameObject;
+                }
+                else
+                {
+                    this.picked = Instantiate(hit.collider.gameObject);
+                    this.picked.transform.position = hit.collider.gameObject.transform.position;
+                    this.picked.transform.rotation = hit.collider.gameObject.transform.rotation;
+                }
+
                 this.docked = false;
                 Block block = this.picked.GetComponent<Block>();
                 if (block)
@@ -64,7 +74,7 @@ public class BlockPicker : MonoBehaviour
             {
                 this.picked.transform.position = hit.collider.transform.position;// Vector3.Lerp(this.picked.transform.position, hit.collider.transform.position, Time.deltaTime * this.dockSpeed);
                 this.picked.transform.rotation = hit.collider.transform.rotation;
-                this.picked.transform.parent = hit.collider.transform.parent;
+                this.picked.transform.parent = hit.collider.transform;
                 this.docked = true;
             }
             else
@@ -81,13 +91,21 @@ public class BlockPicker : MonoBehaviour
         return this.picked != null;
     }
 
-    public void addBlock()
-    {
-        //create block
-        //temp
-        string id = "02";
-        //temp
-        this.picked = GameObject.Instantiate(Resources.Load("Prefabs/Block" + id)) as GameObject;
-        this.picked.transform.position = Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(this.floatRange);
-    }
+    //public void addBlock()
+    //{
+    //    //create block
+    //    //temp
+    //    string id = "02";
+    //    //temp
+    //    this.picked = GameObject.Instantiate(Resources.Load("Prefabs/Block" + id)) as GameObject;
+    //    this.picked.transform.position = Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(this.floatRange);
+    //}
+
+    //private void checkPosition()
+    //{
+    //    if (this.picked == null)
+    //    {
+    //        return;
+    //    }
+    //}
 }
