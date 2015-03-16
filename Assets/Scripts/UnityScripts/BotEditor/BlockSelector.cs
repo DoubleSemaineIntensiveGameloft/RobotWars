@@ -59,10 +59,9 @@ public class BlockSelector : MonoBehaviour
 
     private void load()
     {
-        for (this.currentBlockIndex = 0; this.currentBlockIndex < (this.availablesBlocks.Count > this.maxBlockDisplayedCount ? this.maxBlockDisplayedCount : this.availablesBlocks.Count); this.currentBlockIndex++)
+        for (int i = 0; i < (this.availablesBlocks.Count > this.maxBlockDisplayedCount ? this.maxBlockDisplayedCount : this.availablesBlocks.Count); i++)
         {
-            this.addDisplayedBlock(this.availablesBlocks[this.currentBlockIndex], this.clampAnchorIndex(this.currentAnchorIndex + this.currentBlockIndex), false);
-
+            this.addDisplayedBlock(this.availablesBlocks[i], this.clampAnchorIndex(this.currentAnchorIndex + i), false);
         }
     }
 
@@ -191,24 +190,24 @@ public class BlockSelector : MonoBehaviour
         }
     }
 
-    private void clampCurrentBlockIndex()
-    {
-        if (this.currentBlockIndex < 0)
-        {
-            this.currentBlockIndex = this.availablesBlocks.Count - 1;
-        }
-        else if (this.currentBlockIndex >= this.availablesBlocks.Count)
-        {
-            this.currentBlockIndex = 0;
-        }
-    }
+    //private void clampCurrentBlockIndex()
+    //{
+    //    if (this.currentBlockIndex < 0)
+    //    {
+    //        this.currentBlockIndex = this.availablesBlocks.Count - 1;
+    //    }
+    //    else if (this.currentBlockIndex >= this.availablesBlocks.Count)
+    //    {
+    //        this.currentBlockIndex = 0;
+    //    }
+    //}
 
     public void nextBlock()
     {
         this.addDisplayedBlock(this.availablesBlocks[this.getFirstBlockIndex()], this.getFirstAnchorIndex(), true);
         this.removeDisplayedBlock(false, this.getLastAnchorIndex());
         this.currentBlockIndex--;
-        this.clampCurrentBlockIndex();
+        this.currentBlockIndex = this.clampBlockIndex(this.currentBlockIndex);
         this.currentAnchorIndex--;
         this.currentAnchorIndex = this.clampAnchorIndex(this.currentAnchorIndex);
         this.rotateBlockSelector(-this.rotationAngle);
@@ -216,12 +215,12 @@ public class BlockSelector : MonoBehaviour
 
     public void previousBlock()
     {
+        this.addDisplayedBlock(this.availablesBlocks[this.getLastBlockIndex()], this.getLastAnchorIndex(), false);
         this.currentAnchorIndex++;
         this.currentAnchorIndex = this.clampAnchorIndex(this.currentAnchorIndex);
-        this.removeDisplayedBlock(true, this.getFirstAnchorIndex());
         this.currentBlockIndex++;
-        this.clampCurrentBlockIndex();
-        this.addDisplayedBlock(this.availablesBlocks[this.getLastBlockIndex()], this.getLastAnchorIndex(), false);
+        this.currentBlockIndex = this.clampBlockIndex(this.currentBlockIndex);
+        this.removeDisplayedBlock(true, this.getFirstAnchorIndex());
         this.rotateBlockSelector(this.rotationAngle);
     }
 

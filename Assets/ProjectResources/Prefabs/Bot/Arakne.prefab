@@ -908,8 +908,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 177300}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: .129001617, y: -.00237567164, z: -.0291723721}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .129044771, y: -.00237566046, z: -.029219579}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 410086}
@@ -1078,8 +1078,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 197098}
-  m_LocalRotation: {x: -1.1520229e-07, y: -.707106948, z: -.70710659, w: 1.15202347e-07}
-  m_LocalPosition: {x: -.00170014612, y: .125, z: -.0290092472}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: -1.62920685e-07}
+  m_LocalPosition: {x: -.0016999431, y: .125001431, z: -.0291222576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 472480}
@@ -1312,7 +1312,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120322}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0320000015, y: -0, z: .138999999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1325,8 +1325,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 165210}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: .00139999995, y: -.134000003, z: -.0269000009}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .00139975734, y: -.134001017, z: -.0269451737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 451164}
@@ -1527,7 +1527,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 167920}
-  m_LocalRotation: {x: .707106948, y: -8.58297255e-09, z: 4.3261088e-09, w: .70710659}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.162996531, y: -.00468171015, z: -.0276556481}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

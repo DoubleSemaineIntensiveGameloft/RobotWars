@@ -54,6 +54,7 @@ public class GUIManager : MonoBehaviour
 
     public void startGame()
     {
+        Physics.IgnoreLayerCollision(LayerMask.GetMask("Block"), LayerMask.GetMask("Block"), false);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player)
         {
