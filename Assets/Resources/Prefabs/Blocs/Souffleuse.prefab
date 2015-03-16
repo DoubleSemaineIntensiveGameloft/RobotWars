@@ -75,8 +75,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109508}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 3.94000006}
+  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: .707106948}
+  m_LocalPosition: {x: 0, y: -4.23000002, z: .0700000003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484532}
@@ -87,7 +87,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 111492}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: .707106948}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
@@ -100,7 +100,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.1400001, y: 1.02999997, z: -.959999979}
+  m_LocalPosition: {x: 4.57800865, y: -5.48913956, z: 2.1572504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 463774}
@@ -114,8 +114,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 153196}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: .790000021}
+  m_LocalRotation: {x: .70710665, y: 0, z: 0, w: .707106948}
+  m_LocalPosition: {x: 0, y: -.720000029, z: .0199999996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 484532}
@@ -161,8 +161,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.37, y: 1.45000005, z: .579999983}
-  m_Center: {x: 0, y: 0, z: .540000021}
+  m_Size: {x: 1.51999998, y: .74000001, z: 1.36000001}
+  m_Center: {x: 0, y: -.50999999, z: 0}
 --- !u!65 &6554270
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -189,6 +189,8 @@ MonoBehaviour:
   actTimeCooldown: 0
   timeCooldown: 1
   block: {fileID: 0}
+  bot: {fileID: 0}
+  ignoreSet: 0
   boule: {fileID: 103398, guid: 7af0a865ea44d75439d20a58b09f82de, type: 2}
   souffle: {fileID: 0}
   partSouffle: {fileID: 0}

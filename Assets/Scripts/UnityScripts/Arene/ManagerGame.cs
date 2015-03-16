@@ -46,6 +46,20 @@ public class ManagerGame : MonoBehaviour {
         }*/
 
         bots = GameObject.FindGameObjectsWithTag("Bot");
+
+        GameObject[] anchors = GameObject.FindGameObjectsWithTag("Anchor");
+
+        for (int i = 0; i < anchors.Length; i++)
+        {
+            Debug.Log("anchors[i]:" + anchors[i].transform.name);
+            if (anchors[i].GetComponentInChildren<Block>())
+            { 
+                anchors[i].GetComponentInChildren<Block>().transform.parent = anchors[i].transform.parent;
+            }
+
+            Destroy(anchors[i]);
+        }
+
 	
 	}
 	

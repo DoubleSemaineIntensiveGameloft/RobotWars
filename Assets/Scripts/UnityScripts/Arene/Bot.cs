@@ -19,11 +19,15 @@ public class Bot : MonoBehaviour
     public float actTimeStun = 0;
     public float timeStun = 2;
 
+    public BoxCollider boxCollider;
+
+
     void Start()
     {
         botRigidbody = GetComponent<Rigidbody>();
         partStun = transform.FindChild("ParticlesElectricityStun").GetComponent<ParticleSystem>();
         animator = GetComponentInChildren<Animator>();
+        boxCollider = GetComponent<BoxCollider>();
 
     }
 

@@ -14,7 +14,6 @@ public class BActionTaseur : BlockAction
         base.Start();
         partElec = GetComponentInChildren<ParticleSystem>();
 
-        Physics.IgnoreCollision(GetComponent<BoxCollider>(), GetComponentInParent<BoxCollider>(), true);
     }
 	
 	public override void Update () {

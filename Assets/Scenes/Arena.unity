@@ -579,52 +579,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 185222123}
---- !u!1001 &197120086
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 455240, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 145964, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &256489268
 GameObject:
   m_ObjectHideFlags: 0
@@ -835,7 +789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
 --- !u!1 &291261798
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,6 +1681,8 @@ MonoBehaviour:
   actTimeCooldown: 0
   timeCooldown: .5
   block: {fileID: 0}
+  bot: {fileID: 0}
+  ignoreSet: 0
   boule: {fileID: 103398, guid: 7af0a865ea44d75439d20a58b09f82de, type: 2}
   forceBoule: 35
 --- !u!114 &752972674
@@ -2294,6 +2250,7 @@ MonoBehaviour:
   stun: 0
   actTimeStun: 0
   timeStun: 2
+  boxCollider: {fileID: 0}
 --- !u!54 &923629319
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3523,7 +3480,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
 --- !u!1001 &1668913370
 Prefab:
   m_ObjectHideFlags: 0
