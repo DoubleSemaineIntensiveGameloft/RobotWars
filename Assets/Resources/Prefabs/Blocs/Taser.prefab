@@ -27,7 +27,6 @@ GameObject:
   - 4: {fileID: 405550}
   - 198: {fileID: 19873492}
   - 199: {fileID: 19978726}
-  - 114: {fileID: 11442526}
   m_Layer: 0
   m_Name: ParticlesElectricity
   m_TagString: Untagged
@@ -150,18 +149,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .800000012, y: 1.89999998, z: .5}
   m_Center: {x: 0, y: -.899999976, z: 0}
---- !u!114 &11442526
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 153474}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 509ba0df36a52924294abb36e55d85a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  follow: {fileID: 0}
 --- !u!114 &11443174
 MonoBehaviour:
   m_ObjectHideFlags: 1
