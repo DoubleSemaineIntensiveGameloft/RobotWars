@@ -681,6 +681,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 145964, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
   m_IsPrefabParent: 0
@@ -868,6 +872,33 @@ MonoBehaviour:
   allActions: []
   prefabButton: {fileID: 139072, guid: beb110aae2835a44a9e09027ac8f0dd4, type: 2}
   side: 0
+--- !u!1 &284417051
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 284417052}
+  m_Layer: 0
+  m_Name: Player1Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &284417052
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 284417051}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.82999992, y: 1.28999996, z: -.0599999987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
 --- !u!1 &291261798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3081,7 +3112,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 473254, guid: 5f584e97ab29f4d46864f9826e89ab58, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 473254, guid: 5f584e97ab29f4d46864f9826e89ab58, type: 2}
       propertyPath: m_LocalScale.x
@@ -4044,6 +4075,33 @@ Transform:
   - {fileID: 1302568384}
   m_Father: {fileID: 2143246577}
   m_RootOrder: 0
+--- !u!1 &1652536212
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1652536213}
+  m_Layer: 0
+  m_Name: Player2Start
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1652536213
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1652536212}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.1700001, y: 1.28999996, z: -.0599999987}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
 --- !u!1001 &1668913370
 Prefab:
   m_ObjectHideFlags: 0
@@ -5015,6 +5073,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bots: []
+  prefabBot: {fileID: 145964, guid: e7eb790d2ee325b41b21e2b5dbdd8efc, type: 2}
+  positionsStart:
+  - {fileID: 284417051}
+  - {fileID: 1652536212}
+  moveControllers:
+  - {fileID: 660945565}
+  - {fileID: 908712974}
 --- !u!224 &2072375847
 RectTransform:
   m_ObjectHideFlags: 0
