@@ -6,8 +6,11 @@ public class BActionPoing : BlockAction {
     Collider colliderGraph;
 
     Animator animatorPoing;
-
-	void Start () {
+    
+    public override void Start()
+    {
+        base.Start();
+    
         colliderGraph = transform.FindChild("Graph").GetComponent<Collider>();
 
         animatorPoing = GetComponentInChildren<Animator>();

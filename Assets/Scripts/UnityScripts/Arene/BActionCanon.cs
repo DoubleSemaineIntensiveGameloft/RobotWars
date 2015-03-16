@@ -9,7 +9,9 @@ public class BActionCanon : BlockAction {
     Collider colliderGraph;
 
 
-	void Start () {
+    public override void Start()
+    {
+        base.Start();
         colliderGraph = transform.FindChild("Graph").GetComponent<Collider>();
 	}
 	
@@ -25,7 +27,10 @@ public class BActionCanon : BlockAction {
             GameObject newBoule = Instantiate(boule, transform.position, Quaternion.identity) as GameObject;
             Physics.IgnoreCollision(newBoule.GetComponent<Collider>(), colliderGraph);
 
-            newBoule.GetComponent<Rigidbody>().AddForce(transform.forward * forceBoule, ForceMode.Impulse);
+            Vector3 directionForce = (transform.forward * forceBoule);
+            directionForce = new Vector3(directionForce.x, transform.position.y, directionForce.z);
+
+            newBoule.GetComponent<Rigidbody>().AddForce(directionForce, ForceMode.Impulse);
 
         }
     }
