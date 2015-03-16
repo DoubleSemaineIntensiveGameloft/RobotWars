@@ -88,6 +88,7 @@ GameObject:
   - 4: {fileID: 484532}
   - 114: {fileID: 11479066}
   - 114: {fileID: 11443174}
+  - 65: {fileID: 6588144}
   m_Layer: 9
   m_Name: Pelle
   m_TagString: Block
@@ -178,8 +179,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 143176}
-  m_LocalRotation: {x: 0, y: .707105994, z: 0, w: .707107604}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: .105593972, y: .69917661, z: .10559608, w: .699179173}
+  m_LocalPosition: {x: -0, y: -.0299999993, z: -.0199999996}
   m_LocalScale: {x: .343505532, y: .343505591, z: .343505591}
   m_Children:
   - {fileID: 435146}
@@ -254,8 +255,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157402}
-  m_LocalRotation: {x: .346514404, y: -.616381228, z: .346518159, w: .61638242}
-  m_LocalPosition: {x: .765969515, y: -2.93002439, z: 9.87611344e-08}
+  m_LocalRotation: {x: .516968906, y: -.48243174, z: .516972244, w: .482433915}
+  m_LocalPosition: {x: -9.74958706, y: -1.03782845, z: 4.29199219}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 447550}
@@ -345,11 +346,23 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 171108}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 7.5515604, y: 4.82818985, z: 2.25641966}
   m_Center: {x: -3.46631527, y: .0168249961, z: -.787720919}
+--- !u!65 &6588144
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .600000024, y: 1.77062619, z: .330000013}
+  m_Center: {x: -.0800159946, y: -.794712901, z: -.0900005475}
 --- !u!95 &9536852
 Animator:
   serializedVersion: 3
@@ -378,6 +391,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f5abdce09d63ed4d95cb1753ccdceed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  actionPelle: {fileID: 0}
 --- !u!114 &11443174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -392,6 +406,8 @@ MonoBehaviour:
   actTimeCooldown: 0
   timeCooldown: 1
   block: {fileID: 0}
+  bot: {fileID: 0}
+  ignoreSet: 0
   forcePelle: 30
   active: 0
   actTimeActive: 0

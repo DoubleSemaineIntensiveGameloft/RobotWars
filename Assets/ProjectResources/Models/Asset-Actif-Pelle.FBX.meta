@@ -12,6 +12,13 @@ ModelImporter:
     100008: Box059
     100010: Cylinder086
     100012: Point052
+    100014: Point053
+    100016: Point064
+    100018: Point065
+    100020: Point067
+    100022: Point068
+    100024: Point069
+    100026: Sphere001
     400000: //RootNode
     400002: Bone067
     400004: Bone068
@@ -19,12 +26,22 @@ ModelImporter:
     400008: Box059
     400010: Cylinder086
     400012: Point052
+    400014: Point053
+    400016: Point064
+    400018: Point065
+    400020: Point067
+    400022: Point068
+    400024: Point069
+    400026: Sphere001
     2300000: Box059
     2300002: Cylinder086
+    2300004: Sphere001
     3300000: Box059
     3300002: Cylinder086
+    3300004: Sphere001
     4300000: Cylinder086
     4300002: Box059
+    4300004: Sphere001
     7400000: Pelle
     7400002: Idle
     9500000: //RootNode
