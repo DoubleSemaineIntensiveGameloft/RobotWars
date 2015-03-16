@@ -14,7 +14,7 @@ public class MouseLook : MonoBehaviour
     void Start()
     {
         this.blockPicker = Camera.main.GetComponent<BlockPicker>();
-        this.playerAnim = this.transform.FindChild("Robot").FindChild("Arakne_tronc").GetComponentInChildren<Animator>();
+        this.playerAnim = this.transform.FindChild("Robot").FindChild("Arakne").GetComponentInChildren<Animator>();
     }
 
     void Update()
