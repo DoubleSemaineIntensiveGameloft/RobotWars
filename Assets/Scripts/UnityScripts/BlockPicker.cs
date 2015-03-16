@@ -13,9 +13,11 @@ public class BlockPicker : MonoBehaviour
     public float floatRange = 5.0f;
     private bool docked;
     public GameObject blockDestroyEffect;
+    private Transform player;
 
     void Start()
     {
+        this.player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
@@ -32,8 +34,27 @@ public class BlockPicker : MonoBehaviour
                 else
                 {
                     this.picked = Instantiate(hit.collider.gameObject);
+                    ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
+                    if (joint)
+                    {
+                        joint.connectedBody = null;
+                        Destroy(joint);
+                    }
+                    Rigidbody rb = this.picked.GetComponent<Rigidbody>();
+                    if (rb)
+                    {
+                        rb.useGravity = false;
+                        rb.velocity = Vector3.zero;
+                        rb.angularVelocity = Vector3.zero;
+                    }
                     this.picked.transform.position = hit.collider.gameObject.transform.position;
                     this.picked.transform.rotation = hit.collider.gameObject.transform.rotation;
+                }
+                Collider collider = this.picked.GetComponent<Collider>();
+                if (collider)
+                {
+                    collider.enabled = false;
+                    Debug.Log("DisableCollider");
                 }
 
                 this.docked = false;
@@ -54,7 +75,16 @@ public class BlockPicker : MonoBehaviour
             if (this.picked != null)
             {
                 Debug.Log("Released picked");
-                if (!this.docked)
+                if (docked)
+                {
+                    Collider collider = this.picked.GetComponent<Collider>();
+                    if (collider)
+                    {
+                        collider.enabled = true;
+                        Debug.Log("DisableCollider");
+                    }
+                }
+                else
                 {
                     if (this.blockDestroyEffect)
                     {
@@ -101,11 +131,53 @@ public class BlockPicker : MonoBehaviour
     //    this.picked.transform.position = Camera.main.ScreenPointToRay(Input.mousePosition).GetPoint(this.floatRange);
     //}
 
-    //private void checkPosition()
-    //{
-    //    if (this.picked == null)
-    //    {
-    //        return;
-    //    }
-    //}
+    private void checkPosition()
+    {
+        if (this.picked == null)
+        {
+            return;
+        }
+        Vector3 relativePos = this.player.InverseTransformPoint(this.picked.transform.position);
+        //X
+        if (relativePos.x < 0.0f)
+        {
+            //left
+        }
+        else if (relativePos.x > 0.0f)
+        {
+            //right
+        }
+        else
+        {
+            //axis
+        }
+
+        //Y
+        if (relativePos.y < 0.0f)
+        {
+            //bottom
+        }
+        else if (relativePos.y > 0.0f)
+        {
+            //top
+        }
+        else
+        {
+            //axis
+        }
+
+        //Z
+        if (relativePos.z < 0.0f)
+        {
+            //front
+        }
+        else if (relativePos.z > 0.0f)
+        {
+            //back
+        }
+        else
+        {
+            //axis
+        }
+    }
 }

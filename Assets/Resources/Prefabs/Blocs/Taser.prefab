@@ -148,8 +148,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.05999994, y: .540000021, z: .860000014}
-  m_Center: {x: 0, y: 0, z: 1.75}
+  m_Size: {x: .800000012, y: .400000006, z: 2}
+  m_Center: {x: 0, y: 0, z: .899999976}
 --- !u!114 &11442526
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
   actTimeCooldown: 0
   timeCooldown: 5
   block: {fileID: 0}
-  forceBoule: 35
+  timeStun: 3
   partElec: {fileID: 0}
 --- !u!114 &11479066
 MonoBehaviour:

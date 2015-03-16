@@ -8,5 +8,4 @@ public class Block : MonoBehaviour
     public BlockType blockType = BlockType.NONE;
     public string description = "";
     public bool unlocked;
-
 }

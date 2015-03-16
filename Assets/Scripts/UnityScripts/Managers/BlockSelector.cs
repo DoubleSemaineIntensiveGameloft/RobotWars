@@ -11,9 +11,12 @@ public class BlockSelector : MonoBehaviour
     public Block.BlockType blockType = Block.BlockType.NONE;
     private List<Block> availablesBlocks = new List<Block>();
     private int currentBlockIndex = -1;
-    private float rotationAngle = 30.0f;
-    private List<Block> displayedBlock = new List<Block>();
+    private float rotationAngle = 0.0f;
     public int maxBlockDisplayedCount = 3;
+    private Dictionary<int, BlockSelectorAnchor> anchors = new Dictionary<int, BlockSelectorAnchor>();
+    //private int startAnchorIndex = 0;
+    private int currentAnchorIndex = 0;
+    private List<GameObject> displayedBlocks = new List<GameObject>();
 
     void Start()
     {
@@ -26,9 +29,12 @@ public class BlockSelector : MonoBehaviour
 
         foreach (Block block in BlockSelectorManager.Instance.availablesBlocks)
         {
-            if (block.blockType == this.blockType)
+            if (block)
             {
-                this.availablesBlocks.Add(block);
+                if (block.blockType == this.blockType)
+                {
+                    this.availablesBlocks.Add(block);
+                }
             }
         }
 
@@ -41,31 +47,112 @@ public class BlockSelector : MonoBehaviour
             this.enabled = false;
             return;
         }
+
+        foreach (BlockSelectorAnchor anchor in this.transform.GetComponentsInChildren<BlockSelectorAnchor>())
+        {
+            this.anchors.Add(anchor.id, anchor);
+        }
+        this.rotationAngle = 360.0f / this.anchors.Count;
+        //this.currentAnchorIndex = this.startAnchorIndex;
         this.load();
     }
 
     private void load()
     {
-        for (int i = this.currentBlockIndex; i < (this.availablesBlocks.Count > this.maxBlockDisplayedCount ? this.maxBlockDisplayedCount : this.availablesBlocks.Count); i++)
+        for (this.currentBlockIndex = 0; this.currentBlockIndex < (this.availablesBlocks.Count > this.maxBlockDisplayedCount ? this.maxBlockDisplayedCount : this.availablesBlocks.Count); this.currentBlockIndex++)
         {
-            this.addDisplayedBlock(this.availablesBlocks[i]);
+            this.addDisplayedBlock(this.availablesBlocks[this.currentBlockIndex], this.clampAnchorIndex(this.currentAnchorIndex + this.currentBlockIndex), false);
+
         }
     }
 
-    private void addDisplayedBlock(Block block)
+    private int getFirstAnchorIndex()
     {
-        this.displayedBlock.Add(block);
-        GameObject go = Instantiate(block.gameObject);
-        go.transform.parent = this.transform;
-        float radius = 3.3f;
-        Vector3 pos = new Vector3(Mathf.Cos(Random.Range(-1.0f, 1.0f)), 0.0f, Mathf.Sin(Random.Range(-1.0f, 1.0f)));
-        pos.Normalize();
-        go.transform.localPosition = pos * radius;
+        int index = this.currentAnchorIndex - 1;
+        return this.clampAnchorIndex(index);
     }
 
-    private void removeDisplayedBlock(Block block)
+    private int getLastAnchorIndex()
     {
+        int index = this.currentAnchorIndex + this.maxBlockDisplayedCount;
+        return this.clampAnchorIndex(index);
+    }
 
+    private int clampAnchorIndex(int index)
+    {
+        if (index < 0)
+        {
+            return this.anchors.Count - 1;
+        }
+        else if (index >= this.anchors.Count)
+        {
+            return 0;
+        }
+        return index;
+    }
+
+    private int getFirstBlockIndex()
+    {
+        int index = this.currentBlockIndex - 1;
+        return this.clampBlockIndex(index);
+    }
+
+    private int getLastBlockIndex()
+    {
+        int index = this.currentBlockIndex + this.maxBlockDisplayedCount;
+        return this.clampBlockIndex(index);
+    }
+
+    private int clampBlockIndex(int index)
+    {
+        if (index < 0)
+        {
+            return this.availablesBlocks.Count - 1;
+        }
+        else if (index >= this.availablesBlocks.Count)
+        {
+            return 0;
+        }
+        return index;
+    }
+
+    private void addDisplayedBlock(Block block, int anchorIndex, bool head)
+    {
+        BlockSelectorAnchor anchor;
+        if (this.anchors.TryGetValue(anchorIndex, out anchor))
+        {
+            GameObject go = Instantiate(block.gameObject, anchor.transform.position, Quaternion.identity) as GameObject;
+            if (head)
+            {
+                this.displayedBlocks.Insert(0, go);
+            }
+            else
+            {
+                this.displayedBlocks.Add(go);
+            }
+            go.transform.parent = anchor.transform;
+            ConfigurableJoint joint = go.GetComponent<ConfigurableJoint>();
+            if (joint)
+            {
+                Rigidbody rb = anchor.GetComponent<Rigidbody>();
+                if (rb)
+                {
+                    joint.connectedBody = rb;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("No Anchor for index : " + anchorIndex);
+        }
+    }
+
+    private void removeDisplayedBlock(bool head, int anchorIndex)
+    {
+        int indexToRemove = head ? 0 : this.displayedBlocks.Count - 1;
+        GameObject block = this.displayedBlocks[indexToRemove];
+        this.displayedBlocks.RemoveAt(indexToRemove);
+        Destroy(block);
     }
 
     void Update()
@@ -104,13 +191,13 @@ public class BlockSelector : MonoBehaviour
         }
     }
 
-    private void checkCurrentBlockIndex()
+    private void clampCurrentBlockIndex()
     {
         if (this.currentBlockIndex < 0)
         {
             this.currentBlockIndex = this.availablesBlocks.Count - 1;
         }
-        else if (this.currentBlockIndex == this.availablesBlocks.Count)
+        else if (this.currentBlockIndex >= this.availablesBlocks.Count)
         {
             this.currentBlockIndex = 0;
         }
@@ -118,16 +205,24 @@ public class BlockSelector : MonoBehaviour
 
     public void nextBlock()
     {
-        this.currentBlockIndex++;
-        this.checkCurrentBlockIndex();
-        this.rotateBlockSelector(this.rotationAngle);
+        this.addDisplayedBlock(this.availablesBlocks[this.getFirstBlockIndex()], this.getFirstAnchorIndex(), true);
+        this.removeDisplayedBlock(false, this.getLastAnchorIndex());
+        this.currentBlockIndex--;
+        this.clampCurrentBlockIndex();
+        this.currentAnchorIndex--;
+        this.currentAnchorIndex = this.clampAnchorIndex(this.currentAnchorIndex);
+        this.rotateBlockSelector(-this.rotationAngle);
     }
 
     public void previousBlock()
     {
-        this.currentBlockIndex--;
-        this.checkCurrentBlockIndex();
-        this.rotateBlockSelector(-this.rotationAngle);
+        this.addDisplayedBlock(this.availablesBlocks[this.getLastBlockIndex()], this.getLastAnchorIndex(), false);
+        this.removeDisplayedBlock(true, this.getFirstAnchorIndex());
+        this.currentBlockIndex++;
+        this.clampCurrentBlockIndex();
+        this.currentAnchorIndex++;
+        this.currentAnchorIndex = this.clampAnchorIndex(this.currentAnchorIndex);
+        this.rotateBlockSelector(this.rotationAngle);
     }
 
     private void rotateBlockSelector(float angle)

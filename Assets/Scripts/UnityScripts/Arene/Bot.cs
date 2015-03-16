@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bot : MonoBehaviour {
+public class Bot : MonoBehaviour
+{
 
-	private Rigidbody botRigidbody;
+    private Rigidbody botRigidbody;
     private ParticleSystem partStun;
     private Animator animator;
 
@@ -18,25 +19,19 @@ public class Bot : MonoBehaviour {
     public float actTimeStun = 0;
     public float timeStun = 2;
 
-	void Start () {
-		botRigidbody = GetComponent<Rigidbody> ();
+    void Start()
+    {
+        botRigidbody = GetComponent<Rigidbody>();
         partStun = transform.FindChild("ParticlesElectricityStun").GetComponent<ParticleSystem>();
         animator = GetComponentInChildren<Animator>();
 
-        // Si pas en arène désactive le combat
-        if(!GameObject.Find("ManagerGame"))
+    }
+
+    void Update()
+    {
+
+        if (!stun)
         {
-            botRigidbody.isKinematic = true;
-            
-            enabled = false;
-
-        }
-	}
-	
-	void Update () {
-
-        if(!stun)
-        { 
             if (direction != Vector3.zero)
             {
                 //transform.LookAt(transform.position + direction * 10);
@@ -71,25 +66,25 @@ public class Bot : MonoBehaviour {
                 animator.SetFloat("Speed", 0);
             }
 
-        
 
-           
+
+
         }
         else
         {
             actTimeStun += Time.deltaTime;
-            if(actTimeStun > timeStun)
+            if (actTimeStun > timeStun)
             {
                 actTimeStun = 0;
                 stun = false;
                 partStun.Stop();
 
                 animator.SetBool("Stun", false);
-                
+
             }
         }
 
-	}
+    }
 
     void FixedUpdate()
     {
@@ -100,18 +95,18 @@ public class Bot : MonoBehaviour {
         }
     }
 
-	public void Move(Vector3 _direction, float _speed = 0.1f)
-	{
+    public void Move(Vector3 _direction, float _speed = 0.1f)
+    {
         direction = _direction;
 
         //speed = _speed;
-        
+
         botRigidbody.AddForce(transform.forward * speed / 15, ForceMode.Impulse);
-	}
+    }
 
     public void Stun(float _timeStun)
     {
-       
+
         timeStun = _timeStun;
         partStun.Play();
         actTimeStun = 0;
