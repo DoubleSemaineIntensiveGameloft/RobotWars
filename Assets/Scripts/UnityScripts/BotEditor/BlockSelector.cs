@@ -85,7 +85,7 @@ public class BlockSelector : MonoBehaviour
         }
         else if (index >= this.anchors.Count)
         {
-            return 0;
+            return index % this.anchors.Count;
         }
         return index;
     }
@@ -110,7 +110,7 @@ public class BlockSelector : MonoBehaviour
         }
         else if (index >= this.availablesBlocks.Count)
         {
-            return 0;
+            return index % this.availablesBlocks.Count;
         }
         return index;
     }
@@ -120,6 +120,7 @@ public class BlockSelector : MonoBehaviour
         BlockSelectorAnchor anchor;
         if (this.anchors.TryGetValue(anchorIndex, out anchor))
         {
+            //Debug.Log("Instanciate " + block.id + " at anchor : " + anchorIndex);
             GameObject go = Instantiate(block.gameObject, anchor.transform.position, Quaternion.identity) as GameObject;
             if (head)
             {
@@ -146,10 +147,12 @@ public class BlockSelector : MonoBehaviour
         }
     }
 
-    private void removeDisplayedBlock(bool head, int anchorIndex)
+    private void removeDisplayedBlock(bool head)
     {
         int indexToRemove = head ? 0 : this.displayedBlocks.Count - 1;
         GameObject block = this.displayedBlocks[indexToRemove];
+        //Block b = block.GetComponent<Block>();
+        //Debug.Log("Destroy " + b.id + " at " + indexToRemove);
         this.displayedBlocks.RemoveAt(indexToRemove);
         Destroy(block);
     }
@@ -205,7 +208,7 @@ public class BlockSelector : MonoBehaviour
     public void nextBlock()
     {
         this.addDisplayedBlock(this.availablesBlocks[this.getFirstBlockIndex()], this.getFirstAnchorIndex(), true);
-        this.removeDisplayedBlock(false, this.getLastAnchorIndex());
+        this.removeDisplayedBlock(false);
         this.currentBlockIndex--;
         this.currentBlockIndex = this.clampBlockIndex(this.currentBlockIndex);
         this.currentAnchorIndex--;
@@ -215,12 +218,13 @@ public class BlockSelector : MonoBehaviour
 
     public void previousBlock()
     {
+        Debug.Log("lastBlock index : " + this.getLastBlockIndex());
         this.addDisplayedBlock(this.availablesBlocks[this.getLastBlockIndex()], this.getLastAnchorIndex(), false);
         this.currentAnchorIndex++;
         this.currentAnchorIndex = this.clampAnchorIndex(this.currentAnchorIndex);
         this.currentBlockIndex++;
         this.currentBlockIndex = this.clampBlockIndex(this.currentBlockIndex);
-        this.removeDisplayedBlock(true, this.getFirstAnchorIndex());
+        this.removeDisplayedBlock(true);
         this.rotateBlockSelector(this.rotationAngle);
     }
 
