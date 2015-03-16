@@ -44,7 +44,7 @@ public class GUIManager : MonoBehaviour
                 this.blockDescription.SetActive(false);
             }
         }
-        Physics.IgnoreLayerCollision(LayerMask.GetMask("Block"), LayerMask.GetMask("Block"), true);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
     }
 
     // Update is called once per frame
@@ -55,7 +55,7 @@ public class GUIManager : MonoBehaviour
 
     public void startGame()
     {
-        Physics.IgnoreLayerCollision(LayerMask.GetMask("Block"), LayerMask.GetMask("Block"), false);
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), false);
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player)
         {
