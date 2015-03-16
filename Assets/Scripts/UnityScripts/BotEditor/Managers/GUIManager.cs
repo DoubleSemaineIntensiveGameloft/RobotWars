@@ -44,6 +44,7 @@ public class GUIManager : MonoBehaviour
                 this.blockDescription.SetActive(false);
             }
         }
+        Physics.IgnoreLayerCollision(LayerMask.GetMask("Block"), LayerMask.GetMask("Block"), true);
     }
 
     // Update is called once per frame
