@@ -28,6 +28,11 @@ public class BlockAction : MonoBehaviour {
 	
     public virtual void Update()
     {
+        if (ManagerGame.instance && bot == null)
+        {
+            bot = GetComponentInParent<Bot>();
+        }
+
         /*
         if (!ignoreSet)
         {

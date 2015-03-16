@@ -23,7 +23,11 @@ public class Souffle : MonoBehaviour {
         {
             foreach (Rigidbody actRigid in objetsInSouffle)
             {
-                actRigid.AddForce((actRigid.transform.position - parentSouffle.transform.position).normalized * souffleForce); // (1- (Vector3.Distance(actRigid.transform.position, parentSouffle.transform.position) / 4.5f)) * 
+                if (actRigid)
+                {
+                    actRigid.AddForce((actRigid.transform.position - parentSouffle.transform.position).normalized * souffleForce); // (1- (Vector3.Distance(actRigid.transform.position, parentSouffle.transform.position) / 4.5f)) * 
+
+                }
             }
         }
 	

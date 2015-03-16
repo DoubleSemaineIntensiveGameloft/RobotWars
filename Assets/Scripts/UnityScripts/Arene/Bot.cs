@@ -19,6 +19,8 @@ public class Bot : MonoBehaviour
     public float actTimeStun = 0;
     public float timeStun = 2;
 
+    public Vector3 startPosition = Vector3.zero;
+
     public BoxCollider boxCollider;
 
 
@@ -116,5 +118,15 @@ public class Bot : MonoBehaviour
         actTimeStun = 0;
         stun = true;
         animator.SetBool("Stun", true);
+    }
+
+    public void Restart()
+    {
+        transform.position = startPosition;
+        direction = Vector3.zero;
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        transform.rotation = Quaternion.identity;
+
     }
 }

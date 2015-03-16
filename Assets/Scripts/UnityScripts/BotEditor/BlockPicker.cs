@@ -81,7 +81,7 @@ public class BlockPicker : MonoBehaviour
                     if (collider)
                     {
                         collider.enabled = true;
-                        Debug.Log("DisableCollider");
+                        //Debug.Log("DisableCollider");
                     }
                 }
                 else

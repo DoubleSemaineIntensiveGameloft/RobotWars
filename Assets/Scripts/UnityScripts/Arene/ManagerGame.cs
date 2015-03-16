@@ -13,6 +13,9 @@ public class ManagerGame : MonoBehaviour {
     public GameObject[] positionsStart;
 
     public MoveSlide[] moveControllers;
+
+    GameObject player1;
+    GameObject player2;
 	// Use this for initialization
 	void Start () {
 
@@ -20,8 +23,8 @@ public class ManagerGame : MonoBehaviour {
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         int index = 0;
 
-        GameObject player1 = players[0];
-        GameObject player2 = Instantiate(players[0], players[0].transform.position, Quaternion.identity) as GameObject;
+        player1 = players[0];
+        player2 = Instantiate(players[0], players[0].transform.position, Quaternion.identity) as GameObject;
 
         //player1.transform.position = positionsStart[0].transform.position;
 
@@ -30,10 +33,14 @@ public class ManagerGame : MonoBehaviour {
         player1.transform.localPosition = Vector3.zero;
         moveControllers[0].botControlled = newBot.GetComponent<Bot>();
 
+        moveControllers[0].botControlled.startPosition = positionsStart[0].transform.position;
+
         newBot = Instantiate(prefabBot, positionsStart[index + 1].transform.position, Quaternion.identity) as GameObject;
         player2.transform.parent = newBot.transform;
         player2.transform.localPosition = Vector3.zero;
         moveControllers[1].botControlled = newBot.GetComponent<Bot>();
+
+        moveControllers[1].botControlled.startPosition = positionsStart[index + 1].transform.position;
 
 
         //foreach (GameObject player in players)
@@ -51,7 +58,6 @@ public class ManagerGame : MonoBehaviour {
 
         for (int i = 0; i < anchors.Length; i++)
         {
-            Debug.Log("anchors[i]:" + anchors[i].transform.name);
             if (anchors[i].GetComponentInChildren<Block>())
             { 
                 anchors[i].GetComponentInChildren<Block>().transform.parent = anchors[i].transform.parent;
@@ -70,6 +76,8 @@ public class ManagerGame : MonoBehaviour {
 
     public void Restart()
     {
-        Application.LoadLevel(Application.loadedLevel);
+        //Application.LoadLevel(Application.loadedLevel);
+        player1.GetComponentInParent<Bot>().Restart();
+        player2.GetComponentInParent<Bot>().Restart();
     }
 }
