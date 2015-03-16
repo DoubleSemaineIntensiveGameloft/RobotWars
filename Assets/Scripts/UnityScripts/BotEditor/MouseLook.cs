@@ -64,11 +64,11 @@ public class MouseLook : MonoBehaviour
         }
         if (InputManager.Instance.editorMode)
         {
-            this.transform.Rotate(this.transform.up, Input.GetAxis("Mouse X") * -1 * this.sentivity_X * Time.deltaTime);
+            this.transform.Rotate(this.transform.up, Input.GetAxis("Mouse X") * -1 * this.sentivity_X);
         }
         else
         {
-            this.transform.Rotate(this.transform.up, Input.GetTouch(0).deltaPosition.x * -1 * this.sentivity_X * Time.deltaTime);
+            this.transform.Rotate(this.transform.up, Input.GetTouch(0).deltaPosition.x * -1 * this.sentivity_X * Time.deltaTime);//FIXME:
         }
     }
 

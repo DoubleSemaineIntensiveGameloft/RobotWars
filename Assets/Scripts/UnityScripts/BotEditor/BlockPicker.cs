@@ -81,7 +81,7 @@ public class BlockPicker : MonoBehaviour
                     if (collider)
                     {
                         collider.enabled = true;
-                        //Debug.Log("DisableCollider");
+                        Debug.Log("DisableCollider");
                     }
                 }
                 else
@@ -109,7 +109,7 @@ public class BlockPicker : MonoBehaviour
             }
             else
             {
-                //Debug.Log("Move picked");
+                Debug.Log("Move picked");
                 this.picked.transform.position = Vector3.Lerp(this.picked.transform.position, ray.GetPoint(this.floatRange), Time.deltaTime * this.followSpeed);
                 this.docked = false;
             }
