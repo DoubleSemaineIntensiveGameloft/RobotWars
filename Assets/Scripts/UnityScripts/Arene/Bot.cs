@@ -6,6 +6,7 @@ public class Bot : MonoBehaviour
 
     private Rigidbody botRigidbody;
     private ParticleSystem partStun;
+    private ParticleSystem partHit;
     private Animator animator;
 
     public float speed = 1;
@@ -28,6 +29,7 @@ public class Bot : MonoBehaviour
     {
         botRigidbody = GetComponent<Rigidbody>();
         partStun = transform.FindChild("ParticlesElectricityStun").GetComponent<ParticleSystem>();
+        partHit = transform.FindChild("ParticlesHit").GetComponent<ParticleSystem>();
         animator = GetComponentInChildren<Animator>();
         boxCollider = GetComponent<BoxCollider>();
 
@@ -128,5 +130,15 @@ public class Bot : MonoBehaviour
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
 
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.transform.tag == "Bot")
+        {
+            partHit.transform.position = collision.contacts[0].point;
+            partHit.Emit(15);
+            partHit.transform.rotation = Quaternion.LookRotation((transform.position - collision.transform.position).normalized);
+        }
     }
 }

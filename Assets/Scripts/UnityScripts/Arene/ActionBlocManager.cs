@@ -28,10 +28,12 @@ public class ActionBlocManager : MonoBehaviour {
                 // Create Button
                 GameObject newButton = Instantiate(prefabButton) as GameObject;
                 newButton.GetComponent<BoutonAction>().blocLinked = action;
-                newButton.GetComponentInChildren<Text>().text = action.block.id;
+                //newButton.GetComponentInChildren<Text>().text = action.block.id;
                 newButton.transform.SetParent(transform);
                 newButton.GetComponent<RectTransform>().localPosition = new Vector3(0,140 + i * -90,0);
-                newButton.GetComponent<RectTransform>().localScale = new Vector3(0.6f,0.6f,0.6f);
+                newButton.GetComponent<RectTransform>().localScale = new Vector3(0.3f,0.3f,0.3f);
+
+                newButton.GetComponent<Image>().sprite = action.spriteButton;
 
                 i++;
             }

@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf92fb2413170254ea9b7fed1ede7cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteButton: {fileID: 21300000, guid: d1a19365f8d524d49805d41c6a9836aa, type: 3}
   actTimeCooldown: 0
   timeCooldown: 1
   block: {fileID: 0}

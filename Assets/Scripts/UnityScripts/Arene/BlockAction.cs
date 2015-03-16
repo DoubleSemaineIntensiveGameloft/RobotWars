@@ -3,6 +3,7 @@ using System.Collections;
 
 public class BlockAction : MonoBehaviour {
 
+    public Sprite spriteButton;
 
     public float actTimeCooldown = 0;
     public float timeCooldown = 1;

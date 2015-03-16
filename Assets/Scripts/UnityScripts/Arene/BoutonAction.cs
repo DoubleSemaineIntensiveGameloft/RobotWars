@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class BoutonAction : MonoBehaviour {
 
@@ -8,10 +9,18 @@ public class BoutonAction : MonoBehaviour {
     private Collider2D colliderBtn;
 
     public bool pressed = false;
+    public Image imageBtn;
+
+    public AnimationCurve animCurveBump;
+    public bool feedbackBump = false;
+
+    public float actTimeFeedbackBump = 0;
+    public float timeFeedbackBump = 0.5f;
 
 	// Use this for initialization
 	void Start () {
         colliderBtn = GetComponent<Collider2D>();
+        imageBtn = GetComponent<Image>();
 	}
 	
 	// Update is called once per frame
@@ -36,6 +45,26 @@ public class BoutonAction : MonoBehaviour {
         if(!pressedThisFrame)
         {
             pressed = false;
+        }
+
+        if(blocLinked.actTimeCooldown < blocLinked.timeCooldown)
+        {
+            imageBtn.color = new Color(1, 1, 1, 0.5f);
+            feedbackBump = false;
+        }
+        else if (!feedbackBump)
+        {
+            feedbackBump = true;
+            actTimeFeedbackBump = 0;
+
+            imageBtn.color = new Color(1, 1, 1, 1f);
+        }
+
+        if(actTimeFeedbackBump < timeFeedbackBump)
+        {
+            actTimeFeedbackBump += Time.deltaTime;
+            float bumpSize = animCurveBump.Evaluate(actTimeFeedbackBump / timeFeedbackBump) * 0.3f;
+            imageBtn.transform.localScale = new Vector3(bumpSize, bumpSize, bumpSize);
         }
 
 	
