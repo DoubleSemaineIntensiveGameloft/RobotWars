@@ -1530,7 +1530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881d92848319c8b41af0247de3121ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorMode: 1
+  editorMode: 0
 --- !u!114 &989008291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1623,7 +1623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaa1f6a2bad899499a4582064481b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentivity_X: 2
+  sentivity_X: 10
   doubleTapMaxDelay: .300000012
   durationBetweenShow: 2
 --- !u!65 &1085863868
@@ -1676,6 +1676,26 @@ Prefab:
     - target: {fileID: 455242, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 177300, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 167920, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 120322, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 165210, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
+      objectReference: {fileID: 0}
+    - target: {fileID: 197098, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
+      propertyPath: m_TagString
+      value: Anchor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 938fa5790913b5e4bbe3a248233fa932, type: 2}
