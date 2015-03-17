@@ -21,7 +21,8 @@ public class GUIManager : MonoBehaviour
     public float hideDescriptionDelay = 3.0f;
     private Text endEditor;
     private float hideDescriptionTimer = 0.0f;
-
+    private float torsoSelectorDelay = 3.0f;
+    private GameObject torsoSelector;
 
     void Awake()
     {
@@ -51,6 +52,9 @@ public class GUIManager : MonoBehaviour
         {
             this.endEditor = endEditor_go.GetComponent<Text>();
         }
+
+        this.torsoSelector = canvas.FindChild("TorsoSelector").gameObject;
+
 
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
     }
@@ -138,5 +142,11 @@ public class GUIManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
         this.blockDescription.SetActive(false);
+    }
+
+    private IEnumerator showTorsoSelector()
+    {
+        yield return new WaitForSeconds(this.torsoSelectorDelay);
+        this.showTorsoSelector.setActive(true);
     }
 }
