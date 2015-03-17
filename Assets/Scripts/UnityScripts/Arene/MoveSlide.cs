@@ -52,6 +52,11 @@ public class MoveSlide : MonoBehaviour {
                                 ManagerGame.instance.CheckTuto();
                             }
                         }
+                        else if (Vector2.Distance(initialPosition, touch.position) < 2)
+                        {
+                            botControlled.Move(Vector3.zero);
+                            initialPosition = Vector2.zero;
+                        }
                     }
                 }
                     /*
