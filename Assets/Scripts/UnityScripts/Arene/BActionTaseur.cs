@@ -8,7 +8,7 @@ public class BActionTaseur : BlockAction
     public ParticleSystem partElec;
 
     bool coolingDown = false;
-
+    
     public override void Start()
     {
         base.Start();
@@ -36,14 +36,16 @@ public class BActionTaseur : BlockAction
         {
             if (collision.transform.tag == "Bot")
             {
+                if(bot != collision.gameObject.GetComponent<Bot>())
+                { 
+                    // TAZZ
+                    coolingDown = true;
+                    actTimeCooldown = 0;
+                    //partElec.Stop();
+                    partElec.gameObject.SetActive(false);
 
-                // TAZZ
-                coolingDown = true;
-                actTimeCooldown = 0;
-                //partElec.Stop();
-                partElec.gameObject.SetActive(false);
-
-                collision.gameObject.GetComponent<Bot>().Stun(timeStun);
+                    collision.gameObject.GetComponent<Bot>().Stun(timeStun);
+                }
             }
 
         }

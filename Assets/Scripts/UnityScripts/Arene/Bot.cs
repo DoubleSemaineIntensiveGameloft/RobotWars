@@ -109,7 +109,7 @@ public class Bot : MonoBehaviour
 
         //speed = _speed;
 
-        botRigidbody.AddForce(transform.forward * speed / 15, ForceMode.Impulse);
+        botRigidbody.AddForce(transform.forward * speed / 40, ForceMode.Impulse);
     }
 
     public void Stun(float _timeStun)
