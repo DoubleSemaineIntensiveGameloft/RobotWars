@@ -12,6 +12,9 @@ public class MoveSlide : MonoBehaviour {
 
     public GameObject trailCursor;
 
+    public bool tutoChecked = false;
+    public Animator slideTutoAnimator;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -41,6 +44,13 @@ public class MoveSlide : MonoBehaviour {
 
                             botControlled.Move(new Vector3(moveDirection.x, 0, moveDirection.y)); // , speed
                             initialPosition = Vector2.zero;
+
+                            if(!tutoChecked)
+                            {
+                                tutoChecked = true;
+                                slideTutoAnimator.SetTrigger("AnimOut");
+                                ManagerGame.instance.CheckTuto();
+                            }
                         }
                     }
                 }

@@ -45,7 +45,10 @@ public class Bot : MonoBehaviour
                 //transform.LookAt(transform.position + direction * 10);
 
                 Quaternion lookRot = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+                //transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+
+                botRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime));
+
                 animator.SetFloat("Speed", 1);
 
                 Debug.DrawRay(transform.position + new Vector3(0, 2, 0), transform.forward * 10f + new Vector3(0, -2f, 0));
@@ -99,7 +102,15 @@ public class Bot : MonoBehaviour
         if (direction != Vector3.zero)
         {
 
-            botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+            //botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+            ///botRigidbody.aqd
+            botRigidbody.MovePosition(transform.position + (transform.forward * speed/8 * Time.fixedDeltaTime));
+
+                
+            Quaternion lookRot = Quaternion.LookRotation(direction);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+
+            botRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.fixedDeltaTime));
         }
     }
 
