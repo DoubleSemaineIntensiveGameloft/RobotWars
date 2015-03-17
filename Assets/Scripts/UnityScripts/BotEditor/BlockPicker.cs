@@ -14,6 +14,7 @@ public class BlockPicker : MonoBehaviour
     private bool docked;
     public GameObject blockDestroyEffect;
     private Transform player;
+    private float forcedDockedScale = 1.0f;
 
     void Start()
     {
@@ -26,14 +27,14 @@ public class BlockPicker : MonoBehaviour
         {
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out this.hit, Mathf.Infinity, LayerMask.GetMask(this.pickableLayerName)))
             {
-                Debug.Log("Picked");
+                //Debug.Log("Picked");
                 if (hit.collider.transform.parent != null && hit.collider.transform.parent.tag.Equals("Anchor"))
                 {
                     this.picked = hit.collider.gameObject;
                 }
                 else
                 {
-                    this.picked = Instantiate(hit.collider.gameObject);
+                    this.picked = Instantiate(hit.collider.gameObject) as GameObject;
                     ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
                     if (joint)
                     {
@@ -54,19 +55,19 @@ public class BlockPicker : MonoBehaviour
                 if (collider)
                 {
                     collider.enabled = false;
-                    Debug.Log("DisableCollider");
+                    //Debug.Log("DisableCollider");
                 }
 
                 this.docked = false;
                 Block block = this.picked.GetComponent<Block>();
                 if (block)
                 {
-                    Debug.Log("Block description : " + block.description);
+                    //Debug.Log("Block description : " + block.description);
                     GUIManager.Instance.setBlockDescription(block.description);
                 }
                 else
                 {
-                    Debug.LogError("No block");
+                    //Debug.LogError("No block");
                 }
             }
         }
@@ -74,14 +75,14 @@ public class BlockPicker : MonoBehaviour
         {
             if (this.picked != null)
             {
-                Debug.Log("Released picked");
+                //Debug.Log("Released picked");
                 if (docked)
                 {
                     Collider collider = this.picked.GetComponent<Collider>();
                     if (collider)
                     {
                         collider.enabled = true;
-                        Debug.Log("DisableCollider");
+                        //Debug.Log("DisableCollider");
                     }
                 }
                 else
@@ -106,12 +107,14 @@ public class BlockPicker : MonoBehaviour
                 this.picked.transform.rotation = hit.collider.transform.rotation;
                 this.picked.transform.parent = hit.collider.transform;
                 this.docked = true;
+                this.picked.transform.localScale = new Vector3(this.forcedDockedScale, this.forcedDockedScale, this.forcedDockedScale);
             }
             else
             {
-                Debug.Log("Move picked");
+                //Debug.Log("Move picked");
                 this.picked.transform.position = Vector3.Lerp(this.picked.transform.position, ray.GetPoint(this.floatRange), Time.deltaTime * this.followSpeed);
                 this.docked = false;
+                this.picked.transform.localScale = Vector3.Lerp(this.picked.transform.localScale, new Vector3(this.forcedDockedScale, this.forcedDockedScale, this.forcedDockedScale), Time.deltaTime * this.followSpeed);
             }
         }
     }
