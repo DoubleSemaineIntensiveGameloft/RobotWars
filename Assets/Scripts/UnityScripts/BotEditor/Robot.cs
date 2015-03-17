@@ -2,18 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Robot
+public class Robot : MonoBehaviour
 {
     public int maxActiveCount = 3;
     public int maxPassiveCount = 2;
-    private Dictionary<Block.BlockType, List<Block>> blocks;
-    private GameObject baseBlock;
+    private Dictionary<Block.BlockType, List<Block>> blocks = new Dictionary<Block.BlockType, List<Block>>();
 
-    public Robot(GameObject baseBlock)
-    {
-        this.baseBlock = baseBlock;
-        this.blocks = new Dictionary<Block.BlockType, List<Block>>();
-    }
 
     public bool addBlock(Block block)
     {

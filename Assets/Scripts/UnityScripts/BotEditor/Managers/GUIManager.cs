@@ -55,8 +55,10 @@ public class GUIManager : MonoBehaviour
 
         this.torsoSelector = canvas.FindChild("TorsoSelector").gameObject;
 
-
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
+
+        //StartCoroutine(this.showTorsoSelector());
+
     }
 
     // Update is called once per frame
@@ -147,6 +149,6 @@ public class GUIManager : MonoBehaviour
     private IEnumerator showTorsoSelector()
     {
         yield return new WaitForSeconds(this.torsoSelectorDelay);
-        this.showTorsoSelector.setActive(true);
+        this.torsoSelector.SetActive(true);
     }
 }

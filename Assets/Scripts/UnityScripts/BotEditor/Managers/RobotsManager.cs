@@ -2,31 +2,28 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class RobotsManager
+public class RobotsManager : MonoBehaviour
 {
     private static RobotsManager instance;
     public static RobotsManager Instance
     {
         get
         {
-            if (RobotsManager.instance == null)
-            {
-                RobotsManager.instance = new RobotsManager();
-            }
             return RobotsManager.instance;
         }
     }
     public int maxRobotsCount = 2;
-    private List<Robot> privateRobots;
-    private List<Robot> localBattleRobots;
+    private List<Robot> privateRobots = new List<Robot>();
+    private List<Robot> localBattleRobots = new List<Robot>();
 
     private int currentIndex = -1;
 
-    private RobotsManager()
+    void Awake()
     {
-        this.privateRobots = new List<Robot>();
-        //TODO: load private robots
-        this.localBattleRobots = new List<Robot>();
+        if (RobotsManager.instance == null)
+        {
+            RobotsManager.instance = this;
+        }
     }
 
     public bool saveRobot(Robot robot)
@@ -40,6 +37,11 @@ public class RobotsManager
             default:
                 return false;
         }
+    }
+
+    public void applyMaterial(Material material)
+    {
+
     }
 
     #region "Private robots"
