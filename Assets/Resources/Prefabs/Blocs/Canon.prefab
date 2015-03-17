@@ -147,7 +147,7 @@ MonoBehaviour:
   bot: {fileID: 0}
   ignoreSet: 0
   boule: {fileID: 103398, guid: 7af0a865ea44d75439d20a58b09f82de, type: 2}
-  forceBoule: 35
+  forceBoule: 45
 --- !u!114 &11479066
 MonoBehaviour:
   m_ObjectHideFlags: 1

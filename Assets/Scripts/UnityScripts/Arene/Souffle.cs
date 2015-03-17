@@ -25,8 +25,8 @@ public class Souffle : MonoBehaviour {
             {
                 if (actRigid)
                 {
-                    actRigid.AddForce((actRigid.transform.position - parentSouffle.transform.position).normalized * souffleForce); // (1- (Vector3.Distance(actRigid.transform.position, parentSouffle.transform.position) / 4.5f)) * 
-
+                    actRigid.AddForce((actRigid.transform.position - parentSouffle.transform.position).normalized * souffleForce * Time.fixedDeltaTime); // (1- (Vector3.Distance(actRigid.transform.position, parentSouffle.transform.position) / 4.5f)) * 
+                    Debug.Log("lolSouffle");
                 }
             }
         }

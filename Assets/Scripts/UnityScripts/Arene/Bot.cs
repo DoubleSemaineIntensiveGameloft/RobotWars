@@ -150,6 +150,8 @@ public class Bot : MonoBehaviour
             partHit.transform.position = collision.contacts[0].point;
             partHit.Emit(15);
             partHit.transform.rotation = Quaternion.LookRotation((transform.position - collision.transform.position).normalized);
+
+            botRigidbody.AddForce((transform.position - collision.transform.position).normalized * 40, ForceMode.Impulse);
         }
     }
 }
