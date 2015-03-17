@@ -17,6 +17,7 @@ public class BlockSelector : MonoBehaviour
     //private int startAnchorIndex = 0;
     private int currentAnchorIndex = 0;
     private List<GameObject> displayedBlocks = new List<GameObject>();
+    private float forcedScale = 5.0f;
 
     void Start()
     {
@@ -122,6 +123,7 @@ public class BlockSelector : MonoBehaviour
         {
             //Debug.Log("Instanciate " + block.id + " at anchor : " + anchorIndex);
             GameObject go = Instantiate(block.gameObject, anchor.transform.position, Quaternion.identity) as GameObject;
+            go.transform.localScale = new Vector3(this.forcedScale, this.forcedScale, this.forcedScale);
             if (head)
             {
                 this.displayedBlocks.Insert(0, go);

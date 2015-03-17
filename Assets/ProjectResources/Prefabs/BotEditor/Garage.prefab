@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 488930}
   - 33: {fileID: 3344010}
   - 23: {fileID: 2352712}
+  - 95: {fileID: 9549208}
   m_Layer: 0
   m_Name: Garage
   m_TagString: Untagged
@@ -64,7 +65,7 @@ GameObject:
   - 4: {fileID: 404724}
   - 108: {fileID: 10857002}
   m_Layer: 0
-  m_Name: "Spotlight N\xE9on"
+  m_Name: "Spotlight N\xE9on_Left"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +81,7 @@ GameObject:
   - 4: {fileID: 447744}
   - 108: {fileID: 10847368}
   m_Layer: 0
-  m_Name: "Spotlight N\xE9on"
+  m_Name: "Spotlight N\xE9on_Right"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +264,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Priority: 128
   DopplerLevel: 1
@@ -326,6 +327,23 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138778}
   m_Enabled: 1
+--- !u!95 &9549208
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109660}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 870f567818873f8469f8640ee0b75bb8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!108 &10847368
 Light:
   m_ObjectHideFlags: 1
@@ -336,8 +354,8 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: .97647059, g: 1, b: .792156875, a: 1}
-  m_Intensity: 1.5
-  m_Range: 10
+  m_Intensity: 8
+  m_Range: 100
   m_SpotAngle: 109
   m_CookieSize: 10
   m_Shadows:
@@ -368,8 +386,8 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: .97647059, g: 1, b: .792156875, a: 1}
-  m_Intensity: 1.5
-  m_Range: 10
+  m_Intensity: 8
+  m_Range: 100
   m_SpotAngle: 109
   m_CookieSize: 10
   m_Shadows:
@@ -400,8 +418,8 @@ Light:
   serializedVersion: 6
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1.76999998
-  m_Range: 10
+  m_Intensity: 8
+  m_Range: 100
   m_SpotAngle: 94.1182709
   m_CookieSize: 10
   m_Shadows:
