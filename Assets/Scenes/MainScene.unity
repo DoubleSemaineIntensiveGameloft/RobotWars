@@ -999,6 +999,7 @@ GameObject:
   - 114: {fileID: 989008289}
   - 114: {fileID: 989008290}
   - 114: {fileID: 989008291}
+  - 114: {fileID: 989008292}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1061,6 +1062,18 @@ MonoBehaviour:
   - {fileID: 11479066, guid: a2064aec97c00484fae44e2e49dfda74, type: 2}
   - {fileID: 11479066, guid: c750710b489b31847b622a10965190ea, type: 2}
   - {fileID: 11479066, guid: fad583e9eb1fe774897cc523a70f86ca, type: 2}
+--- !u!114 &989008292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 989008287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb415a758c7fb14d8bf74fb2fa55d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mode: 0
 --- !u!1 &1085863865
 GameObject:
   m_ObjectHideFlags: 0

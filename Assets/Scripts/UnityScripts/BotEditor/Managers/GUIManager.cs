@@ -82,7 +82,7 @@ public class GUIManager : MonoBehaviour
                 break;
             case GameModeManager.Mode.MULTI:
                 //TODO: save robot
-                GameModeManager.Instance.SaveRobot(null);
+                //GameModeManager.Instance.SaveRobot(null);
                 Application.LoadLevelAsync(GameModeManager.editorSceneName);
                 break;
         }
