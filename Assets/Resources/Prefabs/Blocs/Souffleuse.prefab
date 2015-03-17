@@ -209,9 +209,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Souffleuse
+  id: Blower 2006
   blockType: 1
-  description: LA SOUFFLE
+  description: Shoves your opponent away
   unlocked: 1
 --- !u!114 &11488300
 MonoBehaviour:
