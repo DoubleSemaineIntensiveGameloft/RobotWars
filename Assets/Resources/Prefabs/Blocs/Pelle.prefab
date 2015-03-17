@@ -637,9 +637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Pelle
+  id: Shovelium
   blockType: 1
-  description: LA PELLE
+  description: Shoves your opponent and causes him to lose his balance
   unlocked: 1
 --- !u!1001 &100100000
 Prefab:

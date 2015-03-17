@@ -7,13 +7,15 @@ public class Robot
     public int maxActiveCount = 3;
     public int maxPassiveCount = 2;
     private Dictionary<Block.BlockType, List<Block>> blocks;
+    private GameObject baseBlock;
 
-    public Robot()
+    public Robot(GameObject baseBlock)
     {
+        this.baseBlock = baseBlock;
         this.blocks = new Dictionary<Block.BlockType, List<Block>>();
     }
 
-    public void addBlock(Block block)
+    public bool addBlock(Block block)
     {
         switch (block.blockType)
         {
@@ -21,25 +23,28 @@ public class Robot
                 if (this.getActiveBlockCount() < this.maxActiveCount)
                 {
                     this.getOwnersCreate(block.blockType).Add(block);
+                    return true;
                 }
                 else
                 {
                     GUIManager.Instance.displayMessage("Max active blocks reached");
+                    return false;
                 }
-                break;
             case Block.BlockType.PASSIVE:
                 if (this.getPassiveBlockCount() < this.maxPassiveCount)
                 {
                     this.getOwnersCreate(block.blockType).Add(block);
+                    return true;
                 }
                 else
                 {
                     GUIManager.Instance.displayMessage("Max passive blocks reached");
+                    return false;
                 }
-                break;
             case Block.BlockType.NONE:
+            default:
                 Debug.LogError("Error => Unknown block type");
-                break;
+                return false;
         }
     }
 

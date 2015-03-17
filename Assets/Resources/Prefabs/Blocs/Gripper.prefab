@@ -463,9 +463,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Gripper
+  id: MagnetoGrip
   blockType: 1
-  description: Grip...
+  description: Grabs your opponent and pulls him towards you
   unlocked: 0
 --- !u!153 &15329876
 ConfigurableJoint:

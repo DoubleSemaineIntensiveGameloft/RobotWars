@@ -19,7 +19,9 @@ public class GUIManager : MonoBehaviour
     private Text blockDescription_Text;
     public bool autoHideDescription;
     public float hideDescriptionDelay = 3.0f;
+    private Text endEditor;
     private float hideDescriptionTimer = 0.0f;
+
 
     void Awake()
     {
@@ -44,6 +46,12 @@ public class GUIManager : MonoBehaviour
                 this.blockDescription.SetActive(false);
             }
         }
+        Transform endEditor_go = canvas.FindChild("Play_Button");
+        if (endEditor_go)
+        {
+            this.endEditor = endEditor_go.GetComponent<Text>();
+        }
+
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
     }
 
@@ -55,19 +63,29 @@ public class GUIManager : MonoBehaviour
 
     public void startGame()
     {
-        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), false);
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player)
+        switch (GameModeManager.Instance.mode)
         {
-            player.transform.parent = null;
-            player.transform.localPosition = Vector3.zero;
-            player.transform.localRotation = Quaternion.identity;
-            player.transform.localScale = Vector3.one;
-            DontDestroyOnLoad comp = player.AddComponent<DontDestroyOnLoad>();
-            Application.LoadLevelAsync("Arena");
-            Destroy(comp, 1.0f);
+            case GameModeManager.Mode.SOLO:
+                Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), false);
+                GameObject player = GameObject.FindGameObjectWithTag("Player");
+                if (player)
+                {
+                    player.transform.parent = null;
+                    player.transform.localPosition = Vector3.zero;
+                    player.transform.localRotation = Quaternion.identity;
+                    player.transform.localScale = Vector3.one;
+                    DontDestroyOnLoad comp = player.AddComponent<DontDestroyOnLoad>();
+                    Application.LoadLevelAsync("Arena");
+                    Destroy(comp, 1.0f);
+                    //GameModeManager.Instance.SaveRobot(player);
+                }
+                break;
+            case GameModeManager.Mode.MULTI:
+                //TODO: save robot
+                GameModeManager.Instance.SaveRobot(null);
+                Application.LoadLevelAsync(GameModeManager.editorSceneName);
+                break;
         }
-
     }
 
     public void displayMessage(string message)

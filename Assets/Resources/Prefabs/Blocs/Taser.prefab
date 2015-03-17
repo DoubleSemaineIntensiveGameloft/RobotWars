@@ -179,9 +179,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef4164718a90284ebc436fb795a2d51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: Taser
+  id: Electrazor
   blockType: 2
-  description: LE TASEUR
+  description: Stuns your opponent for a brief moment
   unlocked: 1
 --- !u!198 &19873492
 ParticleSystem:
