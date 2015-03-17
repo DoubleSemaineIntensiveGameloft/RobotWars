@@ -18,7 +18,7 @@ public class BlockAction : MonoBehaviour {
     {
         block = GetComponent<Block>();
         bot = GetComponentInParent<Bot>();
-
+        actTimeCooldown = timeCooldown;
 	
 	}
 

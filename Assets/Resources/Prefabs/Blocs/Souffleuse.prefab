@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   active: 0
-  souffleForce: 100
+  souffleForce: 10000
   parentSouffle: {fileID: 0}
   objetsInSouffle: []
 --- !u!198 &19873242

@@ -45,7 +45,10 @@ public class Bot : MonoBehaviour
                 //transform.LookAt(transform.position + direction * 10);
 
                 Quaternion lookRot = Quaternion.LookRotation(direction);
-                transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+                //transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+
+                botRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime));
+
                 animator.SetFloat("Speed", 1);
 
                 Debug.DrawRay(transform.position + new Vector3(0, 2, 0), transform.forward * 10f + new Vector3(0, -2f, 0));
@@ -99,7 +102,15 @@ public class Bot : MonoBehaviour
         if (direction != Vector3.zero)
         {
 
-            botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+            //botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
+            ///botRigidbody.aqd
+            botRigidbody.MovePosition(transform.position + (transform.forward * speed/8 * Time.fixedDeltaTime));
+
+                
+            Quaternion lookRot = Quaternion.LookRotation(direction);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.deltaTime);
+
+            botRigidbody.MoveRotation(Quaternion.Lerp(transform.rotation, lookRot, rotationSpeed * Time.fixedDeltaTime));
         }
     }
 
@@ -109,7 +120,7 @@ public class Bot : MonoBehaviour
 
         //speed = _speed;
 
-        botRigidbody.AddForce(transform.forward * speed / 15, ForceMode.Impulse);
+        botRigidbody.AddForce(transform.forward * speed / 40, ForceMode.Impulse);
     }
 
     public void Stun(float _timeStun)
@@ -139,6 +150,8 @@ public class Bot : MonoBehaviour
             partHit.transform.position = collision.contacts[0].point;
             partHit.Emit(15);
             partHit.transform.rotation = Quaternion.LookRotation((transform.position - collision.transform.position).normalized);
+
+            botRigidbody.AddForce((transform.position - collision.transform.position).normalized * 40, ForceMode.Impulse);
         }
     }
 }

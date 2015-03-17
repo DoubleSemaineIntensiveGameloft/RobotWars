@@ -16,10 +16,17 @@ public class ManagerGame : MonoBehaviour {
 
     GameObject player1;
     GameObject player2;
+
+    public int tutoStatus = 0;
+
+    public GameObject limiter;
 	// Use this for initialization
 	void Start () {
 
         instance = this;
+
+        tutoStatus = 0;
+
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
         int index = 0;
 
@@ -73,6 +80,16 @@ public class ManagerGame : MonoBehaviour {
 	void Update () {
 	
 	}
+
+    public void CheckTuto()
+    {
+        tutoStatus++;
+        if(tutoStatus >= 2)
+        {
+            // Destroy Limitter
+            Destroy(limiter);
+        }
+    }
 
     public void Restart()
     {
