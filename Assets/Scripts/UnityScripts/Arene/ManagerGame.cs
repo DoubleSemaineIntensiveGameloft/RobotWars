@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ManagerGame : MonoBehaviour {
 
@@ -14,12 +15,20 @@ public class ManagerGame : MonoBehaviour {
 
     public MoveSlide[] moveControllers;
 
-    GameObject player1;
-    GameObject player2;
+    public GameObject player1;
+    public GameObject player2;
 
     public int tutoStatus = 0;
 
     public GameObject limiter;
+    public Image limiterImage;
+
+    public bool hideLimiter = false;
+
+    public float actTimeLimiter = 0;
+    public float timeLimiter = 5;
+
+    public Gradient limiterColor;
 	// Use this for initialization
 	void Start () {
 
@@ -35,17 +44,21 @@ public class ManagerGame : MonoBehaviour {
 
         //player1.transform.position = positionsStart[0].transform.position;
 
-        GameObject newBot = Instantiate(prefabBot, positionsStart[index].transform.position, Quaternion.identity) as GameObject;
+        GameObject newBot = Instantiate(prefabBot, positionsStart[index].transform.position, positionsStart[index].transform.rotation) as GameObject;
         player1.transform.parent = newBot.transform;
         player1.transform.localPosition = Vector3.zero;
         moveControllers[0].botControlled = newBot.GetComponent<Bot>();
 
+        player1.transform.rotation = positionsStart[index].transform.rotation;
+
         moveControllers[0].botControlled.startPosition = positionsStart[0].transform.position;
 
-        newBot = Instantiate(prefabBot, positionsStart[index + 1].transform.position, Quaternion.identity) as GameObject;
+        newBot = Instantiate(prefabBot, positionsStart[index + 1].transform.position, positionsStart[index + 1].transform.rotation) as GameObject;
         player2.transform.parent = newBot.transform;
         player2.transform.localPosition = Vector3.zero;
         moveControllers[1].botControlled = newBot.GetComponent<Bot>();
+
+        player2.transform.rotation = positionsStart[index + 1].transform.rotation;
 
         moveControllers[1].botControlled.startPosition = positionsStart[index + 1].transform.position;
 
@@ -73,11 +86,19 @@ public class ManagerGame : MonoBehaviour {
             Destroy(anchors[i]);
         }
 
+        limiterImage = limiter.GetComponent<Image>();
+
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(hideLimiter && actTimeLimiter < timeLimiter)
+        {
+            actTimeLimiter += Time.deltaTime;
+            limiterImage.color = limiterColor.Evaluate(actTimeLimiter / timeLimiter);
+        }
 	
 	}
 
@@ -87,7 +108,8 @@ public class ManagerGame : MonoBehaviour {
         if(tutoStatus >= 2)
         {
             // Destroy Limitter
-            Destroy(limiter);
+            hideLimiter = true;
+
         }
     }
 
@@ -96,5 +118,10 @@ public class ManagerGame : MonoBehaviour {
         //Application.LoadLevel(Application.loadedLevel);
         player1.GetComponentInParent<Bot>().Restart();
         player2.GetComponentInParent<Bot>().Restart();
+    }
+
+    public void Garage()
+    {
+        Application.LoadLevel("MainScene");
     }
 }

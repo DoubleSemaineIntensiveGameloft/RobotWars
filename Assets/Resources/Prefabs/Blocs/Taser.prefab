@@ -162,7 +162,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spriteButton: {fileID: 0}
   actTimeCooldown: 0
-  timeCooldown: 5
+  timeCooldown: 8
   block: {fileID: 0}
   bot: {fileID: 0}
   ignoreSet: 0

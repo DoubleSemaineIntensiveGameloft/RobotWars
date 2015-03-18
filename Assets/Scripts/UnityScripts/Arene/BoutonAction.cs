@@ -72,6 +72,9 @@ public class BoutonAction : MonoBehaviour {
 
     public void DoAction()
     {
+        if(!blocLinked.bot.stun)
+        { 
         blocLinked.ActivateBlock();
+        }
     }
 }

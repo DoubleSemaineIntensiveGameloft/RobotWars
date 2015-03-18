@@ -32,6 +32,8 @@ public class BActionCanon : BlockAction {
 
             newBoule.GetComponent<Rigidbody>().AddForce(directionForce, ForceMode.Impulse);
 
+            AudioSystem.instance.PlayAudio(3);
+
         }
     }
 }

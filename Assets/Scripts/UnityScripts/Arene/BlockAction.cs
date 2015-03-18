@@ -32,6 +32,10 @@ public class BlockAction : MonoBehaviour {
         if (ManagerGame.instance && bot == null)
         {
             bot = GetComponentInParent<Bot>();
+            if(GetComponent<BoxCollider>())
+            {
+                Physics.IgnoreCollision(GetComponent<BoxCollider>(), bot.GetComponent<BoxCollider>());
+            }
         }
 
         /*

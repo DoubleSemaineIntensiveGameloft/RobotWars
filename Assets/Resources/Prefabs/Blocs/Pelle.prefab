@@ -165,7 +165,7 @@ GameObject:
   - 4: {fileID: 484532}
   - 114: {fileID: 11479066}
   - 114: {fileID: 11443174}
-  - 65: {fileID: 6588144}
+  - 135: {fileID: 13580152}
   m_Layer: 9
   m_Name: Pelle
   m_TagString: Block
@@ -404,7 +404,7 @@ Transform:
   m_GameObject: {fileID: 190700}
   m_LocalRotation: {x: .499999344, y: 0, z: 0, w: .866025865}
   m_LocalPosition: {x: 0, y: -.00800000038, z: .0260000005}
-  m_LocalScale: {x: 1.31478703, y: 1.31478667, z: 1.31478667}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 412084}
   m_Father: {fileID: 484532}
@@ -440,7 +440,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 157402}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.6999998, y: 9.81099987, z: 44.1559982}
+  m_LocalPosition: {x: 15.4033413, y: 9.78098965, z: 44.2085419}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 466922}
@@ -562,20 +562,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.77578115, y: 2.41409469, z: 1.12821019}
-  m_Center: {x: -1.73315907, y: .00840869546, z: -.393867791}
---- !u!65 &6588144
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 157402}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: .476171702, y: 1.77062607, z: .330000013}
-  m_Center: {x: -.00808620453, y: -.699999809, z: 0}
+  m_Size: {x: 4.78999996, y: 3.70000005, z: 1.12821019}
+  m_Center: {x: -2.17000008, y: .00840869546, z: -.393867791}
 --- !u!95 &9523146
 Animator:
   serializedVersion: 3
@@ -605,6 +593,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionPelle: {fileID: 0}
+  objetsInPelle: []
 --- !u!114 &11443174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -622,7 +611,7 @@ MonoBehaviour:
   block: {fileID: 0}
   bot: {fileID: 0}
   ignoreSet: 0
-  forcePelle: 30
+  forcePelle: 70
   active: 0
   actTimeActive: 0
   timeActive: 1
@@ -641,6 +630,18 @@ MonoBehaviour:
   blockType: 0
   description: Shoves your opponent and causes him to lose his balance
   unlocked: 1
+--- !u!135 &13580152
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 157402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: .860000014
+  m_Center: {x: 0, y: -.569999993, z: -.430000007}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
