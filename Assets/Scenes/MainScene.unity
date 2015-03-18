@@ -1684,7 +1684,7 @@ MonoBehaviour:
   defaultBlockType: 1
   availablesBlocks:
   - {fileID: 11479066, guid: 13152e539cb5b644e853369b27e68007, type: 2}
-  - {fileID: 0}
+  - {fileID: 11479066, guid: e57d126b50c08f642966168c6c146c11, type: 2}
   - {fileID: 11479066, guid: a2064aec97c00484fae44e2e49dfda74, type: 2}
   - {fileID: 11479066, guid: c750710b489b31847b622a10965190ea, type: 2}
   - {fileID: 11479066, guid: fad583e9eb1fe774897cc523a70f86ca, type: 2}

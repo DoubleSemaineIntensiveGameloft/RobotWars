@@ -7,7 +7,7 @@ public class Bot : MonoBehaviour
     public Rigidbody botRigidbody;
     private ParticleSystem partStun;
     private ParticleSystem partHit;
-    private Animator animator;
+    public Animator animator;
 
     public float speed = 1;
     public float rotationSpeed = 5;

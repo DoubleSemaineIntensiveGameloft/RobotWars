@@ -38,6 +38,61 @@ ModelImporter:
     100060: Object098
     100062: Object099
     100064: Point085
+    100066: Object128
+    100068: Object129
+    100070: Object130
+    100072: Object131
+    100074: Object132
+    100076: Object133
+    100078: Object134
+    100080: Object135
+    100082: Object136
+    100084: Object137
+    100086: Object138
+    100088: Object139
+    100090: Object140
+    100092: Object141
+    100094: Object142
+    100096: Object143
+    100098: Object144
+    100100: Object145
+    100102: Object146
+    100104: Object147
+    100106: Object148
+    100108: Object149
+    100110: Object150
+    100112: Object151
+    100114: Object153
+    100116: Object154
+    100118: Object155
+    100120: Point009
+    100122: Point010
+    100124: Point011
+    100126: Point012
+    100128: Point013
+    100130: Point014
+    100132: Point015
+    100134: Point016
+    100136: Point017
+    100138: Point018
+    100140: Point019
+    100142: Point020
+    100144: Point021
+    100146: Point022
+    100148: Point023
+    100150: Point024
+    100152: Point025
+    100154: Point026
+    100156: Point027
+    100158: Point028
+    100160: Point029
+    100162: Point030
+    100164: Point031
+    100166: Point032
+    100168: Point033
+    100170: Point034
+    100172: Point035
+    100174: Point036
     400000: //RootNode
     400002: Box219
     400004: Object070
@@ -71,6 +126,61 @@ ModelImporter:
     400060: Object098
     400062: Object099
     400064: Point085
+    400066: Object128
+    400068: Object129
+    400070: Object130
+    400072: Object131
+    400074: Object132
+    400076: Object133
+    400078: Object134
+    400080: Object135
+    400082: Object136
+    400084: Object137
+    400086: Object138
+    400088: Object139
+    400090: Object140
+    400092: Object141
+    400094: Object142
+    400096: Object143
+    400098: Object144
+    400100: Object145
+    400102: Object146
+    400104: Object147
+    400106: Object148
+    400108: Object149
+    400110: Object150
+    400112: Object151
+    400114: Object153
+    400116: Object154
+    400118: Object155
+    400120: Point009
+    400122: Point010
+    400124: Point011
+    400126: Point012
+    400128: Point013
+    400130: Point014
+    400132: Point015
+    400134: Point016
+    400136: Point017
+    400138: Point018
+    400140: Point019
+    400142: Point020
+    400144: Point021
+    400146: Point022
+    400148: Point023
+    400150: Point024
+    400152: Point025
+    400154: Point026
+    400156: Point027
+    400158: Point028
+    400160: Point029
+    400162: Point030
+    400164: Point031
+    400166: Point032
+    400168: Point033
+    400170: Point034
+    400172: Point035
+    400174: Point036
     2300000: Box219
     2300002: Object070
     2300004: Object071
@@ -102,6 +212,33 @@ ModelImporter:
     2300056: Object097
     2300058: Object098
     2300060: Object099
+    2300062: Object128
+    2300064: Object129
+    2300066: Object130
+    2300068: Object131
+    2300070: Object132
+    2300072: Object133
+    2300074: Object134
+    2300076: Object135
+    2300078: Object136
+    2300080: Object137
+    2300082: Object138
+    2300084: Object139
+    2300086: Object140
+    2300088: Object141
+    2300090: Object142
+    2300092: Object143
+    2300094: Object144
+    2300096: Object145
+    2300098: Object146
+    2300100: Object147
+    2300102: Object148
+    2300104: Object149
+    2300106: Object150
+    2300108: Object151
+    2300110: Object153
+    2300112: Object154
+    2300114: Object155
     3300000: Box219
     3300002: Object070
     3300004: Object071
@@ -133,6 +270,33 @@ ModelImporter:
     3300056: Object097
     3300058: Object098
     3300060: Object099
+    3300062: Object128
+    3300064: Object129
+    3300066: Object130
+    3300068: Object131
+    3300070: Object132
+    3300072: Object133
+    3300074: Object134
+    3300076: Object135
+    3300078: Object136
+    3300080: Object137
+    3300082: Object138
+    3300084: Object139
+    3300086: Object140
+    3300088: Object141
+    3300090: Object142
+    3300092: Object143
+    3300094: Object144
+    3300096: Object145
+    3300098: Object146
+    3300100: Object147
+    3300102: Object148
+    3300104: Object149
+    3300106: Object150
+    3300108: Object151
+    3300110: Object153
+    3300112: Object154
+    3300114: Object155
     4300000: Object070
     4300002: Object099
     4300004: Object091
@@ -164,7 +328,34 @@ ModelImporter:
     4300056: Object088
     4300058: Object092
     4300060: Box219
-    7400000: Take 001
+    4300062: Object128
+    4300064: Object129
+    4300066: Object130
+    4300068: Object131
+    4300070: Object135
+    4300072: Object134
+    4300074: Object133
+    4300076: Object132
+    4300078: Object136
+    4300080: Object140
+    4300082: Object139
+    4300084: Object138
+    4300086: Object137
+    4300088: Object141
+    4300090: Object145
+    4300092: Object144
+    4300094: Object143
+    4300096: Object142
+    4300098: Object146
+    4300100: Object150
+    4300102: Object149
+    4300104: Object148
+    4300106: Object147
+    4300108: Object151
+    4300110: Object155
+    4300112: Object154
+    4300114: Object153
+    7400000: Roll
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -181,7 +372,153 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Roll
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Box219
+        weight: 1
+      - path: Object070
+        weight: 1
+      - path: Object070/Object099
+        weight: 1
+      - path: Point009
+        weight: 1
+      - path: Point009/Object097
+        weight: 1
+      - path: Point010
+        weight: 1
+      - path: Point010/Object128
+        weight: 1
+      - path: Point011
+        weight: 1
+      - path: Point011/Object129
+        weight: 1
+      - path: Point012
+        weight: 1
+      - path: Point012/Object130
+        weight: 1
+      - path: Point013
+        weight: 1
+      - path: Point013/Object131
+        weight: 1
+      - path: Point014
+        weight: 1
+      - path: Point014/Object135
+        weight: 1
+      - path: Point015
+        weight: 1
+      - path: Point015/Object134
+        weight: 1
+      - path: Point016
+        weight: 1
+      - path: Point016/Object133
+        weight: 1
+      - path: Point017
+        weight: 1
+      - path: Point017/Object132
+        weight: 1
+      - path: Point018
+        weight: 1
+      - path: Point018/Object136
+        weight: 1
+      - path: Point019
+        weight: 1
+      - path: Point019/Object140
+        weight: 1
+      - path: Point020
+        weight: 1
+      - path: Point020/Object139
+        weight: 1
+      - path: Point021
+        weight: 1
+      - path: Point021/Object138
+        weight: 1
+      - path: Point022
+        weight: 1
+      - path: Point022/Object137
+        weight: 1
+      - path: Point023
+        weight: 1
+      - path: Point023/Object141
+        weight: 1
+      - path: Point024
+        weight: 1
+      - path: Point024/Object145
+        weight: 1
+      - path: Point025
+        weight: 1
+      - path: Point025/Object144
+        weight: 1
+      - path: Point026
+        weight: 1
+      - path: Point026/Object143
+        weight: 1
+      - path: Point027
+        weight: 1
+      - path: Point027/Object142
+        weight: 1
+      - path: Point028
+        weight: 1
+      - path: Point028/Object146
+        weight: 1
+      - path: Point029
+        weight: 1
+      - path: Point029/Object150
+        weight: 1
+      - path: Point030
+        weight: 1
+      - path: Point030/Object149
+        weight: 1
+      - path: Point031
+        weight: 1
+      - path: Point031/Object148
+        weight: 1
+      - path: Point032
+        weight: 1
+      - path: Point032/Object147
+        weight: 1
+      - path: Point033
+        weight: 1
+      - path: Point033/Object151
+        weight: 1
+      - path: Point034
+        weight: 1
+      - path: Point034/Object155
+        weight: 1
+      - path: Point035
+        weight: 1
+      - path: Point035/Object154
+        weight: 1
+      - path: Point036
+        weight: 1
+      - path: Point036/Object153
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
