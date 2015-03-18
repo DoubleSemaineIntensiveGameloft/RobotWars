@@ -21,7 +21,7 @@ public class Robot : MonoBehaviour
         switch (blockType)
         {
             case Block.BlockType.ACTIVE:
-                if (this.getActiveBlockCount() <= this.maxActiveCount)
+                if (this.getActiveBlockCount() < this.maxActiveCount)
                 {
                     return true;
                 }
@@ -30,7 +30,7 @@ public class Robot : MonoBehaviour
                     return false;
                 }
             case Block.BlockType.PASSIVE:
-                if (this.getPassiveBlockCount() <= this.maxPassiveCount)
+                if (this.getPassiveBlockCount() < this.maxPassiveCount)
                 {
                     return true;
                 }
