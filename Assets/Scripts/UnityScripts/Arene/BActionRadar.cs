@@ -38,9 +38,9 @@ public class BActionRadar : BlockAction
         {
             if(bot.direction == Vector3.zero)
             {
-                Quaternion lookRot = Quaternion.LookRotation((robotAdverse.transform.position - bot.transform.position).normalized);
+                Quaternion lookRot = Quaternion.LookRotation((new Vector3(robotAdverse.transform.position.x, bot.transform.position.y, robotAdverse.transform.position.z) - bot.transform.position).normalized);
 
-                bot.botRigidbody.MoveRotation(Quaternion.Lerp(bot.transform.rotation, lookRot, 10 * Time.deltaTime));
+                bot.botRigidbody.MoveRotation(Quaternion.Lerp(bot.transform.rotation, lookRot, 2.5f * Time.deltaTime));
             }
 
         }

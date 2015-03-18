@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ManagerGame : MonoBehaviour {
 
@@ -20,6 +21,14 @@ public class ManagerGame : MonoBehaviour {
     public int tutoStatus = 0;
 
     public GameObject limiter;
+    public Image limiterImage;
+
+    public bool hideLimiter = false;
+
+    public float actTimeLimiter = 0;
+    public float timeLimiter = 5;
+
+    public Gradient limiterColor;
 	// Use this for initialization
 	void Start () {
 
@@ -77,11 +86,19 @@ public class ManagerGame : MonoBehaviour {
             Destroy(anchors[i]);
         }
 
+        limiterImage = limiter.GetComponent<Image>();
+
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+        if(hideLimiter && actTimeLimiter < timeLimiter)
+        {
+            actTimeLimiter += Time.deltaTime;
+            limiterImage.color = limiterColor.Evaluate(actTimeLimiter / timeLimiter);
+        }
 	
 	}
 
@@ -91,7 +108,8 @@ public class ManagerGame : MonoBehaviour {
         if(tutoStatus >= 2)
         {
             // Destroy Limitter
-            Destroy(limiter);
+            hideLimiter = true;
+
         }
     }
 

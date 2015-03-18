@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class CameraGame : MonoBehaviour {
 
+    public static CameraGame instance;
     [Range(-1,1)]
     public float cameraGyro = 0;
 
@@ -33,6 +34,7 @@ public class CameraGame : MonoBehaviour {
 
 	void Start () {
 
+        instance = this;
 
         ManagerGame.instance.limiter.SetActive(false);
 

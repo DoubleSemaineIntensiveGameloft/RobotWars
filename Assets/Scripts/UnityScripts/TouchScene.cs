@@ -15,7 +15,7 @@ public class TouchScene : MonoBehaviour {
         {
             if(touch.phase == TouchPhase.Ended)
             {
-                Application.LoadLevel("MenuScene");
+                Application.LoadLevel("MainScene");
             }
         }
 	

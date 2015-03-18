@@ -45,14 +45,14 @@ public class MoveSlide : MonoBehaviour {
                             botControlled.Move(new Vector3(moveDirection.x, 0, moveDirection.y)); // , speed
                             initialPosition = Vector2.zero;
 
-                            if(!tutoChecked)
+                            if (!tutoChecked && CameraGame.instance.cameraState > 0)
                             {
                                 tutoChecked = true;
                                 slideTutoAnimator.SetTrigger("AnimOut");
                                 ManagerGame.instance.CheckTuto();
                             }
                         }
-                        else if (Vector2.Distance(initialPosition, touch.position) < 2)
+                        else if (Vector2.Distance(initialPosition, touch.position) < 4)
                         {
                             botControlled.Move(Vector3.zero);
                             initialPosition = Vector2.zero;
