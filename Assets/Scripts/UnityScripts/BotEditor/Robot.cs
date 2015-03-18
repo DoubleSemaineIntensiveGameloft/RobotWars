@@ -4,10 +4,17 @@ using System.Collections.Generic;
 
 public class Robot : MonoBehaviour
 {
+    [System.Serializable]
+    public struct Skin
+    {
+        public string id;
+        public Sprite icon;
+        public GameObject model;
+    }
     public int maxActiveCount = 3;
     public int maxPassiveCount = 2;
     private Dictionary<Block.BlockType, List<Block>> blocks = new Dictionary<Block.BlockType, List<Block>>();
-
+    public Skin[] availablesSkins;
 
     public bool addBlock(Block block)
     {
@@ -76,5 +83,40 @@ public class Robot : MonoBehaviour
     public string export()
     {
         return "";
+    }
+
+    public Sprite getIcon(string materialId)
+    {
+        foreach (Skin skin in this.availablesSkins)
+        {
+            if (skin.id.Equals(materialId))
+            {
+                return skin.icon;
+            }
+        }
+        return null;
+    }
+
+    public void applySkin(string skinId)
+    {
+        foreach (Skin skin in this.availablesSkins)
+        {
+            if (skin.id.Equals(skinId))
+            {
+                List<GameObject> children = new List<GameObject>();
+                foreach (Transform child in transform)
+                {
+                    children.Add(child.gameObject);
+                }
+                children.ForEach(child => Destroy(child));
+
+                GameObject newBot = Instantiate(skin.model, Vector3.zero, skin.model.transform.rotation) as GameObject;
+                newBot.transform.parent = GUIManager.Instance.parentNewBotTo.transform.GetChild(0);
+                newBot.transform.localPosition = Vector3.zero;
+                newBot.transform.localRotation = Quaternion.identity;
+                newBot.transform.localScale = Vector3.one;
+                break;
+            }
+        }
     }
 }

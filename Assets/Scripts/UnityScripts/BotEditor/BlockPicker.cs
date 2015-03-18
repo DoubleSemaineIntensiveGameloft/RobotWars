@@ -34,6 +34,8 @@ public class BlockPicker : MonoBehaviour
                 }
                 else
                 {
+                    //TODO: check if i can use this category block
+                    //RobotsManager.Instance.getCurrentRobot().
                     this.picked = Instantiate(hit.collider.gameObject) as GameObject;
                     ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
                     if (joint)
