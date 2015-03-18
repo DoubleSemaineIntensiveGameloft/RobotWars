@@ -20,15 +20,15 @@ public class GUIManager : MonoBehaviour
     private Text blockDescription_Text;
     public bool autoHideDescription;
     public float hideDescriptionDelay = 3.0f;
-    private Text endEditor;
+    //private Text endEditor;
     private float hideDescriptionTimer = 0.0f;
     private float torsoSelectorDelay = 5.0f;
     private GameObject torsoSelector;
     private GameObject skinSelector;
     private GameObject endEditorButton;
 
-    public GameObject parentNewBotTo;
-    private bool firstPass;
+    //public GameObject parentNewBotTo;
+    private static bool firstPass = true;
 
     void Awake()
     {
@@ -54,10 +54,10 @@ public class GUIManager : MonoBehaviour
             }
         }
         this.endEditorButton = canvas.FindChild("Play_Button").gameObject;
-        if (endEditorButton)
-        {
-            this.endEditor = endEditorButton.GetComponent<Text>();
-        }
+        //if (endEditorButton)
+        //{
+        //    this.endEditor = endEditorButton.GetComponent<Text>();
+        //}
         endEditorButton.SetActive(false);
 
         this.torsoSelector = canvas.FindChild("TorsoSelector").gameObject;
@@ -66,7 +66,6 @@ public class GUIManager : MonoBehaviour
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
 
         StartCoroutine(this.showTorsoSelector());
-
     }
 
     // Update is called once per frame
@@ -74,53 +73,59 @@ public class GUIManager : MonoBehaviour
     {
 
     }
+
     public void init()
     {
-        this.firstPass = true;
+        firstPass = true;
     }
 
     public void startGame()
     {
+
         switch (GameModeManager.Instance.mode)
         {
             case GameModeManager.Mode.SOLO:
-                this.goToArena();
-                //GameObject player = GameObject.FindGameObjectWithTag("Player");
-                //if (player)
-                //{
-                //    player.transform.parent = null;
-                //    player.transform.localPosition = Vector3.zero;
-                //    player.transform.localRotation = Quaternion.identity;
-                //    player.transform.localScale = Vector3.one;
-
-                //}
-                break;
-            case GameModeManager.Mode.MULTI:
-                if (this.firstPass)
-                {
-                    Application.LoadLevelAsync(GameModeManager.editorSceneName);
-                    this.firstPass = false;
-                }
-                else
                 {
                     this.goToArena();
+                    break;
                 }
-                break;
+            case GameModeManager.Mode.MULTI:
+                {
+                    if (firstPass)
+                    {
+                        firstPass = false;
+                        GameObject bot = RobotsManager.Instance.getCurrentRobot().gameObject;
+                        bot.transform.parent = null;
+                        bot.SetActive(false);
+                        Application.LoadLevelAsync(Application.loadedLevelName);
+                    }
+                    else
+                    {
+                        this.goToArena();
+                    }
+                    break;
+                }
         }
     }
 
     public void goToArena()
     {
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), false);
+        this.resetPositions();
         Application.LoadLevelAsync("Arena");
     }
 
     private void resetPositions()
     {
         Robot[] bots = RobotsManager.Instance.getRobots();
+        Debug.Log("Bots count : " + bots.Length);
         for (int i = 0; i < bots.Length; i++)
         {
-
+            GameObject bot = bots[i].gameObject;
+            bot.transform.parent = null;
+            bot.transform.localPosition = Vector3.zero;
+            bot.transform.localRotation = Quaternion.identity;
+            bot.transform.localScale = Vector3.one;
         }
     }
 
@@ -206,7 +211,9 @@ public class GUIManager : MonoBehaviour
     {
         if (robot)
         {
-            if (RobotsManager.Instance.saveRobot(robot))
+            GameObject bot_go = Instantiate<GameObject>(robot.gameObject);
+            Robot bot = bot_go.GetComponent<Robot>();
+            if (RobotsManager.Instance.saveRobot(bot))
             {
                 GameObject go = GameObject.Find("Robot");
                 List<GameObject> children = new List<GameObject>();
@@ -216,14 +223,14 @@ public class GUIManager : MonoBehaviour
                 }
                 children.ForEach(child => Destroy(child));
 
-                GameObject newBot = Instantiate(robot.gameObject);
-                newBot.transform.parent = parentNewBotTo.transform;
-                newBot.transform.localPosition = Vector3.zero;
-                newBot.transform.localRotation = Quaternion.identity;
-                newBot.transform.localScale = Vector3.one;
+                bot_go.transform.parent = go.transform;
+                bot_go.transform.localPosition = Vector3.zero;
+                bot_go.transform.localRotation = Quaternion.identity;
+                bot_go.transform.localScale = Vector3.one;
             }
             else
             {
+                Destroy(bot_go);
                 Debug.Log("Save error");
             }
             this.setupSkinSelection(robot);

@@ -123,7 +123,7 @@ public class Robot : MonoBehaviour
                 children.ForEach(child => Destroy(child));
 
                 GameObject newBot = Instantiate(skin.model, Vector3.zero, skin.model.transform.rotation) as GameObject;
-                newBot.transform.parent = GUIManager.Instance.parentNewBotTo.transform.GetChild(0);
+                newBot.transform.parent = this.transform;
                 newBot.transform.localPosition = Vector3.zero;
                 newBot.transform.localRotation = Quaternion.identity;
                 newBot.transform.localScale = Vector3.one;

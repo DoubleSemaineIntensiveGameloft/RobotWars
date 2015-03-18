@@ -182,6 +182,7 @@ public class RobotsManager : MonoBehaviour
         if (this.localBattleRobots.Count <= 1)
         {
             this.localBattleRobots.Add(robot);
+            robot.gameObject.AddComponent<DontDestroyOnLoad>();
             this.currentIndex = this.localBattleRobots.Count - 1;
             Debug.Log("Save multi, index : " + this.currentIndex);
             return true;
@@ -199,8 +200,8 @@ public class RobotsManager : MonoBehaviour
 
     private Robot[] getMultiRobots()
     {
-        Robot[] bots = new Robot[2];
-        for (int i = 0; i < this.localBattleRobots.Count; i++)
+        Robot[] bots = new Robot[this.localBattleRobots.Count];
+        for (int i = 0; i < bots.Length; i++)
         {
             bots[i] = this.localBattleRobots[i];
         }

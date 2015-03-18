@@ -11,7 +11,7 @@ public class GameModeManager : MonoBehaviour
     }
     public static string editorSceneName = "MainScene";
     public enum Mode { SOLO, MULTI };
-    public Mode mode = Mode.SOLO;
+    public Mode mode = Mode.MULTI;
 
     void Awake()
     {
