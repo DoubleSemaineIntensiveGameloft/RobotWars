@@ -611,7 +611,7 @@ MonoBehaviour:
   block: {fileID: 0}
   bot: {fileID: 0}
   ignoreSet: 0
-  forcePelle: 20
+  forcePelle: 70
   active: 0
   actTimeActive: 0
   timeActive: 1

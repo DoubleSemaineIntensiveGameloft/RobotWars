@@ -33,9 +33,11 @@ public class Pelle : MonoBehaviour {
                    // Debug.Log("actionPelle.bot.transform:" + actionPelle.transform.name);
                     if (actRigid.transform != actionPelle.bot.transform)
                     {
-                        actRigid.AddForce((actRigid.transform.position - transform.position).normalized * 10 + new Vector3(0, actionPelle.forcePelle, 0), ForceMode.Impulse);
+                        AudioSystem.instance.PlayAudio(0);
+                        actRigid.AddForce((actRigid.transform.position - transform.position).normalized * 25 + new Vector3(0, actionPelle.forcePelle, 0), ForceMode.Impulse);
                     }
                 }
+                actionPelle.active = false;
             }
         }
 	

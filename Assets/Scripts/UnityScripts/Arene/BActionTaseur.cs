@@ -34,16 +34,14 @@ public class BActionTaseur : BlockAction
 
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("taz4");
         if(actTimeCooldown >= timeCooldown)
         {
-            Debug.Log("taz3");
             if (collision.transform.tag == "Bot")
             {
-                Debug.Log("taz2");
                 if(bot.gameObject != collision.gameObject)
                 {
-                    Debug.Log("taz");
+
+                    AudioSystem.instance.PlayAudio(2);
                     // TAZZ
                     coolingDown = true;
                     actTimeCooldown = 0;
