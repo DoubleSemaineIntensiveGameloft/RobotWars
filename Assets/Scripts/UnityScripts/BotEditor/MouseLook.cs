@@ -20,7 +20,7 @@ public class MouseLook : MonoBehaviour
         this.canShow = true;
         this.canRotate = false;
         this.blockPicker = Camera.main.GetComponent<BlockPicker>();
-        this.playerAnim = this.transform.FindChild("Robot").FindChild("Arakne").GetComponentInChildren<Animator>();
+        this.playerAnim = this.transform.FindChild("Robot").GetComponentInChildren<Animator>();
     }
 
     void Update()

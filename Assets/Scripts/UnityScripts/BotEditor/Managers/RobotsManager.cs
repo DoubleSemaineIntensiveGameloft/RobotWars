@@ -39,9 +39,91 @@ public class RobotsManager : MonoBehaviour
         }
     }
 
-    public void applyMaterial(Material material)
+    public Robot[] getRobots()
     {
+        switch (GameModeManager.Instance.mode)
+        {
+            case GameModeManager.Mode.SOLO:
+                return this.getSoloRobots();
+            case GameModeManager.Mode.MULTI:
+                return this.getMultiRobots();
+            default:
+                return null;
+        }
+    }
 
+    public void applySkin(string skinName)
+    {
+        this.getCurrentRobot().applySkin(skinName);
+        GameObject player = GameObject.Find("Player");
+        if (player)
+        {
+            MouseLook ml = player.GetComponent<MouseLook>();
+            if (ml)
+            {
+                Debug.Log("mouse look activated");
+                ml.enabled = true;
+            }
+        }
+    }
+
+    public Robot getRobot(int index)
+    {
+        switch (GameModeManager.Instance.mode)
+        {
+            case GameModeManager.Mode.SOLO:
+                return this.privateRobots[index];
+            case GameModeManager.Mode.MULTI:
+                return this.localBattleRobots[index];
+            default:
+                return null;
+        }
+    }
+
+    //public void selectRobot(int index)
+    //{
+    //    this.currentIndex = index;
+    //    switch (GameModeManager.Instance.mode)
+    //    {
+    //        case GameModeManager.Mode.SOLO:
+    //            this.clampPrivateIndex();
+    //            break;
+    //        case GameModeManager.Mode.MULTI:
+    //            this.clearMultiRobots();
+    //            break;
+    //        default:
+    //            Debug.Log("Unknown Mode");
+    //            break;
+    //    }
+    //}
+
+    public Robot getCurrentRobot()
+    {
+        return this.getRobot(this.currentIndex);
+    }
+
+    private void clampPrivateIndex()
+    {
+        if (this.currentIndex < 0)
+        {
+            this.currentIndex = 0;
+        }
+        else if (this.currentIndex >= this.privateRobots.Count)
+        {
+            this.currentIndex = this.privateRobots.Count - 1;
+        }
+    }
+
+    private void clampMultiIndex()
+    {
+        if (this.currentIndex < 0)
+        {
+            this.currentIndex = 0;
+        }
+        else if (this.currentIndex >= this.localBattleRobots.Count)
+        {
+            this.currentIndex = this.localBattleRobots.Count - 1;
+        }
     }
 
     #region "Private robots"
@@ -50,11 +132,12 @@ public class RobotsManager : MonoBehaviour
         this.maxRobotsCount++;
     }
 
-    public bool savePrivateRobot(Robot robot)
+    private bool savePrivateRobot(Robot robot)
     {
         if (this.privateRobots.Count < this.maxRobotsCount)
         {
             this.privateRobots.Add(robot);
+            this.currentIndex = this.privateRobots.Count - 1;
             return true;
         }
         else
@@ -62,28 +145,35 @@ public class RobotsManager : MonoBehaviour
             GUIManager.Instance.displayMessage("Max robot count reached");
             return false;
         }
+
     }
 
-    public void deleteRobot(Robot robot)
+    private void deleteRobot(Robot robot)
     {
         this.privateRobots.Remove(robot);
     }
 
-    public void removeAllRobots()
+    private void removeAllRobots()
     {
         this.privateRobots.Clear();
     }
 
 
-    public int getRobotsCount()
+    private int getRobotsCount()
     {
         return this.privateRobots.Count;
     }
 
-    public Robot getRobot(int index)
+    private Robot[] getSoloRobots()
     {
-        return this.privateRobots[index];
+        Robot[] bots = new Robot[this.privateRobots.Count];
+        for (int i = 0; i < this.privateRobots.Count; i++)
+        {
+            bots[i] = this.privateRobots[i];
+        }
+        return bots;
     }
+
     #endregion
 
     #region "Local battles"
@@ -92,6 +182,8 @@ public class RobotsManager : MonoBehaviour
         if (this.localBattleRobots.Count <= 1)
         {
             this.localBattleRobots.Add(robot);
+            this.currentIndex = this.localBattleRobots.Count - 1;
+            Debug.Log("Save multi, index : " + this.currentIndex);
             return true;
         }
         else
@@ -105,7 +197,7 @@ public class RobotsManager : MonoBehaviour
         this.localBattleRobots.Clear();
     }
 
-    public Robot[] getMultiRobots()
+    private Robot[] getMultiRobots()
     {
         Robot[] bots = new Robot[2];
         for (int i = 0; i < this.localBattleRobots.Count; i++)
