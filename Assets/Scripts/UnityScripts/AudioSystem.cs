@@ -21,7 +21,7 @@ public class AudioSystem : MonoBehaviour {
 	
 	}
 
-    public void PlayAudio(int audioToPlay, float pitch = 1)
+    public void PlayAudio(int audioToPlay, float pitch = 1, float volume = 1)
     {
         foreach (AudioSource actAudioSource in audioSources)
         {
@@ -29,6 +29,7 @@ public class AudioSystem : MonoBehaviour {
             {
                 actAudioSource.clip = audioClips[audioToPlay];
                 actAudioSource.pitch = pitch;
+                actAudioSource.volume = volume;
                 actAudioSource.Play();
                 break;
             }

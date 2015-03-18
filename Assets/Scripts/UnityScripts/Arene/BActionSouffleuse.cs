@@ -50,7 +50,7 @@ public class BActionSouffleuse : BlockAction {
             active = true;
 
 
-            AudioSystem.instance.PlayAudio(1);
+            AudioSystem.instance.PlayAudio(1,Random.Range(0.8f,1.2f), 0.5f);
 
 
         }

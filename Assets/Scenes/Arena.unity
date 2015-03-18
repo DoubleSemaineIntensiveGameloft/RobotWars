@@ -25,7 +25,7 @@ RenderSettings:
   m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
-  m_SkyboxMaterial: {fileID: 2100000, guid: 09666ccc0562f4a48a14d7e24213ebb0, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: e49caf1b36a6b564ca4a165c6861e976, type: 2}
   m_HaloStrength: .5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -3271,6 +3271,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 58e0befbe6b4b2644ba58b97fe6b0adc, type: 3}
   - {fileID: 8300000, guid: c174bb2db5c7cff45adbfdb977256552, type: 3}
   - {fileID: 8300000, guid: e7e610225e7b4644fa8dc99505e96487, type: 3}
+  - {fileID: 8300000, guid: 0b9e14048e3ccce489affad989e6187b, type: 3}
 --- !u!1 &830038450
 GameObject:
   m_ObjectHideFlags: 0

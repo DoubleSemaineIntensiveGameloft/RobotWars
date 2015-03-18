@@ -159,6 +159,9 @@ public class Bot : MonoBehaviour
             partHit.transform.rotation = Quaternion.LookRotation((transform.position - collision.transform.position).normalized);
 
             botRigidbody.AddForce((transform.position - collision.transform.position).normalized * 10, ForceMode.Impulse);
+
+
+            AudioSystem.instance.PlayAudio(4, Random.Range(0.7f,1.3f));
         }
     }
 }
