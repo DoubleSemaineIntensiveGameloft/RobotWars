@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Blower 2006
-  blockType: 1
+  blockType: 0
   description: Shoves your opponent away
   unlocked: 1
 --- !u!114 &11488300

@@ -180,7 +180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Electrazor
-  blockType: 2
+  blockType: 1
   description: Stuns your opponent for a brief moment
   unlocked: 1
 --- !u!198 &19873492

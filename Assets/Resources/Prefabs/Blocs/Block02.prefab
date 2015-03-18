@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: test
-  blockType: 2
+  blockType: 1
   description: '...'
   unlocked: 1
 --- !u!135 &13579566

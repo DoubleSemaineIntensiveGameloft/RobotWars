@@ -8,7 +8,7 @@ public class BlockSelector : MonoBehaviour
     public float rotationSpeed = 10.0f;
     private bool dash = false;
     private Quaternion targetRotation = Quaternion.identity;
-    public Block.BlockType blockType = Block.BlockType.NONE;
+    public Block.BlockType blockType;
     private List<Block> availablesBlocks = new List<Block>();
     private int currentBlockIndex = -1;
     private float rotationAngle = 0.0f;
@@ -21,12 +21,12 @@ public class BlockSelector : MonoBehaviour
 
     void Start()
     {
-        if (this.blockType == Block.BlockType.NONE)
-        {
-            Debug.LogWarning("BlockType => NONE, useless block selector");
-            this.enabled = false;
-            return;
-        }
+        //if (this.blockType == Block.BlockType.NONE)
+        //{
+        //    Debug.LogWarning("BlockType => NONE, useless block selector");
+        //    this.enabled = false;
+        //    return;
+        //}
 
         foreach (Block block in BlockSelectorManager.Instance.availablesBlocks)
         {

@@ -30,51 +30,57 @@ public class BlockPicker : MonoBehaviour
                 //Debug.Log("Picked");
                 if (hit.collider.transform.parent != null && hit.collider.transform.parent.tag.Equals("Anchor"))
                 {
-                    this.picked = hit.collider.gameObject;
+                    this.picked = hit.collider.gameObject; Collider collider = this.picked.GetComponent<Collider>();
+                    if (collider)
+                    {
+                        collider.enabled = false;
+                        //Debug.Log("DisableCollider");
+                    }
                 }
                 else
                 {
-                    Block block = this.picked.GetComponent<Block>();
+                    Block block = hit.collider.gameObject.GetComponent<Block>();
                     if (block)
                     {
                         //Debug.Log("Block description : " + block.description);
                         if (RobotsManager.Instance.getCurrentRobot().canUseBlock(block.blockType))
                         {
                             GUIManager.Instance.setBlockDescription(block.description);
+                            this.picked = Instantiate(hit.collider.gameObject) as GameObject;
+                            ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
+                            if (joint)
+                            {
+                                joint.connectedBody = null;
+                                Destroy(joint);
+                            }
+                            Rigidbody rb = this.picked.GetComponent<Rigidbody>();
+                            if (rb)
+                            {
+                                rb.useGravity = false;
+                                rb.velocity = Vector3.zero;
+                                rb.angularVelocity = Vector3.zero;
+                            }
+                            this.picked.transform.position = hit.collider.gameObject.transform.position;
+                            this.picked.transform.rotation = hit.collider.gameObject.transform.rotation;
+                            Collider collider = this.picked.GetComponent<Collider>();
+                            if (collider)
+                            {
+                                collider.enabled = false;
+                                //Debug.Log("DisableCollider");
+                            }
                         }
+                        else
+                        {
+                            GUIManager.Instance.displayMessage("Max " + block.blockType + " blocks reached");
+                        }
+                        this.docked = false;
                     }
                     else
                     {
-                        //Debug.LogError("No block");
+                        Debug.LogError("No block");
                     }
 
-                    //TODO: check if i can use this category block
-                    //RobotsManager.Instance.getCurrentRobot().
-                    this.picked = Instantiate(hit.collider.gameObject) as GameObject;
-                    ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
-                    if (joint)
-                    {
-                        joint.connectedBody = null;
-                        Destroy(joint);
-                    }
-                    Rigidbody rb = this.picked.GetComponent<Rigidbody>();
-                    if (rb)
-                    {
-                        rb.useGravity = false;
-                        rb.velocity = Vector3.zero;
-                        rb.angularVelocity = Vector3.zero;
-                    }
-                    this.picked.transform.position = hit.collider.gameObject.transform.position;
-                    this.picked.transform.rotation = hit.collider.gameObject.transform.rotation;
                 }
-                Collider collider = this.picked.GetComponent<Collider>();
-                if (collider)
-                {
-                    collider.enabled = false;
-                    //Debug.Log("DisableCollider");
-                }
-
-                this.docked = false;
             }
         }
         else if (Input.GetMouseButtonUp(0))
@@ -90,6 +96,7 @@ public class BlockPicker : MonoBehaviour
                         collider.enabled = true;
                         //Debug.Log("DisableCollider");
                     }
+                    RobotsManager.Instance.getCurrentRobot().addBlock(this.picked.GetComponent<Block>());
                 }
                 else
                 {

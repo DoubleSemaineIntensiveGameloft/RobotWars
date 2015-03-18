@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Cannon-blaster 4000
-  blockType: 1
+  blockType: 0
   description: Throws explosives rounds that damage and push your opponent
   unlocked: 1
 --- !u!1001 &100100000

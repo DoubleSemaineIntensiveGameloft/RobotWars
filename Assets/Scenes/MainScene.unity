@@ -685,7 +685,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11483626, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: blockType
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9549514, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: m_Controller
@@ -702,6 +702,10 @@ Prefab:
     - target: {fileID: 454294, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9549514, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
@@ -1499,7 +1503,7 @@ MonoBehaviour:
   followSpeed: 4
   dockSpeed: 3
   floatRange: 5
-  blockDestroyEffect: {fileID: 172144, guid: 1c702b56494b92d428e9ed1cf810403b, type: 2}
+  blockDestroyEffect: {fileID: 163308, guid: 3f17ce183122ab0479b030b621946cf3, type: 2}
 --- !u!82 &919183462
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1717,9 +1721,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Color: {r: 0, g: 0, b: 0, a: .784313738}
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1820,7 +1824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04ed17e2f4b2714691eabf0f2242b42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultBlockType: 1
+  defaultBlockType: 0
   availablesBlocks:
   - {fileID: 11479066, guid: 13152e539cb5b644e853369b27e68007, type: 2}
   - {fileID: 0}
@@ -2214,7 +2218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e249ae9f310a4eb3e20801122bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockType: 2
+  blockType: 1
 --- !u!1 &1503762782
 GameObject:
   m_ObjectHideFlags: 0
@@ -2891,7 +2895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788e249ae9f310a4eb3e20801122bd7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockType: 1
+  blockType: 0
 --- !u!1 &1799574692
 GameObject:
   m_ObjectHideFlags: 0
@@ -3267,7 +3271,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11483626, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: blockType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9549514, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: m_Enabled
@@ -3388,6 +3392,10 @@ Prefab:
     - target: {fileID: 454294, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9549514, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd36abfe5a3bafc49b53dd95890e9ce5, type: 2}

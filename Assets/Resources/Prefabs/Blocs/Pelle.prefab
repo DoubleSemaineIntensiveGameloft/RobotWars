@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: Shovelium
-  blockType: 1
+  blockType: 0
   description: Shoves your opponent and causes him to lose his balance
   unlocked: 1
 --- !u!1001 &100100000

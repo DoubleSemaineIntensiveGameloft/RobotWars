@@ -21,7 +21,7 @@ public class Robot : MonoBehaviour
         switch (blockType)
         {
             case Block.BlockType.ACTIVE:
-                if (this.getActiveBlockCount() < this.maxActiveCount)
+                if (this.getActiveBlockCount() <= this.maxActiveCount)
                 {
                     return true;
                 }
@@ -30,7 +30,7 @@ public class Robot : MonoBehaviour
                     return false;
                 }
             case Block.BlockType.PASSIVE:
-                if (this.getPassiveBlockCount() < this.maxPassiveCount)
+                if (this.getPassiveBlockCount() <= this.maxPassiveCount)
                 {
                     return true;
                 }
@@ -38,7 +38,6 @@ public class Robot : MonoBehaviour
                 {
                     return false;
                 }
-            case Block.BlockType.NONE:
             default:
                 Debug.LogError("Error => Unknown block type");
                 return false;
@@ -66,18 +65,21 @@ public class Robot : MonoBehaviour
 
     private List<Block> getOwnersCreate(Block.BlockType blockType)
     {
-        List<Block> blockList = this.blocks[blockType];
-        if (blockList == null)
+        if (this.blocks.ContainsKey(blockType))
         {
-            blockList = new List<Block>();
-            this.blocks[blockType] = blockList;
+            return this.blocks[blockType];
         }
-        return blockList;
+        else
+        {
+            List<Block> blockList = new List<Block>();
+            this.blocks.Add(blockType, blockList);
+            return blockList;
+        }
     }
 
     public int getBlockCount(Block.BlockType blockType)
     {
-        return this.blocks[blockType].Count;
+        return this.getOwnersCreate(blockType).Count;
     }
 
     public int getActiveBlockCount()
