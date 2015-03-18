@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 54b6acf4680e66d4e9318e551d96ec54
-timeCreated: 1426632343
+guid: c50071ee0077fcd48b8ab99936a77f20
+timeCreated: 1426673277
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -36,11 +36,10 @@ ModelImporter:
     4300000: Sphere024
     4300002: Cylinder102
     4300004: Sphere028
-    7400000: Balayage
+    7400000: Take 001
     9500000: //RootNode
-    11100000: //RootNode
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -54,59 +53,11 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Balayage
-      takeName: Take 001
-      firstFrame: 0
-      lastFrame: 120
-      wrapMode: 2
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 1
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask:
-      - path: 
-        weight: 1
-      - path: Circle001
-        weight: 1
-      - path: Point001
-        weight: 1
-      - path: Point001/IK Chain001
-        weight: 1
-      - path: Point002
-        weight: 1
-      - path: Point002/Bone001
-        weight: 1
-      - path: Point002/Bone001/Bone002
-        weight: 1
-      - path: Point002/Bone001/Bone002/Bone003
-        weight: 1
-      - path: Point002/Bone001/Bone002/Bone003/Sphere024
-        weight: 1
-      - path: Point002/Bone001/Bone002/Cylinder102
-        weight: 1
-      - path: Point002/Bone001/Sphere028
-        weight: 1
-      maskType: 0
-      maskSource: {instanceID: 0}
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 10
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -140,7 +91,7 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   additionalBone: 0
   userData: 
   assetBundleName: 
