@@ -1,0 +1,466 @@
+fileFormatVersion: 2
+guid: 2ea89bd57bb04ed4c876c1b1d05ce007
+timeCreated: 1426702094
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bone001
+    100002: Bone002
+    100004: Circle004
+    100006: //RootNode
+    100008: IK Chain001
+    100010: Line001
+    100012: Line003
+    100014: Object033
+    100016: Object034
+    100018: Object035
+    100020: Object036
+    100022: Object037
+    100024: Object038
+    100026: Object046
+    100028: Object047
+    100030: Object049
+    100032: Object050
+    100034: Object051
+    100036: Object052
+    100038: Point001
+    100040: Point002
+    100042: Point003
+    100044: Point004
+    100046: Point005
+    100048: Point006
+    400000: Bone001
+    400002: Bone002
+    400004: Circle004
+    400006: //RootNode
+    400008: IK Chain001
+    400010: Line001
+    400012: Line003
+    400014: Object033
+    400016: Object034
+    400018: Object035
+    400020: Object036
+    400022: Object037
+    400024: Object038
+    400026: Object046
+    400028: Object047
+    400030: Object049
+    400032: Object050
+    400034: Object051
+    400036: Object052
+    400038: Point001
+    400040: Point002
+    400042: Point003
+    400044: Point004
+    400046: Point005
+    400048: Point006
+    2300000: Line001
+    2300002: Line003
+    2300004: Object033
+    2300006: Object034
+    2300008: Object035
+    2300010: Object036
+    2300012: Object037
+    2300014: Object038
+    2300016: Object046
+    2300018: Object047
+    2300020: Object049
+    2300022: Object050
+    2300024: Object051
+    2300026: Object052
+    3300000: Line001
+    3300002: Line003
+    3300004: Object033
+    3300006: Object034
+    3300008: Object035
+    3300010: Object036
+    3300012: Object037
+    3300014: Object038
+    3300016: Object046
+    3300018: Object047
+    3300020: Object049
+    3300022: Object050
+    3300024: Object051
+    3300026: Object052
+    4300000: Object036
+    4300002: Line001
+    4300004: Object050
+    4300006: Object037
+    4300008: Object046
+    4300010: Object038
+    4300012: Object049
+    4300014: Object033
+    4300016: Object047
+    4300018: Object051
+    4300020: Object052
+    4300022: Line003
+    4300024: Object034
+    4300026: Object035
+    7400000: Walk
+    7400002: Idle
+    7400004: Sonne
+    7400006: Victory
+    9500000: //RootNode
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Walk
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point006
+        weight: 1
+      - path: Point006/Point004
+        weight: 1
+      - path: Point006/Point004/Circle004
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034/Object035
+        weight: 1
+      - path: Point006/Point004/IK Chain001
+        weight: 1
+      - path: Point006/Point005
+        weight: 1
+      - path: Point006/Point005/Line003
+        weight: 1
+      - path: Point006/Point005/Object033
+        weight: 1
+      - path: Point006/Point005/Object047
+        weight: 1
+      - path: Point006/Point005/Object049
+        weight: 1
+      - path: Point006/Point005/Object051
+        weight: 1
+      - path: Point006/Point005/Object052
+        weight: 1
+      - path: Point006/Point005/Point001
+        weight: 1
+      - path: Point006/Point005/Point001/Object038
+        weight: 1
+      - path: Point006/Point005/Point001/Object046
+        weight: 1
+      - path: Point006/Point005/Point002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Object037
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002/Object036
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Line001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Object050
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 40
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point006
+        weight: 1
+      - path: Point006/Point004
+        weight: 1
+      - path: Point006/Point004/Circle004
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034/Object035
+        weight: 1
+      - path: Point006/Point004/IK Chain001
+        weight: 1
+      - path: Point006/Point005
+        weight: 1
+      - path: Point006/Point005/Line003
+        weight: 1
+      - path: Point006/Point005/Object033
+        weight: 1
+      - path: Point006/Point005/Object047
+        weight: 1
+      - path: Point006/Point005/Object049
+        weight: 1
+      - path: Point006/Point005/Object051
+        weight: 1
+      - path: Point006/Point005/Object052
+        weight: 1
+      - path: Point006/Point005/Point001
+        weight: 1
+      - path: Point006/Point005/Point001/Object038
+        weight: 1
+      - path: Point006/Point005/Point001/Object046
+        weight: 1
+      - path: Point006/Point005/Point002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Object037
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002/Object036
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Line001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Object050
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Sonne
+      takeName: Take 001
+      firstFrame: 111
+      lastFrame: 135
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point006
+        weight: 1
+      - path: Point006/Point004
+        weight: 1
+      - path: Point006/Point004/Circle004
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034/Object035
+        weight: 1
+      - path: Point006/Point004/IK Chain001
+        weight: 1
+      - path: Point006/Point005
+        weight: 1
+      - path: Point006/Point005/Line003
+        weight: 1
+      - path: Point006/Point005/Object033
+        weight: 1
+      - path: Point006/Point005/Object047
+        weight: 1
+      - path: Point006/Point005/Object049
+        weight: 1
+      - path: Point006/Point005/Object051
+        weight: 1
+      - path: Point006/Point005/Object052
+        weight: 1
+      - path: Point006/Point005/Point001
+        weight: 1
+      - path: Point006/Point005/Point001/Object038
+        weight: 1
+      - path: Point006/Point005/Point001/Object046
+        weight: 1
+      - path: Point006/Point005/Point002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Object037
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002/Object036
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Line001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Object050
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Victory
+      takeName: Take 001
+      firstFrame: 148
+      lastFrame: 172
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Point006
+        weight: 1
+      - path: Point006/Point004
+        weight: 1
+      - path: Point006/Point004/Circle004
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034
+        weight: 1
+      - path: Point006/Point004/Circle004/Object034/Object035
+        weight: 1
+      - path: Point006/Point004/IK Chain001
+        weight: 1
+      - path: Point006/Point005
+        weight: 1
+      - path: Point006/Point005/Line003
+        weight: 1
+      - path: Point006/Point005/Object033
+        weight: 1
+      - path: Point006/Point005/Object047
+        weight: 1
+      - path: Point006/Point005/Object049
+        weight: 1
+      - path: Point006/Point005/Object051
+        weight: 1
+      - path: Point006/Point005/Object052
+        weight: 1
+      - path: Point006/Point005/Point001
+        weight: 1
+      - path: Point006/Point005/Point001/Object038
+        weight: 1
+      - path: Point006/Point005/Point001/Object046
+        weight: 1
+      - path: Point006/Point005/Point002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Object037
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Bone002/Object036
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Line001
+        weight: 1
+      - path: Point006/Point005/Point002/Bone001/Point003/Object050
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 10
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
