@@ -229,6 +229,10 @@ public class GUIManager : MonoBehaviour
                 newBot.transform.localRotation = Quaternion.identity;
                 newBot.transform.localScale = Vector3.one;
             }
+            else
+            {
+                Debug.Log("Save error");
+            }
             this.setupSkinSelection(robot);
             this.setSkinVisibility(true);
         }

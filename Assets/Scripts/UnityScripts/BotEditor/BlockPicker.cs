@@ -34,6 +34,20 @@ public class BlockPicker : MonoBehaviour
                 }
                 else
                 {
+                    Block block = this.picked.GetComponent<Block>();
+                    if (block)
+                    {
+                        //Debug.Log("Block description : " + block.description);
+                        if (RobotsManager.Instance.getCurrentRobot().canUseBlock(block.blockType))
+                        {
+                            GUIManager.Instance.setBlockDescription(block.description);
+                        }
+                    }
+                    else
+                    {
+                        //Debug.LogError("No block");
+                    }
+
                     //TODO: check if i can use this category block
                     //RobotsManager.Instance.getCurrentRobot().
                     this.picked = Instantiate(hit.collider.gameObject) as GameObject;
@@ -61,16 +75,6 @@ public class BlockPicker : MonoBehaviour
                 }
 
                 this.docked = false;
-                Block block = this.picked.GetComponent<Block>();
-                if (block)
-                {
-                    //Debug.Log("Block description : " + block.description);
-                    GUIManager.Instance.setBlockDescription(block.description);
-                }
-                else
-                {
-                    //Debug.LogError("No block");
-                }
             }
         }
         else if (Input.GetMouseButtonUp(0))

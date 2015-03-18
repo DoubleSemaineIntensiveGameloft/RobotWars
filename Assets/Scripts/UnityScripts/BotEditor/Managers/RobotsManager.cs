@@ -182,7 +182,8 @@ public class RobotsManager : MonoBehaviour
         if (this.localBattleRobots.Count <= 1)
         {
             this.localBattleRobots.Add(robot);
-            this.currentIndex = this.privateRobots.Count - 1;
+            this.currentIndex = this.localBattleRobots.Count - 1;
+            Debug.Log("Save multi, index : " + this.currentIndex);
             return true;
         }
         else

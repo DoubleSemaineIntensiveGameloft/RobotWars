@@ -16,36 +16,46 @@ public class Robot : MonoBehaviour
     private Dictionary<Block.BlockType, List<Block>> blocks = new Dictionary<Block.BlockType, List<Block>>();
     public Skin[] availablesSkins;
 
-    public bool addBlock(Block block)
+    public bool canUseBlock(Block.BlockType blockType)
     {
-        switch (block.blockType)
+        switch (blockType)
         {
             case Block.BlockType.ACTIVE:
                 if (this.getActiveBlockCount() < this.maxActiveCount)
                 {
-                    this.getOwnersCreate(block.blockType).Add(block);
                     return true;
                 }
                 else
                 {
-                    GUIManager.Instance.displayMessage("Max active blocks reached");
                     return false;
                 }
             case Block.BlockType.PASSIVE:
                 if (this.getPassiveBlockCount() < this.maxPassiveCount)
                 {
-                    this.getOwnersCreate(block.blockType).Add(block);
                     return true;
                 }
                 else
                 {
-                    GUIManager.Instance.displayMessage("Max passive blocks reached");
                     return false;
                 }
             case Block.BlockType.NONE:
             default:
                 Debug.LogError("Error => Unknown block type");
                 return false;
+        }
+    }
+
+    public bool addBlock(Block block)
+    {
+        if (this.canUseBlock(block.blockType))
+        {
+            this.getOwnersCreate(block.blockType).Add(block);
+            return true;
+        }
+        else
+        {
+            GUIManager.Instance.displayMessage("Max " + block.blockType + " blocks reached");
+            return false;
         }
     }
 
