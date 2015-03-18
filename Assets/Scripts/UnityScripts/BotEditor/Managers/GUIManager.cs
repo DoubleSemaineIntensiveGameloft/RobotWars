@@ -126,6 +126,7 @@ public class GUIManager : MonoBehaviour
             bot.transform.localPosition = Vector3.zero;
             bot.transform.localRotation = Quaternion.identity;
             bot.transform.localScale = Vector3.one;
+            bot.SetActive(true);
         }
     }
 

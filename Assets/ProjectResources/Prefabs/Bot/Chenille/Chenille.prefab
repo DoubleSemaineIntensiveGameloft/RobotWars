@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 456632}
   - 114: {fileID: 11434282}
-  - 114: {fileID: 11498518}
   m_Layer: 0
   m_Name: Chenille
   m_TagString: Untagged
@@ -49,17 +48,6 @@ MonoBehaviour:
   - id: alternative
     icon: {fileID: 21300000, guid: 9b3e9063e6fbd5a4c9897dee310ec95b, type: 3}
     model: {fileID: 103744, guid: cdd4d713be98fc84e9d002359c560564, type: 2}
---- !u!114 &11498518
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 133126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5668950b1fd59e540b39a6b03e5bd52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
