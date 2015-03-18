@@ -13,6 +13,8 @@ public class BActionPelle : BlockAction {
 
     private Animator animatorBot;
 
+
+
     public override void Start()
     {
         base.Start();

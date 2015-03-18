@@ -143,7 +143,7 @@ AnimatorState:
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
   m_Mirror: 0
-  m_Motion: {fileID: 7400000, guid: 3a1cc3dc241120b498889a646607fa81, type: 2}
+  m_Motion: {fileID: 7400000, guid: b4f803cfd2219b943906b19f46d1cb4f, type: 2}
   m_Tag: 
 --- !u!1102 &110209490
 AnimatorState:
@@ -181,6 +181,23 @@ AnimatorState:
   m_Mirror: 0
   m_Motion: {fileID: 7400000, guid: 3a1cc3dc241120b498889a646607fa81, type: 2}
   m_Tag: 
+--- !u!1102 &110289656
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: AnimIdlePanel
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_Motion: {fileID: 7400000, guid: b4f803cfd2219b943906b19f46d1cb4f, type: 2}
+  m_Tag: 
 --- !u!1107 &110772292
 AnimatorStateMachine:
   serializedVersion: 5
@@ -198,6 +215,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 110206958}
     m_Position: {x: 240, y: -12, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 110289656}
+    m_Position: {x: 275, y: 53, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

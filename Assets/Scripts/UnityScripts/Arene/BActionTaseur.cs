@@ -8,6 +8,8 @@ public class BActionTaseur : BlockAction
     public ParticleSystem partElec;
 
     bool coolingDown = false;
+
+    
     
     public override void Start()
     {
@@ -32,12 +34,16 @@ public class BActionTaseur : BlockAction
 
     void OnCollisionEnter(Collision collision)
     {
-        if(actTimeCooldown > timeCooldown)
+        Debug.Log("taz4");
+        if(actTimeCooldown >= timeCooldown)
         {
+            Debug.Log("taz3");
             if (collision.transform.tag == "Bot")
             {
-                if(bot != collision.gameObject.GetComponent<Bot>())
-                { 
+                Debug.Log("taz2");
+                if(bot.gameObject != collision.gameObject)
+                {
+                    Debug.Log("taz");
                     // TAZZ
                     coolingDown = true;
                     actTimeCooldown = 0;

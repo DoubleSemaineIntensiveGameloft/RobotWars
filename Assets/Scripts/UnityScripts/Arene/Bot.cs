@@ -4,7 +4,7 @@ using System.Collections;
 public class Bot : MonoBehaviour
 {
 
-    private Rigidbody botRigidbody;
+    public Rigidbody botRigidbody;
     private ParticleSystem partStun;
     private ParticleSystem partHit;
     private Animator animator;
@@ -37,6 +37,12 @@ public class Bot : MonoBehaviour
 
     void Update()
     {
+
+        // Loose
+        if(transform.position.y < -10)
+        {
+            Restart();
+        }
 
         if (!stun)
         {
@@ -99,7 +105,7 @@ public class Bot : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (direction != Vector3.zero)
+        if (direction != Vector3.zero && !stun)
         {
 
             //botRigidbody.AddForce(transform.forward * speed * Time.fixedDeltaTime, ForceMode.Impulse);
@@ -131,6 +137,7 @@ public class Bot : MonoBehaviour
         actTimeStun = 0;
         stun = true;
         animator.SetBool("Stun", true);
+        direction = Vector3.zero;
     }
 
     public void Restart()
@@ -151,7 +158,7 @@ public class Bot : MonoBehaviour
             partHit.Emit(15);
             partHit.transform.rotation = Quaternion.LookRotation((transform.position - collision.transform.position).normalized);
 
-            botRigidbody.AddForce((transform.position - collision.transform.position).normalized * 40, ForceMode.Impulse);
+            botRigidbody.AddForce((transform.position - collision.transform.position).normalized * 10, ForceMode.Impulse);
         }
     }
 }

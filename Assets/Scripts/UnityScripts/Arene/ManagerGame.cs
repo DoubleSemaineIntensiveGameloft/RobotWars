@@ -97,4 +97,9 @@ public class ManagerGame : MonoBehaviour {
         player1.GetComponentInParent<Bot>().Restart();
         player2.GetComponentInParent<Bot>().Restart();
     }
+
+    public void Garage()
+    {
+        Application.LoadLevel("MainScene");
+    }
 }

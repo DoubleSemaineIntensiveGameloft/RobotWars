@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class Pelle : MonoBehaviour {
 
     public BActionPelle actionPelle;
+
+
+    public List<Rigidbody> objetsInPelle = new List<Rigidbody>();
 
 	// Use this for initialization
 	void Start () {
@@ -19,10 +23,25 @@ public class Pelle : MonoBehaviour {
         {
             actionPelle = GetComponentInParent<BActionPelle>();
         }
+
+        if(actionPelle)
+        {
+            if(actionPelle.active)
+            {
+                foreach (Rigidbody actRigid in objetsInPelle)
+                {
+                   // Debug.Log("actionPelle.bot.transform:" + actionPelle.transform.name);
+                    if (actRigid.transform != actionPelle.bot.transform)
+                    {
+                        actRigid.AddForce(new Vector3(0, actionPelle.forcePelle, 0), ForceMode.Impulse);
+                    }
+                }
+            }
+        }
 	
 	}
 
-
+    /*
     void OnTriggerEnter(Collider collision)
     {
         if (actionPelle)
@@ -39,6 +58,25 @@ public class Pelle : MonoBehaviour {
                         Debug.Log("pelled");
                     }
                 }
+            }
+        }
+    }*/
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.GetComponent<Rigidbody>())
+        {
+            objetsInPelle.Add(other.GetComponent<Rigidbody>());
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.GetComponent<Rigidbody>())
+        {
+            if (objetsInPelle.Contains(other.GetComponent<Rigidbody>()))
+            {
+                objetsInPelle.Remove(other.GetComponent<Rigidbody>());
             }
         }
     }
