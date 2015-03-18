@@ -25,6 +25,7 @@ public class GUIManager : MonoBehaviour
     private float torsoSelectorDelay = 5.0f;
     private GameObject torsoSelector;
     private GameObject skinSelector;
+    private GameObject endEditorButton;
 
     public GameObject parentNewBotTo;
     private bool firstPass;
@@ -52,11 +53,12 @@ public class GUIManager : MonoBehaviour
                 this.blockDescription.SetActive(false);
             }
         }
-        Transform endEditor_go = canvas.FindChild("Play_Button");
-        if (endEditor_go)
+        this.endEditorButton = canvas.FindChild("Play_Button").gameObject;
+        if (endEditorButton)
         {
-            this.endEditor = endEditor_go.GetComponent<Text>();
+            this.endEditor = endEditorButton.GetComponent<Text>();
         }
+        endEditorButton.SetActive(false);
 
         this.torsoSelector = canvas.FindChild("TorsoSelector").gameObject;
         this.skinSelector = this.torsoSelector.transform.FindChild("SkinPanel").gameObject;
@@ -235,6 +237,7 @@ public class GUIManager : MonoBehaviour
             }
             this.setupSkinSelection(robot);
             this.setSkinVisibility(true);
+            this.endEditorButton.SetActive(true);
         }
     }
 
