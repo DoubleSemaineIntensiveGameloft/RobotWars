@@ -76,6 +76,7 @@ public class MouseLook : MonoBehaviour
     {
         if (this.playerAnim && canShow)
         {
+            Debug.Log("Play anim");
             this.playerAnim.SetTrigger("makeShow");
             StartCoroutine(this.waitBetweenShow());
         }

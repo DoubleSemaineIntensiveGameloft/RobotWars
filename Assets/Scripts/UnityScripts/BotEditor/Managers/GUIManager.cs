@@ -206,12 +206,12 @@ public class GUIManager : MonoBehaviour
         skin0.transform.FindChild("Icon").GetComponent<Image>().sprite = robot.getIcon("base");
         Button b0 = skin0.transform.Find("Choose").GetComponent<Button>();
         b0.onClick.RemoveAllListeners();
-        b0.onClick.AddListener(() => { RobotsManager.Instance.applySkin("base"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
+        b0.onClick.AddListener(() => { AudioSystem.instance.PlayAudio(0); RobotsManager.Instance.applySkin("base"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
 
         GameObject skin1 = this.skinSelector.transform.FindChild("Skin_Alternative").gameObject;
         skin1.transform.FindChild("Icon").GetComponent<Image>().sprite = robot.getIcon("alternative");
         Button b1 = skin1.transform.Find("Choose").GetComponent<Button>();
-        b1.onClick.AddListener(() => { RobotsManager.Instance.applySkin("alternative"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
+        b1.onClick.AddListener(() => { AudioSystem.instance.PlayAudio(0); RobotsManager.Instance.applySkin("alternative"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
     }
 
     public void setupRobot(Robot robot)

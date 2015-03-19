@@ -1,31 +1,43 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class AudioSystem : MonoBehaviour {
+public class AudioSystem : MonoBehaviour
+{
 
     public static AudioSystem instance;
 
+    public float volume = 1.0f;
     public AudioSource[] audioSources;
-
     public AudioClip[] audioClips;
 
-	// Use this for initialization
-	void Start () {
+    void Start()
+    {
 
         instance = this;
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
 
-    public void PlayAudio(int audioToPlay, float pitch = 1, float volume = 1)
+    void Update()
+    {
+
+    }
+
+    public void setVolume(float volume)
+    {
+        this.volume = Mathf.Clamp(volume, 0.0f, 1.0f);
+    }
+
+    public void setVolume(Slider slider)
+    {
+        this.setVolume(slider.value);
+    }
+
+    public void PlayAudio(int audioToPlay, float volume, float pitch)
     {
         foreach (AudioSource actAudioSource in audioSources)
         {
-            if(!actAudioSource.isPlaying)
+            if (!actAudioSource.isPlaying)
             {
                 actAudioSource.clip = audioClips[audioToPlay];
                 actAudioSource.pitch = pitch;
@@ -34,5 +46,15 @@ public class AudioSystem : MonoBehaviour {
                 break;
             }
         }
+    }
+
+    public void PlayAudio(int audioToPlay, float volume)
+    {
+        this.PlayAudio(audioToPlay, volume, 1);
+    }
+
+    public void PlayAudio(int audioToPlay)
+    {
+        this.PlayAudio(audioToPlay, this.volume);
     }
 }
