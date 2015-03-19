@@ -68,7 +68,7 @@ public class MouseLook : MonoBehaviour
         }
         else
         {
-            this.transform.Rotate(this.transform.up, Input.GetTouch(0).deltaPosition.x * -1 * this.sentivity_X * Time.deltaTime);//FIXME:
+            this.transform.Rotate(this.transform.up, Input.GetTouch(0).deltaPosition.x * -1 * this.sentivity_X);//FIXME:
         }
     }
 

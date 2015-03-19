@@ -360,7 +360,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &97484484
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9004,6 +9004,9 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   animatorVictory: {fileID: 1842982097}
+  victoryDone: 0
+  actTimeBackGarage: 0
+  timeBackGarage: 5
 --- !u!224 &2072375847
 RectTransform:
   m_ObjectHideFlags: 0

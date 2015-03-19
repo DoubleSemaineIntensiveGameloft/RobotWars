@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 881d92848319c8b41af0247de3121ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  editorMode: 1
+  editorMode: 0
 --- !u!114 &989008291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2000,8 +2000,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1085863866}
-  - 114: {fileID: 1085863867}
   - 65: {fileID: 1085863868}
+  - 114: {fileID: 1085863867}
   m_Layer: 11
   m_Name: Player
   m_TagString: Untagged
@@ -2033,7 +2033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efaa1f6a2bad899499a4582064481b24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sentivity_X: 6
+  sentivity_X: 8
   doubleTapMaxDelay: .300000012
   durationBetweenShow: 2
 --- !u!65 &1085863868
@@ -2615,7 +2615,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 125738, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 181438, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
       propertyPath: m_IsActive
@@ -2631,7 +2631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10880952, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 10847368, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
       propertyPath: m_Enabled
@@ -2704,6 +2704,26 @@ Prefab:
     - target: {fileID: 10857002, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
       propertyPath: m_Intensity
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 10843746, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10847368, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10857002, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 10843746, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 10880952, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 68ebf8a302ed7db4d917757170b92f9f, type: 2}
