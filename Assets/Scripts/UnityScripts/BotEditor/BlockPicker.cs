@@ -15,6 +15,7 @@ public class BlockPicker : MonoBehaviour
     public GameObject blockDestroyEffect;
     private Transform player;
     private float forcedDockedScale = 1.0f;
+    private GameObject dockedAnchor = null;
 
     void Start()
     {
@@ -30,7 +31,15 @@ public class BlockPicker : MonoBehaviour
                 //Debug.Log("Picked");
                 if (hit.collider.transform.parent != null && hit.collider.transform.parent.tag.Equals("Anchor"))
                 {
-                    this.picked = hit.collider.gameObject; Collider collider = this.picked.GetComponent<Collider>();
+                    MeshRenderer r = hit.collider.transform.parent.GetComponentInChildren<MeshRenderer>();
+                    if (r)
+                    {
+                        r.enabled = true;
+                    }
+                    this.picked = hit.collider.gameObject;
+                    Block block = this.picked.GetComponent<Block>();
+                    RobotsManager.Instance.getCurrentRobot().removeBlock(block);
+                    Collider collider = this.picked.GetComponent<Collider>();
                     if (collider)
                     {
                         collider.enabled = false;
@@ -90,21 +99,30 @@ public class BlockPicker : MonoBehaviour
                 //Debug.Log("Released picked");
                 if (docked)
                 {
+                    Block block = this.dockedAnchor.GetComponentInChildren<Block>();
+                    MeshRenderer r = this.dockedAnchor.GetComponentInChildren<MeshRenderer>();
+                    if (r)
+                    {
+                        r.enabled = false;
+                    }
+                    if (block)
+                    {
+                        RobotsManager.Instance.getCurrentRobot().removeBlock(block);
+                        this.spawnDestructionEffect(block.gameObject.transform.position);
+                        Destroy(block.gameObject);
+                    }
                     Collider collider = this.picked.GetComponent<Collider>();
                     if (collider)
                     {
                         collider.enabled = true;
                         //Debug.Log("DisableCollider");
                     }
+                    this.picked.transform.parent = this.dockedAnchor.transform;
                     RobotsManager.Instance.getCurrentRobot().addBlock(this.picked.GetComponent<Block>());
                 }
                 else
                 {
-                    if (this.blockDestroyEffect)
-                    {
-                        GameObject destroyEffect = Instantiate(this.blockDestroyEffect, this.picked.transform.position, Quaternion.identity) as GameObject;
-                        Destroy(destroyEffect, 2.0f);
-                    }
+                    this.spawnDestructionEffect(this.picked.transform.position);
                     Destroy(this.picked);
                 }
                 this.picked = null;
@@ -118,17 +136,29 @@ public class BlockPicker : MonoBehaviour
             {
                 this.picked.transform.position = hit.collider.transform.position;// Vector3.Lerp(this.picked.transform.position, hit.collider.transform.position, Time.deltaTime * this.dockSpeed);
                 this.picked.transform.rotation = hit.collider.transform.rotation;
-                this.picked.transform.parent = hit.collider.transform;
+                //this.picked.transform.parent = hit.collider.transform;
                 this.docked = true;
+                this.dockedAnchor = hit.collider.gameObject;
                 this.picked.transform.localScale = new Vector3(this.forcedDockedScale, this.forcedDockedScale, this.forcedDockedScale);
             }
             else
             {
                 //Debug.Log("Move picked");
+                this.dockedAnchor = null;
+                this.picked.transform.parent = null;
                 this.picked.transform.position = Vector3.Lerp(this.picked.transform.position, ray.GetPoint(this.floatRange), Time.deltaTime * this.followSpeed);
                 this.docked = false;
                 this.picked.transform.localScale = Vector3.Lerp(this.picked.transform.localScale, new Vector3(this.forcedDockedScale, this.forcedDockedScale, this.forcedDockedScale), Time.deltaTime * this.followSpeed);
             }
+        }
+    }
+
+    private void spawnDestructionEffect(Vector3 position)
+    {
+        if (this.blockDestroyEffect)
+        {
+            GameObject destroyEffect = Instantiate(this.blockDestroyEffect, position, Quaternion.identity) as GameObject;
+            Destroy(destroyEffect, 2.0f);
         }
     }
 

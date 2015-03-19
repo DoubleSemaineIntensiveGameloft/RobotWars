@@ -22,7 +22,6 @@ public class GUIManager : MonoBehaviour
     public float hideDescriptionDelay = 3.0f;
     //private Text endEditor;
     private float hideDescriptionTimer = 0.0f;
-    private float torsoSelectorDelay = 5.0f;
     private GameObject torsoSelector;
     private GameObject skinSelector;
     private GameObject endEditorButton;
@@ -64,8 +63,6 @@ public class GUIManager : MonoBehaviour
         this.skinSelector = this.torsoSelector.transform.FindChild("SkinPanel").gameObject;
 
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Block"), LayerMask.NameToLayer("Block"), true);
-
-        StartCoroutine(this.showTorsoSelector());
     }
 
     // Update is called once per frame
@@ -182,10 +179,12 @@ public class GUIManager : MonoBehaviour
         this.blockDescription.SetActive(false);
     }
 
-    private IEnumerator showTorsoSelector()
+    private void startLightsAnim()
     {
-        yield return new WaitForSeconds(this.torsoSelectorDelay);
-        this.torsoSelector.SetActive(true);
+        GameObject background = GameObject.Find("Background");
+        Animator anim = background.GetComponent<Animator>();
+        anim.SetTrigger("lightsOn");
+        //this.torsoSelector.SetActive(true);
     }
 
 
@@ -200,12 +199,12 @@ public class GUIManager : MonoBehaviour
         skin0.transform.FindChild("Icon").GetComponent<Image>().sprite = robot.getIcon("base");
         Button b0 = skin0.transform.Find("Choose").GetComponent<Button>();
         b0.onClick.RemoveAllListeners();
-        b0.onClick.AddListener(() => { RobotsManager.Instance.applySkin("base"); this.torsoSelector.SetActive(false); });
+        b0.onClick.AddListener(() => { RobotsManager.Instance.applySkin("base"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
 
         GameObject skin1 = this.skinSelector.transform.FindChild("Skin_Alternative").gameObject;
         skin1.transform.FindChild("Icon").GetComponent<Image>().sprite = robot.getIcon("alternative");
         Button b1 = skin1.transform.Find("Choose").GetComponent<Button>();
-        b1.onClick.AddListener(() => { RobotsManager.Instance.applySkin("alternative"); this.torsoSelector.SetActive(false); });
+        b1.onClick.AddListener(() => { RobotsManager.Instance.applySkin("alternative"); this.torsoSelector.SetActive(false); this.startLightsAnim(); });
     }
 
     public void setupRobot(Robot robot)

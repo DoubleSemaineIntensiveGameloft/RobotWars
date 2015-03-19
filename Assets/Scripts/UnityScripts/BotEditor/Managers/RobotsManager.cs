@@ -67,7 +67,7 @@ public class RobotsManager : MonoBehaviour
             MouseLook ml = player.GetComponent<MouseLook>();
             if (ml)
             {
-                Debug.Log("mouse look activated");
+                //Debug.Log("mouse look activated");
                 ml.enabled = true;
             }
         }
@@ -190,7 +190,7 @@ public class RobotsManager : MonoBehaviour
             this.localBattleRobots.Add(robot);
             robot.gameObject.AddComponent<DontDestroyOnLoad>();
             currentIndex = this.localBattleRobots.Count - 1;
-            Debug.Log("Save multi, index : " + currentIndex);
+            //Debug.Log("Save multi, index : " + currentIndex);
             return true;
         }
         else

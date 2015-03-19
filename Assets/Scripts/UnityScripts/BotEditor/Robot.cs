@@ -60,7 +60,10 @@ public class Robot : MonoBehaviour
 
     public void removeBlock(Block block)
     {
-        this.blocks[block.blockType].Remove(block);
+        if (this.blocks.ContainsKey(block.blockType))
+        {
+            this.blocks[block.blockType].Remove(block);
+        }
     }
 
     private List<Block> getOwnersCreate(Block.BlockType blockType)

@@ -53,7 +53,7 @@ public class BlockSelectorManager : MonoBehaviour
             Debug.LogError("No selector for block type : " + blockType);
             return;
         }
-        Debug.Log("Change selector to " + blockType);
+        //Debug.Log("Change selector to " + blockType);
         this.setCurrentBlockSelectorActivated(false);
         this.currentBlockSelector = selector;
         this.setCurrentBlockSelectorActivated(true);
