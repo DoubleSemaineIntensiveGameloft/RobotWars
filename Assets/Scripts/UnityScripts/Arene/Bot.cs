@@ -151,6 +151,7 @@ public class Bot : MonoBehaviour
         transform.rotation = Quaternion.identity;
 
         nbLife -= 1;
+        AudioSystem.instance.PlayAudio(5,1,0.7f);
         if(nbLife <= 0)
         {
             int winner = 1;
