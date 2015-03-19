@@ -61,7 +61,7 @@ public class BlockPicker : MonoBehaviour
                         //Debug.Log("Block description : " + block.description);
                         if (RobotsManager.Instance.getCurrentRobot().canUseBlock(block.blockType))
                         {
-                            GUIManager.Instance.setBlockDescription(block.description);
+                            GUIManager.Instance.setBlockDescription(block);
                             this.picked = Instantiate(hit.collider.gameObject) as GameObject;
                             ConfigurableJoint joint = this.picked.GetComponent<ConfigurableJoint>();
                             if (joint)

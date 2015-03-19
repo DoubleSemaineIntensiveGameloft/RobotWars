@@ -18,6 +18,7 @@ public class GUIManager : MonoBehaviour
     private GameObject messageDisplayer;
     private GameObject blockDescription;
     private Text blockDescription_Text;
+    private Text blockName_Text;
     public bool autoHideDescription;
     public float hideDescriptionDelay = 3.0f;
     //private Text endEditor;
@@ -50,6 +51,11 @@ public class GUIManager : MonoBehaviour
             {
                 this.blockDescription_Text = text_go.GetComponent<Text>();
                 this.blockDescription.SetActive(false);
+            }
+            GameObject name = this.blockDescription.transform.FindChild("PanelName").FindChild("Name").gameObject;
+            if (name)
+            {
+                this.blockName_Text = name.GetComponent<Text>();
             }
         }
         this.endEditorButton = canvas.FindChild("Play_Button").gameObject;
@@ -147,15 +153,16 @@ public class GUIManager : MonoBehaviour
         this.messageDisplayer.SetActive(false);
     }
 
-    public void setBlockDescription(string description)
+    public void setBlockDescription(Block block)
     {
-        if (description == null || description.Equals(""))
+        if (block.description == null || block.description.Equals(""))
         {
             this.blockDescription.SetActive(false);
         }
         else
         {
-            this.blockDescription_Text.text = description;
+            this.blockDescription_Text.text = block.description;
+            this.blockName_Text.text = block.id;
             this.blockDescription.SetActive(true);
             if (this.autoHideDescription)
             {
