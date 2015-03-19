@@ -32,6 +32,27 @@ public class RobotsManager : MonoBehaviour
         }
     }
 
+    public void removeLastSavedRobot()
+    {
+        switch (GameModeManager.Instance.mode)
+        {
+            case GameModeManager.Mode.SOLO:
+                if (this.privateRobots.Count > 0)
+                {
+                    this.privateRobots.RemoveAt(this.privateRobots.Count - 1);
+                    //currentIndex--;
+                }
+                break;
+            case GameModeManager.Mode.MULTI:
+                if (this.localBattleRobots.Count > 0)
+                {
+                    this.localBattleRobots.RemoveAt(this.localBattleRobots.Count - 1);
+                    //currentIndex--;
+                }
+                break;
+        }
+    }
+
     public bool saveRobot(Robot robot)
     {
         switch (GameModeManager.Instance.mode)

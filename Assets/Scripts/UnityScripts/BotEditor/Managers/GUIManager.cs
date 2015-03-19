@@ -195,7 +195,6 @@ public class GUIManager : MonoBehaviour
         //this.torsoSelector.SetActive(true);
     }
 
-
     private void setupSkinSelection(Robot robot)
     {
         if (robot == null)
@@ -223,14 +222,8 @@ public class GUIManager : MonoBehaviour
             Robot bot = bot_go.GetComponent<Robot>();
             if (RobotsManager.Instance.saveRobot(bot))
             {
+                this.clearRobot();
                 GameObject go = GameObject.Find("Robot");
-                List<GameObject> children = new List<GameObject>();
-                foreach (Transform child in go.transform)
-                {
-                    children.Add(child.gameObject);
-                }
-                children.ForEach(child => Destroy(child));
-
                 bot_go.transform.parent = go.transform;
                 bot_go.transform.localPosition = Vector3.zero;
                 bot_go.transform.localRotation = Quaternion.identity;
@@ -245,6 +238,17 @@ public class GUIManager : MonoBehaviour
             this.setSkinVisibility(true);
             this.endEditorButton.SetActive(true);
         }
+    }
+
+    public void clearRobot()
+    {
+        GameObject go = GameObject.Find("Robot");
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform child in go.transform)
+        {
+            children.Add(child.gameObject);
+        }
+        children.ForEach(child => Destroy(child));
     }
 
     public void setSkinVisibility(bool visibility)

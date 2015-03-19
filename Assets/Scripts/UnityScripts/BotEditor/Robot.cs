@@ -114,17 +114,17 @@ public class Robot : MonoBehaviour
 
     public void applySkin(string skinId)
     {
+        List<GameObject> children = new List<GameObject>();
+        foreach (Transform child in transform)
+        {
+            children.Add(child.gameObject);
+        }
+        children.ForEach(child => Destroy(child));
+
         foreach (Skin skin in this.availablesSkins)
         {
             if (skin.id.Equals(skinId))
             {
-                List<GameObject> children = new List<GameObject>();
-                foreach (Transform child in transform)
-                {
-                    children.Add(child.gameObject);
-                }
-                children.ForEach(child => Destroy(child));
-
                 GameObject newBot = Instantiate(skin.model, Vector3.zero, skin.model.transform.rotation) as GameObject;
                 newBot.transform.parent = this.transform;
                 newBot.transform.localPosition = Vector3.zero;
