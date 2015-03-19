@@ -38,17 +38,21 @@ public class BActionTaseur : BlockAction
         {
             if (collision.transform.tag == "Bot")
             {
-                if(bot.gameObject != collision.gameObject)
-                {
 
-                    AudioSystem.instance.PlayAudio(2);
-                    // TAZZ
-                    coolingDown = true;
-                    actTimeCooldown = 0;
-                    //partElec.Stop();
-                    partElec.gameObject.SetActive(false);
+                if (bot)
+                { 
+                    if(bot.gameObject != collision.gameObject)
+                    {
 
-                    collision.gameObject.GetComponent<Bot>().Stun(timeStun);
+                        AudioSystem.instance.PlayAudio(2);
+                        // TAZZ
+                        coolingDown = true;
+                        actTimeCooldown = 0;
+                        //partElec.Stop();
+                        partElec.gameObject.SetActive(false);
+
+                        collision.gameObject.GetComponent<Bot>().Stun(timeStun);
+                    }
                 }
             }
 
