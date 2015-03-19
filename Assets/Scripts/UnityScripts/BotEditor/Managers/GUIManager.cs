@@ -32,10 +32,10 @@ public class GUIManager : MonoBehaviour
 
     void Awake()
     {
-        if (GUIManager.instance == null)
-        {
-            GUIManager.instance = this;
-        }
+        // if (GUIManager.instance == null)
+        // {
+        GUIManager.instance = this;
+        //}
     }
 
     void Start()

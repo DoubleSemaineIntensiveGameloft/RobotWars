@@ -15,10 +15,10 @@ public class GameModeManager : MonoBehaviour
 
     void Awake()
     {
-        if (GameModeManager.instance == null)
-        {
-            GameModeManager.instance = this;
-        }
+        //if (GameModeManager.instance == null)
+        //{
+        GameModeManager.instance = this;
+        //}
     }
 
     public void startSingleMode()

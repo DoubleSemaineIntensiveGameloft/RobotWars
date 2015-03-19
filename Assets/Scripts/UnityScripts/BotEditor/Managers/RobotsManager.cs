@@ -16,13 +16,19 @@ public class RobotsManager : MonoBehaviour
     private List<Robot> privateRobots = new List<Robot>();
     private List<Robot> localBattleRobots = new List<Robot>();
 
-    private int currentIndex = -1;
+    private static int currentIndex = 0;
 
     void Awake()
     {
         if (RobotsManager.instance == null)
         {
             RobotsManager.instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(RobotsManager.instance.gameObject);
+            Destroy(this);
         }
     }
 
@@ -99,30 +105,30 @@ public class RobotsManager : MonoBehaviour
 
     public Robot getCurrentRobot()
     {
-        return this.getRobot(this.currentIndex);
+        return this.getRobot(currentIndex);
     }
 
     private void clampPrivateIndex()
     {
-        if (this.currentIndex < 0)
+        if (currentIndex < 0)
         {
-            this.currentIndex = 0;
+            currentIndex = 0;
         }
-        else if (this.currentIndex >= this.privateRobots.Count)
+        else if (currentIndex >= this.privateRobots.Count)
         {
-            this.currentIndex = this.privateRobots.Count - 1;
+            currentIndex = this.privateRobots.Count - 1;
         }
     }
 
     private void clampMultiIndex()
     {
-        if (this.currentIndex < 0)
+        if (currentIndex < 0)
         {
-            this.currentIndex = 0;
+            currentIndex = 0;
         }
-        else if (this.currentIndex >= this.localBattleRobots.Count)
+        else if (currentIndex >= this.localBattleRobots.Count)
         {
-            this.currentIndex = this.localBattleRobots.Count - 1;
+            currentIndex = this.localBattleRobots.Count - 1;
         }
     }
 
@@ -137,7 +143,7 @@ public class RobotsManager : MonoBehaviour
         if (this.privateRobots.Count < this.maxRobotsCount)
         {
             this.privateRobots.Add(robot);
-            this.currentIndex = this.privateRobots.Count - 1;
+            currentIndex = this.privateRobots.Count - 1;
             return true;
         }
         else
@@ -153,10 +159,10 @@ public class RobotsManager : MonoBehaviour
         this.privateRobots.Remove(robot);
     }
 
-    private void removeAllRobots()
-    {
-        this.privateRobots.Clear();
-    }
+    //private void removeAllRobots()
+    //{
+    //    this.privateRobots.Clear();
+    //}
 
 
     private int getRobotsCount()
@@ -183,8 +189,8 @@ public class RobotsManager : MonoBehaviour
         {
             this.localBattleRobots.Add(robot);
             robot.gameObject.AddComponent<DontDestroyOnLoad>();
-            this.currentIndex = this.localBattleRobots.Count - 1;
-            Debug.Log("Save multi, index : " + this.currentIndex);
+            currentIndex = this.localBattleRobots.Count - 1;
+            Debug.Log("Save multi, index : " + currentIndex);
             return true;
         }
         else

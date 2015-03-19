@@ -1707,7 +1707,6 @@ GameObject:
   - 114: {fileID: 989008291}
   - 114: {fileID: 989008292}
   - 114: {fileID: 989008293}
-  - 114: {fileID: 989008294}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -1794,17 +1793,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxRobotsCount: 2
---- !u!114 &989008294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 989008287}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5668950b1fd59e540b39a6b03e5bd52f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1085863865
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,10 +17,10 @@ public class BlockSelectorManager : MonoBehaviour
 
     void Awake()
     {
-        if (BlockSelectorManager.instance == null)
-        {
-            BlockSelectorManager.instance = this;
-        }
+        //if (BlockSelectorManager.instance == null)
+        //{
+        BlockSelectorManager.instance = this;
+        //}
     }
 
     void Start()

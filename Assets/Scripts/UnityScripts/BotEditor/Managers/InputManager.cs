@@ -14,10 +14,10 @@ public class InputManager : MonoBehaviour
 
     void Awake()
     {
-        if (InputManager.instance == null)
-        {
-            InputManager.instance = this;
-        }
+        //if (InputManager.instance == null)
+        //{
+        InputManager.instance = this;
+        //}
     }
     void Start()
     {
