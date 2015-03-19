@@ -31,6 +31,10 @@ public class ManagerGame : MonoBehaviour {
     public Gradient limiterColor;
 
     public Animator animatorVictory;
+    public bool victoryDone = false;
+
+    public float actTimeBackGarage = 0;
+    public float timeBackGarage = 5;
 	// Use this for initialization
 	void Start () {
 
@@ -107,6 +111,15 @@ public class ManagerGame : MonoBehaviour {
             actTimeLimiter += Time.deltaTime;
             limiterImage.color = limiterColor.Evaluate(actTimeLimiter / timeLimiter);
         }
+
+        if(victoryDone)
+        {
+            actTimeBackGarage += Time.deltaTime;
+            if(actTimeBackGarage > timeBackGarage)
+            {
+                Garage();
+            }
+        }
 	
 	}
 
@@ -123,11 +136,16 @@ public class ManagerGame : MonoBehaviour {
 
     public void Win(int playerWin = 1)
     {
-        animatorVictory.SetTrigger("Show");
-
-        if(playerWin == 2)
+        if (!victoryDone)
         {
-            animatorVictory.transform.localScale = new Vector3(-1, -1, 1);
+            victoryDone = true;
+
+            animatorVictory.SetTrigger("Show");
+
+            if (playerWin == 2)
+            {
+                animatorVictory.transform.localScale = new Vector3(-1, -1, 1);
+            }
         }
     }
 
