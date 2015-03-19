@@ -29,6 +29,8 @@ public class ManagerGame : MonoBehaviour {
     public float timeLimiter = 5;
 
     public Gradient limiterColor;
+
+    public Animator animatorVictory;
 	// Use this for initialization
 	void Start () {
 
@@ -40,7 +42,9 @@ public class ManagerGame : MonoBehaviour {
         int index = 0;
 
         player1 = players[0];
+        Destroy(player1.GetComponent<DontDestroyOnLoad>());
         player2 = players[1];
+        Destroy(player2.GetComponent<DontDestroyOnLoad>());
         
         //player2 = Instantiate(players[0], players[0].transform.position, Quaternion.identity) as GameObject;
 
@@ -59,6 +63,8 @@ public class ManagerGame : MonoBehaviour {
         player2.transform.parent = newBot.transform;
         player2.transform.localPosition = Vector3.zero;
         moveControllers[1].botControlled = newBot.GetComponent<Bot>();
+
+        moveControllers[1].botControlled.team = 2;
 
         player2.transform.rotation = positionsStart[index + 1].transform.rotation;
 
@@ -115,6 +121,16 @@ public class ManagerGame : MonoBehaviour {
         }
     }
 
+    public void Win(int playerWin = 1)
+    {
+        animatorVictory.SetTrigger("Show");
+
+        if(playerWin == 2)
+        {
+            animatorVictory.transform.localScale = new Vector3(-1, -1, 1);
+        }
+    }
+
     public void Restart()
     {
         //Application.LoadLevel(Application.loadedLevel);
@@ -124,6 +140,7 @@ public class ManagerGame : MonoBehaviour {
 
     public void Garage()
     {
+        GUIManager.Instance.init();
         Application.LoadLevel("MainScene");
     }
 }

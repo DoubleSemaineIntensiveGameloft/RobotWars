@@ -24,6 +24,8 @@ public class Bot : MonoBehaviour
 
     public BoxCollider boxCollider;
 
+    public int team = 1;
+    public int nbLife = 2;
 
     void Start()
     {
@@ -147,6 +149,17 @@ public class Bot : MonoBehaviour
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         transform.rotation = Quaternion.identity;
+
+        nbLife -= 1;
+        if(nbLife <= 0)
+        {
+            int winner = 1;
+            if(team == 1)
+            {
+                winner = 2;
+            }
+            ManagerGame.instance.Win(winner);
+        }
 
     }
 
