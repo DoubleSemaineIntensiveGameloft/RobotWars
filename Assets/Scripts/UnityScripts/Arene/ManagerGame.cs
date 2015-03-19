@@ -40,7 +40,9 @@ public class ManagerGame : MonoBehaviour {
         int index = 0;
 
         player1 = players[0];
-        player2 = Instantiate(players[0], players[0].transform.position, Quaternion.identity) as GameObject;
+        player2 = players[1];
+        
+        //player2 = Instantiate(players[0], players[0].transform.position, Quaternion.identity) as GameObject;
 
         //player1.transform.position = positionsStart[0].transform.position;
 
