@@ -222,8 +222,13 @@ public class GUIManager : MonoBehaviour
             Robot bot = bot_go.GetComponent<Robot>();
             if (RobotsManager.Instance.saveRobot(bot))
             {
-                this.clearRobot();
                 GameObject go = GameObject.Find("Robot");
+                List<GameObject> children = new List<GameObject>();
+                foreach (Transform child in go.transform)
+                {
+                    children.Add(child.gameObject);
+                }
+                children.ForEach(child => Destroy(child));
                 bot_go.transform.parent = go.transform;
                 bot_go.transform.localPosition = Vector3.zero;
                 bot_go.transform.localRotation = Quaternion.identity;
@@ -240,8 +245,9 @@ public class GUIManager : MonoBehaviour
         }
     }
 
-    public void clearRobot()
+    public void clearLastRobot()
     {
+        RobotsManager.Instance.removeLastSavedRobot();
         GameObject go = GameObject.Find("Robot");
         List<GameObject> children = new List<GameObject>();
         foreach (Transform child in go.transform)

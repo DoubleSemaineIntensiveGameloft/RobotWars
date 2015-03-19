@@ -40,14 +40,14 @@ public class RobotsManager : MonoBehaviour
                 if (this.privateRobots.Count > 0)
                 {
                     this.privateRobots.RemoveAt(this.privateRobots.Count - 1);
-                    //currentIndex--;
+                    currentIndex--;
                 }
                 break;
             case GameModeManager.Mode.MULTI:
                 if (this.localBattleRobots.Count > 0)
                 {
                     this.localBattleRobots.RemoveAt(this.localBattleRobots.Count - 1);
-                    //currentIndex--;
+                    currentIndex--;
                 }
                 break;
         }
