@@ -86,6 +86,21 @@ public class RobotsManager : MonoBehaviour
         }
     }
 
+    public void removeAllRobots()
+    {
+        switch (GameModeManager.Instance.mode)
+        {
+            case GameModeManager.Mode.SOLO:
+                this.removeAllPrivateRobots();
+                break;
+            case GameModeManager.Mode.MULTI:
+                this.removeAllMultiRobots();
+                break;
+            default:
+                break;
+        }
+    }
+
     //public void selectRobot(int index)
     //{
     //    this.currentIndex = index;
@@ -159,10 +174,10 @@ public class RobotsManager : MonoBehaviour
         this.privateRobots.Remove(robot);
     }
 
-    //private void removeAllRobots()
-    //{
-    //    this.privateRobots.Clear();
-    //}
+    private void removeAllPrivateRobots()
+    {
+        this.privateRobots.Clear();
+    }
 
 
     private int getRobotsCount()
@@ -199,7 +214,7 @@ public class RobotsManager : MonoBehaviour
         }
     }
 
-    private void clearMultiRobots()
+    private void removeAllMultiRobots()
     {
         this.localBattleRobots.Clear();
     }

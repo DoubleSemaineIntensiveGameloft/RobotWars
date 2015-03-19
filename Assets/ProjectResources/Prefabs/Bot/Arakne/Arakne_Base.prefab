@@ -2328,7 +2328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endScale: {x: .5, y: .5, z: .5}
-  speed: 20
+  speed: 10
 --- !u!114 &11416496
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endScale: {x: .5, y: .5, z: .5}
-  speed: 20
+  speed: 10
 --- !u!114 &11437400
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endScale: {x: .5, y: .5, z: .5}
-  speed: 20
+  speed: 10
 --- !u!114 &11453560
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2367,7 +2367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endScale: {x: .5, y: .5, z: .5}
-  speed: 20
+  speed: 10
 --- !u!114 &11457978
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endScale: {x: .5, y: .5, z: .5}
-  speed: 20
+  speed: 10
 --- !u!135 &13501002
 SphereCollider:
   m_ObjectHideFlags: 1

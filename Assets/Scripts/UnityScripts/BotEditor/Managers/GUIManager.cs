@@ -73,6 +73,7 @@ public class GUIManager : MonoBehaviour
 
     public void init()
     {
+        RobotsManager.Instance.removeAllRobots();
         firstPass = true;
     }
 

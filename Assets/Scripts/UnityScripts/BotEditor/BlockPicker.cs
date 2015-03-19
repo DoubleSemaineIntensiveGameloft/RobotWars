@@ -16,10 +16,14 @@ public class BlockPicker : MonoBehaviour
     private Transform player;
     private float forcedDockedScale = 1.0f;
     private GameObject dockedAnchor = null;
+    public float pickingDelay = 0.8f;
+    //private IEnumerator pickingDelayFunc = null;
+    private GameObject hitBlock = null;
 
     void Start()
     {
         this.player = GameObject.FindGameObjectWithTag("Player").transform;
+        //this.pickingDelayFunc = this.pickingTimer();
     }
 
     void Update()
@@ -31,20 +35,23 @@ public class BlockPicker : MonoBehaviour
                 //Debug.Log("Picked");
                 if (hit.collider.transform.parent != null && hit.collider.transform.parent.tag.Equals("Anchor"))
                 {
-                    MeshRenderer r = hit.collider.transform.parent.GetComponentInChildren<MeshRenderer>();
-                    if (r)
-                    {
-                        r.enabled = true;
-                    }
-                    this.picked = hit.collider.gameObject;
-                    Block block = this.picked.GetComponent<Block>();
-                    RobotsManager.Instance.getCurrentRobot().removeBlock(block);
-                    Collider collider = this.picked.GetComponent<Collider>();
-                    if (collider)
-                    {
-                        collider.enabled = false;
-                        //Debug.Log("DisableCollider");
-                    }
+                    StopCoroutine("pickingTimer");
+                    this.hitBlock = hit.collider.gameObject;
+                    StartCoroutine("pickingTimer");
+                    //MeshRenderer r = hit.collider.transform.parent.GetComponentInChildren<MeshRenderer>();
+                    //if (r)
+                    //{
+                    //    r.enabled = true;
+                    //}
+                    //this.picked = hit.collider.gameObject;
+                    //Block block = this.picked.GetComponent<Block>();
+                    //RobotsManager.Instance.getCurrentRobot().removeBlock(block);
+                    //Collider collider = this.picked.GetComponent<Collider>();
+                    //if (collider)
+                    //{
+                    //    collider.enabled = false;
+                    //    //Debug.Log("DisableCollider");
+                    //}
                 }
                 else
                 {
@@ -94,6 +101,8 @@ public class BlockPicker : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
+            StopCoroutine("pickingTimer");
+            this.hitBlock = null;
             if (this.picked != null)
             {
                 //Debug.Log("Released picked");
@@ -165,6 +174,31 @@ public class BlockPicker : MonoBehaviour
     public bool hasPickableSelected()
     {
         return this.picked != null;
+    }
+
+    private IEnumerator pickingTimer()
+    {
+        yield return new WaitForSeconds(this.pickingDelay);
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out this.hit, Mathf.Infinity, LayerMask.GetMask(this.pickableLayerName)))
+        {
+            if (this.hitBlock.Equals(hit.collider.gameObject))
+            {
+                MeshRenderer r = hit.collider.transform.parent.GetComponentInChildren<MeshRenderer>();
+                if (r)
+                {
+                    r.enabled = true;
+                }
+                this.picked = hit.collider.gameObject;
+                Block block = this.picked.GetComponent<Block>();
+                RobotsManager.Instance.getCurrentRobot().removeBlock(block);
+                Collider collider = this.picked.GetComponent<Collider>();
+                if (collider)
+                {
+                    collider.enabled = false;
+                    //Debug.Log("DisableCollider");
+                }
+            }
+        }
     }
 
     //public void addBlock()
